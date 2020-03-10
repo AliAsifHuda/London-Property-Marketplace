@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+
 /**
  * Write a description of JavaFX class a here.
  *
@@ -49,14 +52,16 @@ public class Main extends Application
         Label backLabel = new Label("To");
         ComboBox<Integer> fromComboBox1 = new ComboBox<>();
         fromComboBox1.getItems().add(dataLoader.getMinPriceListing().getPrice());
-        fromComboBox1.setPromptText("-");
+        fromComboBox1.setPromptText("Min: " + dataLoader.getMinPriceListing().getPrice());
+        addComboBoxRanges(fromComboBox1, dataLoader.getMinPriceListing().getPrice(), dataLoader.getMaxPriceListing().getPrice());
         ComboBox<Integer> toComboBox1 = new ComboBox<>();
         toComboBox1.getItems().add(dataLoader.getMaxPriceListing().getPrice());
-        toComboBox1.setPromptText("-");
+        toComboBox1.setPromptText("Max: " + dataLoader.getMaxPriceListing().getPrice());
+        addComboBoxRanges(toComboBox1, dataLoader.getMinPriceListing().getPrice(), dataLoader.getMaxPriceListing().getPrice());
         AnchorPane fromToButtonPane = new AnchorPane();
         commonLayout.setHgrow(fromToButtonPane , Priority.ALWAYS); 
         commonLayout.getChildren().add(fromToButtonPane);
-        //add all comtrol items to layout style
+        //add all control items to layout style
         commonLayout.getChildren().addAll(fromLabel, fromComboBox1, backLabel, toComboBox1);
 
         //text for the middle
@@ -80,10 +85,10 @@ public class Main extends Application
         //make a borderPane layout and add layouts to top and bottom
         BorderPane borderPane = new BorderPane();
         borderPane.setTop(commonLayout);        
-        BorderPane.setMargin(commonLayout, new Insets(10, 10, 10, 10)); 
+        BorderPane.setMargin(commonLayout, new Insets(20));
         borderPane.setCenter(textFlowPane);
         borderPane.setBottom(bottomBox);
-        BorderPane.setMargin(bottomBox, new Insets(10, 10, 10, 10));
+        BorderPane.setMargin(bottomBox, new Insets(10));
         borderPane.getStylesheets().add("abc.css");
 
         // image panel
@@ -117,6 +122,25 @@ public class Main extends Application
         scene1 = new Scene(borderPane,500, 500);
         window.setScene(scene1);
         window.show();
+    }
+
+    /**
+     * Add price ranges to the Combo Boxes (in increments of 500)
+     * @param box The combobox to add values in
+     * @param min The minimum amount for the values
+     * @param max The maximum value
+     */
+    private void addComboBoxRanges(ComboBox<Integer> box, int min, int max) {
+        int i = min;
+        while (i <= max) {
+            box.getItems().add(i);
+            if ((i + 500) % 500 == 0) {
+                i += 500;
+            }
+            else {
+                i += (500 - i);
+            }
+        }
     }
 
     public static void main(String[] args) {
