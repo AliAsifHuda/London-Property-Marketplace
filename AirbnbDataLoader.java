@@ -110,9 +110,9 @@ public class AirbnbDataLoader {
      * @return The listing object with the highest price.
      */
     public AirbnbListing getMaxPriceListing() {
-        // the minimum price of all elements in the set.
+        // the maximum price of all elements in the set.
         int maxPrice = Collections.max(listingsMap.keySet());
-        // return the listing with the least price
+        // return the listing with the highest price
         return listingsMap.get(maxPrice);
     }
 }
