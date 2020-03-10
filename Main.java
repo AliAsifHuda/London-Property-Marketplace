@@ -25,31 +25,33 @@ import java.io.FileNotFoundException;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class MainWindow extends Application
+public class Main extends Application
 {
     private Stage window;
     private Scene scene1;
     Scene scene2, scene3, scene4;
-    private int counter=0;
+    private int counter = 0;
+    private AirbnbDataLoader dataLoader = new AirbnbDataLoader();
     /**
      * The start method is the main entry point for every JavaFX application. 
      * It is called after the init() method has returned and after 
      * the system is ready for the application to begin running.
      *
-     * @param  stage the primary stage for this application.
+     * @param window the primary stage for this application.
      */
     @Override
-    public final void start(Stage window)
-    {
+    public final void start(Stage window) {
         // window = window;
         window.setTitle("Property");
         //controls and lines for the top bit
         HBox commonLayout = new HBox(15); 
         Label fromLabel = new Label("From");
         Label backLabel = new Label("To");
-        ComboBox fromComboBox1 = new ComboBox<Integer>();    
+        ComboBox<Integer> fromComboBox1 = new ComboBox<>();
+        fromComboBox1.getItems().add(dataLoader.getMinPriceListing().getPrice());
         fromComboBox1.setPromptText("-");
-        ComboBox toComboBox1 = new ComboBox<Integer>();   
+        ComboBox<Integer> toComboBox1 = new ComboBox<>();
+        toComboBox1.getItems().add(dataLoader.getMaxPriceListing().getPrice());
         toComboBox1.setPromptText("-");
         AnchorPane fromToButtonPane = new AnchorPane();
         commonLayout.setHgrow(fromToButtonPane , Priority.ALWAYS); 
@@ -91,39 +93,34 @@ public class MainWindow extends Application
         imageView.setFitWidth(780);
         //backButton.setOnAction(e -> borderPane.setCenter(imageView));
 
-        buttonForward.setOnAction(
-            new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    if (counter==0){
-                        borderPane.setCenter(imageView);
-                        counter++;
-                    }else if  (counter==1){
-                        borderPane.setCenter(textFlowPane);
-                        counter=0;
-                    }
-                }
-            });
+        buttonForward.setOnAction( e -> {
+            if (counter==0) {
+                borderPane.setCenter(imageView);
+                counter++;
+            } else if  (counter==1) {
+                borderPane.setCenter(textFlowPane);
+                counter=0;
+            }
+        });
 
-        backButton.setOnAction(
-            new EventHandler<ActionEvent>() {
-                
-                @Override
-                public void handle(ActionEvent event) {
-                    if (counter==0){
-                        borderPane.setCenter(imageView);
-                        counter++;
-                    }else if  (counter==1){
-                        borderPane.setCenter(textFlowPane);
-                        counter=0;
-                    }
-                }
-            });
+        backButton.setOnAction( e -> {
+            if (counter==0) {
+                borderPane.setCenter(imageView);
+                counter++;
+            } else if  (counter==1) {
+                borderPane.setCenter(textFlowPane);
+                counter=0;
+            }
+        });
 
         // Show the Stage (window)
-        scene1 = new Scene(borderPane,800, 800);
+        scene1 = new Scene(borderPane,500, 500);
         window.setScene(scene1);
         window.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
 

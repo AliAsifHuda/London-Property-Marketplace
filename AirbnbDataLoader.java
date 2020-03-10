@@ -3,20 +3,30 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
+
 import com.opencsv.CSVReader;
 import java.net.URISyntaxException;
 
+// use hashmap price -> listing and then keySet
+
 public class AirbnbDataLoader {
- 
+
+    private static List<AirbnbListing> listings = new LinkedList<>();
+
+    private HashMap<Integer, AirbnbListing> listingsMap;
+
+    public AirbnbDataLoader() {
+        listingsMap = new HashMap<>();
+        listings = load();
+    }
+
     /** 
      * Return an ArrayList containing the rows in the AirBnB London data set csv file.
      */
-    public ArrayList<AirbnbListing> load() {
+    public List<AirbnbListing> load() {
         System.out.print("Begin loading Airbnb london dataset...");
-        ArrayList<AirbnbListing> listings = new ArrayList<AirbnbListing>();
-        try{
+        try {
             URL url = getClass().getResource("airbnb-london.csv");
             CSVReader reader = new CSVReader(new FileReader(new File(url.toURI()).getAbsolutePath()));
             String [] line;
@@ -39,14 +49,16 @@ public class AirbnbDataLoader {
                 int calculatedHostListingsCount = convertInt(line[13]);
                 int availability365 = convertInt(line[14]);
 
-                AirbnbListing listing = new AirbnbListing(id, name, host_id,
-                        host_name, neighbourhood, latitude, longitude, room_type,
-                        price, minimumNights, numberOfReviews, lastReview,
+                AirbnbListing listing = new AirbnbListing(
+                        id, name, host_id, host_name, neighbourhood, latitude,
+                        longitude, room_type, price, minimumNights,
+                        numberOfReviews, lastReview,
                         reviewsPerMonth, calculatedHostListingsCount, availability365
-                    );
+                );
+                listingsMap.put(listing.getPrice(), listing);
                 listings.add(listing);
             }
-        } catch(IOException | URISyntaxException e){
+        } catch(IOException | URISyntaxException e) {
             System.out.println("Failure! Something went wrong");
             e.printStackTrace();
         }
@@ -60,8 +72,8 @@ public class AirbnbDataLoader {
      * @return the Double value of the string, or -1.0 if the string is 
      * either empty or just whitespace
      */
-    private Double convertDouble(String doubleString){
-        if(doubleString != null && !doubleString.trim().equals("")){
+    private Double convertDouble(String doubleString) {
+        if(doubleString != null && !doubleString.trim().equals("")) {
             return Double.parseDouble(doubleString);
         }
         return -1.0;
@@ -73,11 +85,34 @@ public class AirbnbDataLoader {
      * @return the Integer value of the string, or -1 if the string is 
      * either empty or just whitespace
      */
-    private Integer convertInt(String intString){
-        if(intString != null && !intString.trim().equals("")){
+    private Integer convertInt(String intString) {
+        if(intString != null && !intString.trim().equals("")) {
             return Integer.parseInt(intString);
         }
         return -1;
     }
 
+    public static List<AirbnbListing> getListings() {
+        return listings;
+    }
+
+    /**
+     * @return The listing object with the least price.
+     */
+    public AirbnbListing getMinPriceListing() {
+        // the minimum price of all elements in the set.
+        int minPrice = Collections.min(listingsMap.keySet());
+        // return the listing with the least price
+        return listingsMap.get(minPrice);
+    }
+
+    /**
+     * @return The listing object with the highest price.
+     */
+    public AirbnbListing getMaxPriceListing() {
+        // the minimum price of all elements in the set.
+        int maxPrice = Collections.max(listingsMap.keySet());
+        // return the listing with the least price
+        return listingsMap.get(maxPrice);
+    }
 }
