@@ -47,16 +47,19 @@ public class Main extends Application
         // window = window;
         window.setTitle("Property");
         //controls and lines for the top bit
-        HBox commonLayout = new HBox(15); 
+        HBox commonLayout = new HBox(15);
+        commonLayout.setStyle("-fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-padding: 5px;");
         Label fromLabel = new Label("From");
         Label backLabel = new Label("To");
         ComboBox<Integer> fromComboBox1 = new ComboBox<>();
-        fromComboBox1.getItems().add(dataLoader.getMinPriceListing().getPrice());
-        fromComboBox1.setPromptText("Min: " + dataLoader.getMinPriceListing().getPrice());
+        //fromComboBox1.getItems().add(dataLoader.getMinPriceListing().getPrice());
+        //fromComboBox1.setPromptText("Min: " + dataLoader.getMinPriceListing().getPrice());
+        fromComboBox1.setPromptText("min"); 
         addComboBoxRanges(fromComboBox1, dataLoader.getMinPriceListing().getPrice(), dataLoader.getMaxPriceListing().getPrice());
         ComboBox<Integer> toComboBox1 = new ComboBox<>();
-        toComboBox1.getItems().add(dataLoader.getMaxPriceListing().getPrice());
-        toComboBox1.setPromptText("Max: " + dataLoader.getMaxPriceListing().getPrice());
+        //toComboBox1.getItems().add(dataLoader.getMaxPriceListing().getPrice());
+        //toComboBox1.setPromptText("Max: " + dataLoader.getMaxPriceListing().getPrice());
+        toComboBox1.setPromptText("max"); 
         addComboBoxRanges(toComboBox1, dataLoader.getMinPriceListing().getPrice(), dataLoader.getMaxPriceListing().getPrice());
         AnchorPane fromToButtonPane = new AnchorPane();
         commonLayout.setHgrow(fromToButtonPane , Priority.ALWAYS); 
@@ -65,13 +68,13 @@ public class Main extends Application
         commonLayout.getChildren().addAll(fromLabel, fromComboBox1, backLabel, toComboBox1);
 
         //text for the middle
-        Text text1 = new Text("Welcome to London Property Marketplace \u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 ");
-        TextFlow textFlowPane = new TextFlow();
-        textFlowPane.getChildren().addAll(text1);
+        Text text1 = new Text("     Welcome to London Property Marketplace \u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 ");
+        StackPane textPane = new StackPane();
+        textPane.getChildren().addAll(text1);
 
         //controls and lines for the bottom bit
         HBox bottomBox = new HBox(15);
-        bottomBox.setStyle("-fx-border-color: black; -fx-border-width: 0.25px 0px 0px 0px; -fx-padding: 5px ;");
+        bottomBox.setStyle("-fx-border-color: black; -fx-border-width: 1px 0px 0px 0px; -fx-padding: 5px ;");
         Button backButton = new Button("Back");
         Button buttonForward = new Button("Forward");
         AnchorPane backButtonPane = new AnchorPane();
@@ -86,7 +89,7 @@ public class Main extends Application
         BorderPane borderPane = new BorderPane();
         borderPane.setTop(commonLayout);        
         BorderPane.setMargin(commonLayout, new Insets(20));
-        borderPane.setCenter(textFlowPane);
+        borderPane.setCenter(textPane);        
         borderPane.setBottom(bottomBox);
         BorderPane.setMargin(bottomBox, new Insets(10));
         borderPane.getStylesheets().add("abc.css");
@@ -96,27 +99,26 @@ public class Main extends Application
         ImageView imageView= new ImageView(image);
         imageView.setFitHeight(700);
         imageView.setFitWidth(780);
-        //backButton.setOnAction(e -> borderPane.setCenter(imageView));
 
         buttonForward.setOnAction( e -> {
-            if (counter==0) {
-                borderPane.setCenter(imageView);
-                counter++;
-            } else if  (counter==1) {
-                borderPane.setCenter(textFlowPane);
-                counter=0;
-            }
-        });
+                if (counter==0) {
+                    borderPane.setCenter(imageView);
+                    counter++;
+                } else if  (counter==1) {
+                    borderPane.setCenter(textPane);
+                    counter=0;
+                }
+            });
 
         backButton.setOnAction( e -> {
-            if (counter==0) {
-                borderPane.setCenter(imageView);
-                counter++;
-            } else if  (counter==1) {
-                borderPane.setCenter(textFlowPane);
-                counter=0;
-            }
-        });
+                if (counter==0) {
+                    borderPane.setCenter(imageView);
+                    counter++;
+                } else if  (counter==1) {
+                    borderPane.setCenter(textPane);
+                    counter=0;
+                }
+            });
 
         // Show the Stage (window)
         scene1 = new Scene(borderPane,500, 500);
@@ -147,5 +149,3 @@ public class Main extends Application
         launch(args);
     }
 }
-
-
