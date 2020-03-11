@@ -70,7 +70,8 @@ public class Main extends Application
         commonLayout.getChildren().addAll(fromLabel, fromComboBox1, backLabel, toComboBox1);
 
         //text for the middle
-        Text text1 = new Text("Welcome to London Property Marketplace \u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 ");
+        Text text1 = new Text("Welcome to London Property Marketplace " +
+                "\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 ");
         StackPane textPane = new StackPane();
         textPane.getChildren().addAll(text1);
 
@@ -107,42 +108,46 @@ public class Main extends Application
         buttonForward.setDisable(true);
 
         buttonForward.setOnAction( e -> {
-                if (counter==0) {
-                    borderPane.setCenter(imageView);
-                    counter++;
-                } else if  (counter==1) {
-                    borderPane.setCenter(textPane);
-                    counter=0;
-                }
-            });
+            if (counter==0) {
+                borderPane.setCenter(imageView);
+                counter++;
+            } else if  (counter==1) {
+                borderPane.setCenter(textPane);
+                counter=0;
+            }
+        });
 
         backButton.setOnAction( e -> {
-                if (counter==0) {
-                    borderPane.setCenter(imageView);
-                    counter++;
-                } else if  (counter==1) {
-                    borderPane.setCenter(textPane);
-                    counter=0;
-                }
-            });
+            if (counter==0) {
+                borderPane.setCenter(imageView);
+                counter++;
+            } else if  (counter==1) {
+                borderPane.setCenter(textPane);
+                counter=0;
+            }
+        });
 
-        fromComboBox1.setOnAction( e->{
-                text1.setText("Welcome to London Property Marketplace \u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n Minimum price: " + fromComboBox1.getValue() + "\n\n Maximum price: " + toComboBox1.getValue());      
-                disableFlagA = true; //if both combobox have input back and forward button will be enabled  
-                if (disableFlagA && disableFlagB){
-                    backButton.setDisable(false);
-                    buttonForward.setDisable(false);
-                }
-            });
+        fromComboBox1.setOnAction( e-> {
+            text1.setText("Welcome to London Property Marketplace " +
+                    "\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n " +
+                    "Minimum price: " + displayPrice(fromComboBox1) + "\n\n Maximum price: " + displayPrice(toComboBox1));
+            disableFlagA = true; //if both combobox have input back and forward button will be enabled
+            if (disableFlagA && disableFlagB) {
+                backButton.setDisable(false);
+                buttonForward.setDisable(false);
+            }
+        });
 
-        toComboBox1.setOnAction( e->{
-                text1.setText("Welcome to London Property Marketplace \u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n Minimum price: " + fromComboBox1.getValue() + "\n\n Maximum price: " + toComboBox1.getValue());
-                disableFlagB = true; //if both combobox have input back and forward button will be enabled
-                if (disableFlagA && disableFlagB){
-                    backButton.setDisable(false);
-                    buttonForward.setDisable(false);
-                }
-            });
+        toComboBox1.setOnAction( e-> {
+            text1.setText("Welcome to London Property Marketplace " +
+                    "\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n " +
+                    "Minimum price: " + displayPrice(fromComboBox1) + "\n\n Maximum price: " + displayPrice(toComboBox1));
+            disableFlagB = true; //if both combobox have input back and forward button will be enabled
+            if (disableFlagA && disableFlagB) {
+                backButton.setDisable(false);
+                buttonForward.setDisable(false);
+            }
+        });
 
         // Show the Stage (window)
         scene1 = new Scene(borderPane,500, 500);
@@ -166,6 +171,20 @@ public class Main extends Application
             else {
                 i += (500 - i);
             }
+        }
+    }
+
+    /**
+     * Display the price user has selected on first screen.
+     * @param box The combo box to get the value from.
+     * @return The String displaying message.
+     */
+    private String displayPrice(ComboBox<Integer> box) {
+        if (box.getValue() != null) {
+            return "" + box.getValue();
+        }
+        else{
+            return "<Please select a value>";
         }
     }
 
