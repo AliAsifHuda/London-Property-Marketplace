@@ -34,8 +34,8 @@ public class Main extends Application
     private Scene scene1;
     Scene scene2, scene3, scene4;
     private int counter = 0;
-    private boolean a;
-    private boolean b;
+    private boolean a = false;
+    private boolean b = false;
     private AirbnbDataLoader dataLoader = new AirbnbDataLoader();
     /**
      * The start method is the main entry point for every JavaFX application. 
@@ -102,6 +102,9 @@ public class Main extends Application
         imageView.setFitHeight(700);
         imageView.setFitWidth(780);
 
+        backButton.setDisable(true);
+        buttonForward.setDisable(true);
+
         buttonForward.setOnAction( e -> {
                 if (counter==0) {
                     borderPane.setCenter(imageView);
@@ -121,13 +124,23 @@ public class Main extends Application
                     counter=0;
                 }
             });
+
         fromComboBox1.setOnAction( e->{
-                text1.setText("Welcome to London Property Marketplace \u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n Minimum price: " + fromComboBox1.getValue() + "\n\n Maximum price: " + toComboBox1.getValue());
-                textPane.getChildren().addAll(text1);
+                text1.setText("Welcome to London Property Marketplace \u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n Minimum price: " + fromComboBox1.getValue() + "\n\n Maximum price: " + toComboBox1.getValue());      
+                a = true;
+                if (a && b){
+                    backButton.setDisable(false);
+                    buttonForward.setDisable(false);
+                }
             });
+
         toComboBox1.setOnAction( e->{
                 text1.setText("Welcome to London Property Marketplace \u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n Minimum price: " + fromComboBox1.getValue() + "\n\n Maximum price: " + toComboBox1.getValue());
-                textPane.getChildren().addAll(text1);
+                b = true;
+                if (a && b){
+                    backButton.setDisable(false);
+                    buttonForward.setDisable(false);
+                }
             });
 
         // Show the Stage (window)
