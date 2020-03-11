@@ -34,6 +34,8 @@ public class Main extends Application
     private Scene scene1;
     Scene scene2, scene3, scene4;
     private int counter = 0;
+    private boolean a;
+    private boolean b;
     private AirbnbDataLoader dataLoader = new AirbnbDataLoader();
     /**
      * The start method is the main entry point for every JavaFX application. 
@@ -68,7 +70,7 @@ public class Main extends Application
         commonLayout.getChildren().addAll(fromLabel, fromComboBox1, backLabel, toComboBox1);
 
         //text for the middle
-        Text text1 = new Text("     Welcome to London Property Marketplace \u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 ");
+        Text text1 = new Text("Welcome to London Property Marketplace \u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 ");
         StackPane textPane = new StackPane();
         textPane.getChildren().addAll(text1);
 
@@ -118,6 +120,14 @@ public class Main extends Application
                     borderPane.setCenter(textPane);
                     counter=0;
                 }
+            });
+        fromComboBox1.setOnAction( e->{
+                text1.setText("Welcome to London Property Marketplace \u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n Minimum price: " + fromComboBox1.getValue() + "\n\n Maximum price: " + toComboBox1.getValue());
+                textPane.getChildren().addAll(text1);
+            });
+        toComboBox1.setOnAction( e->{
+                text1.setText("Welcome to London Property Marketplace \u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n Minimum price: " + fromComboBox1.getValue() + "\n\n Maximum price: " + toComboBox1.getValue());
+                textPane.getChildren().addAll(text1);
             });
 
         // Show the Stage (window)
