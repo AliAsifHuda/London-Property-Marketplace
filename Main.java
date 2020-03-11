@@ -34,8 +34,8 @@ public class Main extends Application
     private Scene scene1;
     Scene scene2, scene3, scene4;
     private int counter = 0;
-    private boolean a = false;
-    private boolean b = false;
+    private boolean disableFlagA = false;
+    private boolean disableFlagB = false;
     private AirbnbDataLoader dataLoader = new AirbnbDataLoader();
     /**
      * The start method is the main entry point for every JavaFX application. 
@@ -102,6 +102,7 @@ public class Main extends Application
         imageView.setFitHeight(700);
         imageView.setFitWidth(780);
 
+        // back and forward button are initially disabled
         backButton.setDisable(true);
         buttonForward.setDisable(true);
 
@@ -127,8 +128,8 @@ public class Main extends Application
 
         fromComboBox1.setOnAction( e->{
                 text1.setText("Welcome to London Property Marketplace \u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n Minimum price: " + fromComboBox1.getValue() + "\n\n Maximum price: " + toComboBox1.getValue());      
-                a = true;
-                if (a && b){
+                disableFlagA = true; //if both combobox have input back and forward button will be enabled  
+                if (disableFlagA && disableFlagB){
                     backButton.setDisable(false);
                     buttonForward.setDisable(false);
                 }
@@ -136,8 +137,8 @@ public class Main extends Application
 
         toComboBox1.setOnAction( e->{
                 text1.setText("Welcome to London Property Marketplace \u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n Minimum price: " + fromComboBox1.getValue() + "\n\n Maximum price: " + toComboBox1.getValue());
-                b = true;
-                if (a && b){
+                disableFlagB = true; //if both combobox have input back and forward button will be enabled
+                if (disableFlagA && disableFlagB){
                     backButton.setDisable(false);
                     buttonForward.setDisable(false);
                 }
