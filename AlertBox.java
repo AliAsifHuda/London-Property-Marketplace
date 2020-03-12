@@ -2,13 +2,21 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * A new alert box which displays a message.
+ */
 public class AlertBox {
 
+    /**
+     * Display a new alertbox of a specific title, which displays a message and
+     * has a close button
+     * @param title The title of this alertbox
+     * @param message The message displayed by the alertbox
+     */
     public static void display(String title, String message) {
         Stage window = new Stage();
         window.setTitle(title);
