@@ -52,7 +52,7 @@
  */
 .button {
 	-fx-background-color : -gray,-gray,-gray,-gray;
-}
+	
 .button:default{
 	-fx-background-color : -color;
 }

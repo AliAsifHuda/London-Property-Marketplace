@@ -32,8 +32,7 @@ public class Main extends Application
 {
     private Stage window;
     private Scene scene1;
-    Scene scene2, scene3, scene4;
-    private int counter = 0;
+    private int counter;
     private boolean disableFlagA = false;
     private boolean disableFlagB = false;
     private AirbnbDataLoader dataLoader = new AirbnbDataLoader();
@@ -54,13 +53,9 @@ public class Main extends Application
         Label fromLabel = new Label("From");
         Label backLabel = new Label("To");
         ComboBox<Integer> fromComboBox1 = new ComboBox<>();
-        //fromComboBox1.getItems().add(dataLoader.getMinPriceListing().getPrice());
-        //fromComboBox1.setPromptText("Min: " + dataLoader.getMinPriceListing().getPrice());
         fromComboBox1.setPromptText("min"); 
         addComboBoxRanges(fromComboBox1, dataLoader.getMinPriceListing().getPrice(), dataLoader.getMaxPriceListing().getPrice());
         ComboBox<Integer> toComboBox1 = new ComboBox<>();
-        //toComboBox1.getItems().add(dataLoader.getMaxPriceListing().getPrice());
-        //toComboBox1.setPromptText("Max: " + dataLoader.getMaxPriceListing().getPrice());
         toComboBox1.setPromptText("max"); 
         addComboBoxRanges(toComboBox1, dataLoader.getMinPriceListing().getPrice(), dataLoader.getMaxPriceListing().getPrice());
         AnchorPane fromToButtonPane = new AnchorPane();
@@ -99,55 +94,67 @@ public class Main extends Application
 
         // image panel
         Image image = new Image("boroughs.png");
-        ImageView imageView= new ImageView(image);
+        ImageView imageView = new ImageView(image);
         imageView.setFitHeight(700);
         imageView.setFitWidth(780);
+
+        
+        GridPane gridPane = new GridPane();
+        HexaButton hex1 = new HexaButton();
+        gridPane.add(hex1.getButton(), 5, 5, 1, 1);
 
         // back and forward button are initially disabled
         backButton.setDisable(true);
         buttonForward.setDisable(true);
 
+        
         buttonForward.setOnAction( e -> {
-            if (counter==0) {
-                borderPane.setCenter(imageView);
-                counter++;
-            } else if  (counter==1) {
-                borderPane.setCenter(textPane);
-                counter=0;
-            }
-        });
+                if (counter==0) {
+                    borderPane.setCenter(imageView);
+                    counter++;
+                }else if  (counter==1) {
+                    borderPane.setCenter(gridPane);
+                    counter++;
+                }else if  (counter==2) {
+                    borderPane.setCenter(textPane);
+                    counter=0;
+                }
+            });
 
         backButton.setOnAction( e -> {
-            if (counter==0) {
-                borderPane.setCenter(imageView);
-                counter++;
-            } else if  (counter==1) {
-                borderPane.setCenter(textPane);
-                counter=0;
-            }
-        });
+                if (counter==0) {
+                    borderPane.setCenter(imageView);
+                    counter++;
+                } else if  (counter==1) {
+                    borderPane.setCenter(gridPane);
+                    counter++;
+                }else if  (counter==2) {
+                    borderPane.setCenter(textPane);
+                    counter=0;
+                }
+            });
 
         fromComboBox1.setOnAction( e-> {
-            text1.setText("Welcome to London Property Marketplace " +
+                text1.setText("Welcome to London Property Marketplace " +
                     "\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n " +
                     "Minimum price: " + displayPrice(fromComboBox1) + "\n\n Maximum price: " + displayPrice(toComboBox1));
-            disableFlagA = true; //if both combobox have input back and forward button will be enabled
-            if (disableFlagA && disableFlagB) {
-                backButton.setDisable(false);
-                buttonForward.setDisable(false);
-            }
-        });
+                disableFlagA = true; //if both combobox have input back and forward button will be enabled
+                if (disableFlagA && disableFlagB) {
+                    backButton.setDisable(false);
+                    buttonForward.setDisable(false);
+                }
+            });
 
         toComboBox1.setOnAction( e-> {
-            text1.setText("Welcome to London Property Marketplace " +
+                text1.setText("Welcome to London Property Marketplace " +
                     "\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n " +
                     "Minimum price: " + displayPrice(fromComboBox1) + "\n\n Maximum price: " + displayPrice(toComboBox1));
-            disableFlagB = true; //if both combobox have input back and forward button will be enabled
-            if (disableFlagA && disableFlagB) {
-                backButton.setDisable(false);
-                buttonForward.setDisable(false);
-            }
-        });
+                disableFlagB = true; //if both combobox have input back and forward button will be enabled
+                if (disableFlagA && disableFlagB) {
+                    backButton.setDisable(false);
+                    buttonForward.setDisable(false);
+                }
+            });
 
         // Show the Stage (window)
         scene1 = new Scene(borderPane,500, 500);
