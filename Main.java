@@ -36,6 +36,9 @@ public class Main extends Application
     private boolean disableFlagA = false;
     private boolean disableFlagB = false;
     private AirbnbDataLoader dataLoader = new AirbnbDataLoader();
+    // check if the values in "from" and "to" boxes are correct
+    private boolean correctBoxValues = true;
+
     /**
      * The start method is the main entry point for every JavaFX application. 
      * It is called after the init() method has returned and after 
@@ -45,6 +48,7 @@ public class Main extends Application
      */
     @Override
     public final void start(Stage window) {
+
         // window = window;
         window.setTitle("Property");
         //controls and lines for the top bit
@@ -65,8 +69,7 @@ public class Main extends Application
         commonLayout.getChildren().addAll(fromLabel, fromComboBox1, backLabel, toComboBox1);
 
         //text for the middle
-        Text text1 = new Text("Welcome to London Property Marketplace " +
-                "\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 ");
+        Text text1 = new Text("Welcome to London Property Marketplace ");
         StackPane textPane = new StackPane();
         textPane.getChildren().addAll(text1);
 
@@ -98,45 +101,44 @@ public class Main extends Application
         imageView.setFitHeight(700);
         imageView.setFitWidth(780);
 
-        
         GridPane gridPane = new GridPane();
         HexaButton hex1 = new HexaButton();
-        gridPane.add(hex1.getButton(), 5, 5, 1, 1);
+        
 
         // back and forward button are initially disabled
         backButton.setDisable(true);
         buttonForward.setDisable(true);
 
-        
         buttonForward.setOnAction( e -> {
                 if (counter==0) {
-                    borderPane.setCenter(imageView);
-                    counter++;
-                }else if  (counter==1) {
-                    borderPane.setCenter(gridPane);
-                    counter++;
-                }else if  (counter==2) {
+                    analyzeBoxValues(fromComboBox1, toComboBox1);
+                    if (correctBoxValues) {
+                        borderPane.setCenter(imageView);
+                        counter++;
+                    }
+                } else if  (counter==1) {
                     borderPane.setCenter(textPane);
+                    //for testing
+                    //borderPane.setLeft(hex1.getButton());
                     counter=0;
                 }
             });
 
         backButton.setOnAction( e -> {
                 if (counter==0) {
-                    borderPane.setCenter(imageView);
-                    counter++;
+                    analyzeBoxValues(fromComboBox1, toComboBox1);
+                    if (correctBoxValues) {
+                        borderPane.setCenter(imageView);
+                        counter++;
+                    }
                 } else if  (counter==1) {
-                    borderPane.setCenter(gridPane);
-                    counter++;
-                }else if  (counter==2) {
                     borderPane.setCenter(textPane);
                     counter=0;
                 }
             });
 
-        fromComboBox1.setOnAction( e-> {
-                text1.setText("Welcome to London Property Marketplace " +
-                    "\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n " +
+        fromComboBox1.setOnAction( e -> {
+                text1.setText("Welcome to London Property Marketplace \n\n"  +
                     "Minimum price: " + displayPrice(fromComboBox1) + "\n\n Maximum price: " + displayPrice(toComboBox1));
                 disableFlagA = true; //if both combobox have input back and forward button will be enabled
                 if (disableFlagA && disableFlagB) {
@@ -146,8 +148,8 @@ public class Main extends Application
             });
 
         toComboBox1.setOnAction( e-> {
-                text1.setText("Welcome to London Property Marketplace " +
-                    "\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \n\n " +
+
+                text1.setText("Welcome to London Property Marketplace \n\n" +
                     "Minimum price: " + displayPrice(fromComboBox1) + "\n\n Maximum price: " + displayPrice(toComboBox1));
                 disableFlagB = true; //if both combobox have input back and forward button will be enabled
                 if (disableFlagA && disableFlagB) {
@@ -160,6 +162,25 @@ public class Main extends Application
         scene1 = new Scene(borderPane,500, 500);
         window.setScene(scene1);
         window.show();
+    }
+
+    /**
+     * Analyze the values selected by the user in the ComboBoxes
+     * @param box1 The first combo box
+     * @param box2 The second combo box
+     */
+    private void analyzeBoxValues(ComboBox<Integer> box1, ComboBox<Integer> box2) {
+        if (box1.getValue().equals(box2.getValue())) {
+            correctBoxValues = false;
+            AlertBox.display("Error", "Please select different values for the \"From\" " +
+                "and \"To\" fields");
+        } else if (box1.getValue() > box2.getValue()) {
+            correctBoxValues = false;
+            AlertBox.display("Error", "Please select a smaller value in the " +
+                "\"From\" field than that in the \"To\" field");
+        } else {
+            correctBoxValues = true;
+        }
     }
 
     /**
