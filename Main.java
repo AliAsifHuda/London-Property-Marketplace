@@ -103,7 +103,10 @@ public class Main extends Application
 
         GridPane gridPane = new GridPane();
         HexaButton hex1 = new HexaButton();
+        //hex1.setPosX(10);
         
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().addAll(imageView, hex1.getButton(100,10));
 
         // back and forward button are initially disabled
         backButton.setDisable(true);
@@ -113,7 +116,7 @@ public class Main extends Application
                 if (counter==0) {
                     analyzeBoxValues(fromComboBox1, toComboBox1);
                     if (correctBoxValues) {
-                        borderPane.setCenter(imageView);
+                        borderPane.setCenter(stackPane);
                         counter++;
                     }
                 } else if  (counter==1) {

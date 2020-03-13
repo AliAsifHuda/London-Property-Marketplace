@@ -31,10 +31,10 @@ public class HexaButton extends Application
     @Override
     public void start(Stage stage)
     {
-        getButton();
+        getButton(0, 0);
     }
 
-    public Button getButton()
+    public Button getButton(int x, int y)
     {
         Button myButton = new Button("Count");
         Polygon polygon = new Polygon();
@@ -48,6 +48,8 @@ public class HexaButton extends Application
             });                                                                                                                            
         myButton.setShape(polygon);
         myButton.setMinSize(75,75);
+        myButton.setTranslateX(x);
+        myButton.setTranslateY(y);
         return myButton;
     } 
 
