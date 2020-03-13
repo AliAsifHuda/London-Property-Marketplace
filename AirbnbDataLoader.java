@@ -10,12 +10,15 @@ import java.net.URISyntaxException;
 // use hashmap price -> listing and then keySet
 
 public class AirbnbDataLoader {
+    // The set containing all the boroughs in the data
+    private HashSet<String> boroughsSet;
 
     private static List<AirbnbListing> listings = new LinkedList<>();
 
     private HashMap<Integer, AirbnbListing> listingsMap;
 
     public AirbnbDataLoader() {
+        boroughsSet = new HashSet<>();
         listingsMap = new HashMap<>();
         listings = load();
     }
@@ -54,6 +57,10 @@ public class AirbnbDataLoader {
                         numberOfReviews, lastReview,
                         reviewsPerMonth, calculatedHostListingsCount, availability365
                 );
+                if (!boroughsSet.contains(listing.getNeighbourhood())) {
+                    // add all different boroughs to this set.
+                    boroughsSet.add(listing.getNeighbourhood());
+                }
                 listingsMap.put(listing.getPrice(), listing);
                 listings.add(listing);
             }
@@ -113,5 +120,12 @@ public class AirbnbDataLoader {
         int maxPrice = Collections.max(listingsMap.keySet());
         // return the listing with the highest price
         return listingsMap.get(maxPrice);
+    }
+
+    /**
+     * @return A Set of type String containing all the boroughs in our dataset
+     */
+    public HashSet<String> getBoroughs() {
+        return boroughsSet;
     }
 }

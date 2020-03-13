@@ -21,6 +21,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.HashSet;
+
 import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.stage.Popup;
@@ -43,6 +45,8 @@ public class Main extends Application
     private AirbnbDataLoader dataLoader = new AirbnbDataLoader();
     // check if the values in "from" and "to" boxes are correct
     private boolean correctBoxValues = true;
+    // A set containing all the buttons in the borough
+    private HashSet<HexButton> boroughButtons;
 
     /**
      * The start method is the main entry point for every JavaFX application. 
@@ -53,7 +57,8 @@ public class Main extends Application
      */
     @Override
     public final void start(Stage window) {
-
+        // create the buttons needed for boroughs
+        createBoroughButtons();
         // window = window;
         window.setTitle("Property");
 
@@ -109,20 +114,20 @@ public class Main extends Application
 
         //create new hex shaped buttons
         GridPane gridPane = new GridPane();
-        HexaButton hexButton1 = new HexaButton();
+        /*HexaButton hexButton1 = new HexaButton();
         HexaButton hexButton2 = new HexaButton();
         HexaButton hexButton3 = new HexaButton();
         HexaButton hexButton4 = new HexaButton();
-        HexaButton hexButton5 = new HexaButton();
+        HexaButton hexButton5 = new HexaButton();*/
 
         //add buttons to stackpane 
         StackPane stackPane = new StackPane();
-        stackPane.getChildren().addAll(imageView, 
+        /*stackPane.getChildren().addAll(imageView,
             hexButton1.getButton("Tower Hill", 72,0), 
             hexButton2.getButton("Lambeth", -40,190),
             hexButton3.getButton("Westminster", -40, 0),
             hexButton4.getButton("Hackney", 140,-100),
-            hexButton5.getButton("Richmond", -300,190));
+            hexButton5.getButton("Richmond", -300,190));*/
 
         // back and forward button are initially disabled
         backButton.setDisable(true);
@@ -203,8 +208,7 @@ public class Main extends Application
         //end of test code    
 
         // Show the Stage (window)
-        scene1 = new Scene(borderPane,500, 500);
-        window.setScene(scene1);
+        window.setScene(new Scene(borderPane,500, 500));
         window.show();
     }
 
@@ -247,6 +251,16 @@ public class Main extends Application
     }
 
     /**
+     * Create hexagonal buttons for each borough to be
+     * added to the second panel which are then added to the boroughButtons array
+     */
+    private void createBoroughButtons() {
+        for (String boroughName : dataLoader.getBoroughs()) {
+            boroughButtons.add(new HexButton(boroughName));
+        }
+    }
+
+    /**
      * Display the price user has selected on first screen.
      * @param box The combo box to get the value from.
      * @return The String displaying message.
@@ -255,7 +269,7 @@ public class Main extends Application
         if (box.getValue() != null) {
             return "" + box.getValue();
         }
-        else{
+        else {
             return "<Please select a value>";
         }
     }
