@@ -21,6 +21,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import javafx.geometry.Bounds;
+import javafx.geometry.Pos;
+import javafx.stage.Popup;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.effect.DropShadow;
 
 /**
  * Write a description of JavaFX class a here.
@@ -51,6 +56,7 @@ public class Main extends Application
 
         // window = window;
         window.setTitle("Property");
+
         //controls and lines for the top bit
         HBox commonLayout = new HBox(15);
         commonLayout.setStyle("-fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-padding: 5px;");
@@ -101,12 +107,22 @@ public class Main extends Application
         imageView.setFitHeight(700);
         imageView.setFitWidth(780);
 
+        //create new hex shaped buttons
         GridPane gridPane = new GridPane();
-        HexaButton hex1 = new HexaButton();
-        //hex1.setPosX(10);
-        
+        HexaButton hexButton1 = new HexaButton();
+        HexaButton hexButton2 = new HexaButton();
+        HexaButton hexButton3 = new HexaButton();
+        HexaButton hexButton4 = new HexaButton();
+        HexaButton hexButton5 = new HexaButton();
+
+        //add buttons to stackpane 
         StackPane stackPane = new StackPane();
-        stackPane.getChildren().addAll(imageView, hex1.getButton(100,10));
+        stackPane.getChildren().addAll(imageView, 
+            hexButton1.getButton("Tower Hill", 72,0), 
+            hexButton2.getButton("Lambeth", -40,190),
+            hexButton3.getButton("Westminster", -40, 0),
+            hexButton4.getButton("Hackney", 140,-100),
+            hexButton5.getButton("Richmond", -300,190));
 
         // back and forward button are initially disabled
         backButton.setDisable(true);
@@ -160,6 +176,31 @@ public class Main extends Application
                     buttonForward.setDisable(false);
                 }
             });
+
+        //test code for popup    
+        StackPane popupPane = new StackPane();
+        popupPane.setPrefSize(200, 20);
+        popupPane.setStyle("-fx-background-color: pink;");
+
+        Label popupLabel = new Label("This is a label");
+
+        popupPane.getChildren().add(popupLabel);
+
+        Popup popup = new Popup();
+        popup.getContent().add(popupPane);
+
+        stackPane.hoverProperty().addListener((obs, oldVal, newValue) -> {
+        if (newValue) {
+        Bounds bnds = stackPane.localToScreen(stackPane.getLayoutBounds());
+        double x = bnds.getMinX() - (popupPane.getWidth() / 2) + (stackPane.getWidth() / 2);
+        double y = bnds.getMinY() - popupPane.getHeight();
+        popup.show(stackPane, x, y);
+        } else {
+        popup.hide();
+        }
+        });
+        
+        //end of test code    
 
         // Show the Stage (window)
         scene1 = new Scene(borderPane,500, 500);

@@ -31,12 +31,12 @@ public class HexaButton extends Application
     @Override
     public void start(Stage stage)
     {
-        getButton(0, 0);
+        getButton("name", 0, 0);
     }
 
-    public Button getButton(int x, int y)
+    public Button getButton(String burroughName, int x, int y)
     {
-        Button myButton = new Button("Count");
+        Button myButton = new Button();
         Polygon polygon = new Polygon();
         polygon.getPoints().addAll(new Double[]{
                 200.0, 250.0,
@@ -47,9 +47,10 @@ public class HexaButton extends Application
                 200.0, -250.0,
             });                                                                                                                            
         myButton.setShape(polygon);
-        myButton.setMinSize(75,75);
+        myButton.setMinSize(110,110);
         myButton.setTranslateX(x);
         myButton.setTranslateY(y);
+        myButton.setText(burroughName);
         return myButton;
     } 
 
