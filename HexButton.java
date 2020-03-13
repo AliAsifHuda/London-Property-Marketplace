@@ -49,7 +49,6 @@ public class HexButton
     /**
      * Create and return a hexagonal button with a given name
      * @param boroughName The name to display on button
-     * @return The button itself
      */
     public void createButton(String boroughName) {
         myButton = new Button();
