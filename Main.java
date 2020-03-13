@@ -46,7 +46,7 @@ public class Main extends Application
     // check if the values in "from" and "to" boxes are correct
     private boolean correctBoxValues = true;
     // A set containing all the buttons in the borough
-    private HashSet<HexButton> boroughButtons;
+    private HashSet<HexButton> boroughButtons = new HashSet<>();
 
     /**
      * The start method is the main entry point for every JavaFX application. 
