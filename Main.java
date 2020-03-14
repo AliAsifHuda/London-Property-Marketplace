@@ -55,6 +55,8 @@ public class Main extends Application
     private boolean correctBoxValues = true;
     // A set containing all the buttons in the borough
     private HashSet<HexButton> boroughButtons = new HashSet<>();
+    private int count = -500;
+    private int index = 0;
 
     /**
      * The start method is the main entry point for every JavaFX application. 
@@ -66,7 +68,6 @@ public class Main extends Application
     @Override
     public final void start(Stage window) {
         // create the buttons needed for boroughs
-        createBoroughButtons();
         window.setTitle("Property");
 
         //controls and lines for the top bit
@@ -133,8 +134,43 @@ public class Main extends Application
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(700);
         imageView.setFitWidth(780);
-        stackPane.getChildren().addAll(imageView); 
-        
+        for (String boroughName : dataLoader.getBoroughs()) {
+            HexButton hexButton = new HexButton(boroughName);
+            boroughButtons.add(hexButton);
+            if(index==0){
+                hexButton.setButtonPosition(count, 0);
+            }else if(index<=3){
+                count = count - 115;
+                hexButton.setButtonPosition(count, 80);
+                count = count + 230;
+            }else if(index>=4 && index<=11){
+                count = count-115;
+                hexButton.setButtonPosition(count, 160);
+                count = count + 230;
+            }else if(index>=11 && index<=18){
+                count = count - 115;
+                hexButton.setButtonPosition(count, 240);
+                count = count + 230;
+            }else if(index>=18 && index<=24){
+                count = count - 115;
+                hexButton.setButtonPosition(count, 320);
+                count = count + 230;
+            }else if(index>=24 && index<=29){
+                count = count - 115;
+                hexButton.setButtonPosition(count, 400);
+                count = count + 230;
+            }else if(index>=29 && index<=34){
+                count = count - 115;
+                hexButton.setButtonPosition(count, 480);
+                count = count + 230;
+            }
+
+            index++;
+            stackPane.getChildren().addAll(hexButton.getButton());
+
+        }
+        //stackPane.getChildren().addAll(imageView, createBoroughButtons()); 
+
         // GridPane gridPane = new GridPane();
         // HexButton hexButton1 = new HexButton();
         // HexButton hexButton2 = new HexButton();
@@ -173,7 +209,7 @@ public class Main extends Application
         // }
         // });
         //end of test code
-        
+
         return stackPane;
     }
 
@@ -219,11 +255,16 @@ public class Main extends Application
      * Create hexagonal buttons for each borough to be
      * added to the second panel which are then added to the boroughButtons array
      */
-    private void createBoroughButtons() {
-        for (String boroughName : dataLoader.getBoroughs()) {
-            boroughButtons.add(new HexButton(boroughName));
-        }
-    }
+    // private Button createBoroughButtons() {
+    // for (String boroughName : dataLoader.getBoroughs()) {
+    // HexButton hexButton = new HexButton(boroughName);
+    // boroughButtons.add(hexButton);
+    // System.out.println(boroughName);
+    // System.out.println(dataLoader.getBoroughs());
+    // return hexButton.getButton();
+    // }
+    // return null;
+    // }
 
     /**
      * Display the price user has selected on first screen.
