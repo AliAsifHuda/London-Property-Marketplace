@@ -14,9 +14,7 @@ import javafx.scene.control.Separator;
 import javafx.geometry.Orientation;
 import javafx.scene.layout.Border;
 import javafx.scene.paint.Color;
-import javafx.scene.text.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView; 
+import javafx.scene.text.*; 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import java.io.FileInputStream;
@@ -40,7 +38,6 @@ public class Main extends Application
     private Scene scene1;
     private BorderPane borderPane = new BorderPane();
     private StackPane textPane = new StackPane();
-    private ImageView imageView;
     private StackPane stackPane = new StackPane();  
     private ComboBox<Integer> fromComboBox = new ComboBox<>();
     private ComboBox<Integer> toComboBox = new ComboBox<>();
@@ -55,7 +52,6 @@ public class Main extends Application
     private boolean correctBoxValues = true;
     // A set containing all the buttons in the borough
     private HashSet<HexButton> boroughButtons = new HashSet<>();
-    private int count = -500;
     private int index = 0;
 
     /**
@@ -125,67 +121,41 @@ public class Main extends Application
     }
 
     /**
-     * Display the image and buttons on the second screen.
-     * @return The StackPane displaying t5he image and buttons.
+     * Display the map and buttons on the second screen.
+     * @return The StackPane displaying the map and buttons.
      */
     private StackPane imagePane()
     {
-        Image image = new Image("boroughs.png");
-        ImageView imageView = new ImageView(image);
-        imageView.setFitHeight(700);
-        imageView.setFitWidth(780);
+        int a = 0 , b = -170 , c = -230 , d = -170 , e = -115 , f = -55;
         for (String boroughName : dataLoader.getBoroughs()) {
             HexButton hexButton = new HexButton(boroughName);
             boroughButtons.add(hexButton);
             if(index==0){
-                hexButton.setButtonPosition(count, 0);
+                hexButton.setButtonPosition(170, -270);
             }else if(index<=3){
-                count = count - 115;
-                hexButton.setButtonPosition(count, 80);
-                count = count + 230;
-            }else if(index>=4 && index<=11){
-                count = count-115;
-                hexButton.setButtonPosition(count, 160);
-                count = count + 230;
-            }else if(index>=11 && index<=18){
-                count = count - 115;
-                hexButton.setButtonPosition(count, 240);
-                count = count + 230;
-            }else if(index>=18 && index<=24){
-                count = count - 115;
-                hexButton.setButtonPosition(count, 320);
-                count = count + 230;
-            }else if(index>=24 && index<=29){
-                count = count - 115;
-                hexButton.setButtonPosition(count, 400);
-                count = count + 230;
-            }else if(index>=29 && index<=34){
-                count = count - 115;
-                hexButton.setButtonPosition(count, 480);
-                count = count + 230;
+                hexButton.setButtonPosition(a, -180);
+                a = a + 115;
+            }else if(index>=4 && index<=10){
+                hexButton.setButtonPosition(b, -90);
+                b = b + 115;
+            }else if(index>=10 && index<=17){
+                hexButton.setButtonPosition(c, 0);
+                c = c + 115;
+            }else if(index>=17 && index<=23){
+                hexButton.setButtonPosition(d, 90);
+                d = d + 115;
+            }else if(index>=24 && index<=28){
+                hexButton.setButtonPosition(e, 180);
+                e = e + 115;
+            }else if(index>=28 && index<=34){
+                hexButton.setButtonPosition(f, 270);
+                f = f + 115;
             }
 
             index++;
             stackPane.getChildren().addAll(hexButton.getButton());
 
         }
-        //stackPane.getChildren().addAll(imageView, createBoroughButtons()); 
-
-        // GridPane gridPane = new GridPane();
-        // HexButton hexButton1 = new HexButton();
-        // HexButton hexButton2 = new HexButton();
-        // HexButton hexButton3 = new HexButton();
-        // HexButton hexButton4 = new HexButton();
-        // HexButton hexButton5 = new HexButton();
-
-        // //add buttons to stackpane 
-        // StackPane stackPane = new StackPane();
-        // stackPane.getChildren().addAll(imageView, 
-        // hexButton1.getButton("Tower Hill", 72,0), 
-        // hexButton2.getButton("Lambeth", -40,190),
-        // hexButton3.getButton("Westminster", -40, 0),
-        // hexButton4.getButton("Hackney", 140,-100),
-        // hexButton5.getButton("Richmond", -300,190));
 
         //test code for popup
         // StackPane popupPane = new StackPane();
