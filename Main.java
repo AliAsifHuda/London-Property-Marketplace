@@ -1,6 +1,8 @@
 import javafx.application.Application;
+import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -52,17 +54,17 @@ public class Main extends Application
     private boolean correctBoxValues = true;
     // A set containing all the buttons in the borough
     private HashSet<HexButton> boroughButtons = new HashSet<>();
-    private int index = 0;
 
     /**
      * The start method is the main entry point for every JavaFX application. 
      * It is called after the init() method has returned and after 
      * the system is ready for the application to begin running.
      *
-     * @param window the primary stage for this application.
+     * @param primaryStage the primary stage for this application.
      */
     @Override
-    public final void start(Stage window) {
+    public final void start(Stage primaryStage) {
+        window = primaryStage;
         // create the buttons needed for boroughs
         window.setTitle("Property");
 
@@ -121,40 +123,39 @@ public class Main extends Application
     }
 
     /**
-     * Display the map and buttons on the second screen.
+     * Create and display the map and buttons on the second screen.
      * @return The StackPane displaying the map and buttons.
      */
     private StackPane imagePane()
     {
+        int index = 0;
         int a = 0 , b = -170 , c = -230 , d = -170 , e = -115 , f = -55;
         for (String boroughName : dataLoader.getBoroughs()) {
             HexButton hexButton = new HexButton(boroughName);
             boroughButtons.add(hexButton);
-            if(index==0){
+            if (index == 0) {
                 hexButton.setButtonPosition(170, -270);
-            }else if(index<=3){
+            } else if (index <= 3) {
                 hexButton.setButtonPosition(a, -180);
                 a = a + 115;
-            }else if(index>=4 && index<=10){
+            } else if (index >= 4 && index <= 10) {
                 hexButton.setButtonPosition(b, -90);
                 b = b + 115;
-            }else if(index>=10 && index<=17){
+            } else if (index >= 10 && index <= 17) {
                 hexButton.setButtonPosition(c, 0);
                 c = c + 115;
-            }else if(index>=17 && index<=23){
+            } else if (index >= 17 && index <= 23) {
                 hexButton.setButtonPosition(d, 90);
                 d = d + 115;
-            }else if(index>=24 && index<=28){
+            } else if (index >= 24 && index <= 28) {
                 hexButton.setButtonPosition(e, 180);
                 e = e + 115;
-            }else if(index>=28 && index<=34){
+            } else if (index >= 28 && index <= 34) {
                 hexButton.setButtonPosition(f, 270);
                 f = f + 115;
             }
-
             index++;
             stackPane.getChildren().addAll(hexButton.getButton());
-
         }
 
         //test code for popup
@@ -252,7 +253,7 @@ public class Main extends Application
 
     /**
      * Action of the fromComboBox.
-     * @param ActionEvent.
+     * @param event The ActionEvent
      */
     private void fromAction(ActionEvent event)
     {
@@ -267,7 +268,7 @@ public class Main extends Application
 
     /**
      * Action of the toComboBox.
-     * @param ActionEvent.
+     * @param event The ActionEvent
      */
     private void toAction(ActionEvent event)
     {
@@ -281,8 +282,8 @@ public class Main extends Application
     }
 
     /**
-     * Action of the backButton.
-     * @param ActionEvent.
+     * Action of the forward button.
+     * @param event The ActionEvent
      */
     private void forwardAction(ActionEvent event)
     {
@@ -298,6 +299,10 @@ public class Main extends Application
         }
     }
 
+    /**
+     * Action of back button
+     * @param event The ActionEvent
+     */
     private void backAction(ActionEvent event)
     {
         if (counter==0) {
