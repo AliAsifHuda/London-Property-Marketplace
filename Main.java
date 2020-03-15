@@ -129,30 +129,30 @@ public class Main extends Application
     private StackPane imagePane()
     {
         int index = 0;
-        int a = 0 , b = -170 , c = -230 , d = -170 , e = -115 , f = -55;
+        int a = -63 , b = -140 , c = -166 , d = -140 , e = -115 , f = -89;
         for (String boroughName : dataLoader.getBoroughs()) {
             HexButton hexButton = new HexButton(boroughName);
             boroughButtons.add(hexButton);
             if (index == 0) {
-                hexButton.setButtonPosition(170, -270);
+                hexButton.setButtonPosition(15, -129);
             } else if (index <= 3) {
-                hexButton.setButtonPosition(a, -180);
-                a = a + 115;
+                hexButton.setButtonPosition(a, -86);
+                a = a + 52;
             } else if (index >= 4 && index <= 10) {
-                hexButton.setButtonPosition(b, -90);
-                b = b + 115;
+                hexButton.setButtonPosition(b, -43);
+                b = b + 52;
             } else if (index >= 10 && index <= 17) {
                 hexButton.setButtonPosition(c, 0);
-                c = c + 115;
+                c = c + 52;
             } else if (index >= 17 && index <= 23) {
-                hexButton.setButtonPosition(d, 90);
-                d = d + 115;
+                hexButton.setButtonPosition(d, 43);
+                d = d + 52;
             } else if (index >= 24 && index <= 28) {
-                hexButton.setButtonPosition(e, 180);
-                e = e + 115;
+                hexButton.setButtonPosition(e, 86);
+                e = e + 52;
             } else if (index >= 28 && index <= 34) {
-                hexButton.setButtonPosition(f, 270);
-                f = f + 115;
+                hexButton.setButtonPosition(f, 129);
+                f = f + 52;
             }
             index++;
             stackPane.getChildren().addAll(hexButton.getButton());

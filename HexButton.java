@@ -62,7 +62,7 @@ public class HexButton
                 200.0, -250.0
         );
         myButton.setShape(polygon);
-        myButton.setMaxSize(110,110);
+        myButton.setMaxSize(50,50);
         myButton.setText(boroughName);
     }
 
