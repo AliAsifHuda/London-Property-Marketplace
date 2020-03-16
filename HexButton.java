@@ -21,7 +21,7 @@ public class HexButton
     private int count = 0;
     private Label myLabel = new Label("0");
     private Button myButton;
-    private static String boroughName;
+    private String boroughName;
 
     /**
      * The constructor of our class
@@ -42,7 +42,7 @@ public class HexButton
     /**
      * @return The name of the borough that the button is for.
      */
-    public static String getBoroughName() {
+    public String getBoroughName() {
         return boroughName;
     }
 

@@ -1,32 +1,15 @@
 import javafx.application.Application;
-import javafx.beans.binding.Bindings;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import javafx.scene.control.Separator;
-import javafx.geometry.Orientation;
-import javafx.scene.layout.Border;
-import javafx.scene.paint.Color;
-import javafx.scene.text.*; 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import javafx.scene.text.*;
+
 import java.util.HashSet;
-import javafx.geometry.Bounds;
-import javafx.geometry.Pos;
-import javafx.stage.Popup;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.effect.DropShadow;
 
 /**
  * Write a description of JavaFX class a here.
@@ -55,6 +38,8 @@ public class Main extends Application
     // A set containing all the buttons in the borough
     private HashSet<HexButton> boroughButtons = new HashSet<>();
 
+    private BoroughInfo boroughInfo = new BoroughInfo();
+
     /**
      * The start method is the main entry point for every JavaFX application. 
      * It is called after the init() method has returned and after 
@@ -64,6 +49,7 @@ public class Main extends Application
      */
     @Override
     public final void start(Stage primaryStage) {
+        dataLoader.load();
         window = primaryStage;
         // create the buttons needed for boroughs
         window.setTitle("Property");
@@ -156,6 +142,9 @@ public class Main extends Application
             }
             index++;
             stackPane.getChildren().addAll(hexButton.getButton());
+            hexButton.getButton().setOnAction( ex -> {
+                boroughInfo.displayInfo(hexButton.getBoroughName());
+            });
         }
 
         //test code for popup
@@ -303,8 +292,7 @@ public class Main extends Application
      * Action of back button
      * @param event The ActionEvent
      */
-    private void backAction(ActionEvent event)
-    {
+    private void backAction(ActionEvent event) {
         if (counter==0) {
             analyzeBoxValues(fromComboBox, toComboBox);
             if (correctBoxValues) {
@@ -314,6 +302,18 @@ public class Main extends Application
         } else if  (counter==1) {
             borderPane.setCenter(textPane);
             counter=0;
+        }
+    }
+
+    /**
+     * Display the information about a borough when a borough button
+     * is pressed on the image panel (panel 2).
+     */
+    private void boroughButtonAction() {
+        for (HexButton hexButton : boroughButtons) {
+            hexButton.getButton().setOnAction( e -> {
+                boroughInfo.displayInfo(hexButton.getBoroughName());
+            });
         }
     }
 

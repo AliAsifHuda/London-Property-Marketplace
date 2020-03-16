@@ -7,26 +7,25 @@ import java.util.*;
 import com.opencsv.CSVReader;
 import java.net.URISyntaxException;
 
-// use hashmap price -> listing and then keySet
-
 public class AirbnbDataLoader {
     // The set containing all the boroughs in the data
     private HashSet<String> boroughsSet;
 
-    private static List<AirbnbListing> listings = new LinkedList<>();
+    private static ArrayList<AirbnbListing> listings = new ArrayList<>();
 
     private HashMap<Integer, AirbnbListing> listingsMap;
 
     public AirbnbDataLoader() {
         boroughsSet = new HashSet<>();
         listingsMap = new HashMap<>();
-        listings = load();
+//        listings = load();
     }
 
     /** 
-     * Return an ArrayList containing the rows in the AirBnB London data set csv file.
+     * Return an ArrayList containing the all listings in
+     * the AirBnB London data set csv file.
      */
-    public List<AirbnbListing> load() {
+    public void load() {
         System.out.print("Begin loading Airbnb london dataset...");
         try {
             URL url = getClass().getResource("airbnb-london.csv");
@@ -69,7 +68,7 @@ public class AirbnbDataLoader {
             e.printStackTrace();
         }
         System.out.println("Success! Number of loaded records: " + listings.size());
-        return listings;
+//        return listings;
     }
 
     /**
@@ -98,7 +97,10 @@ public class AirbnbDataLoader {
         return -1;
     }
 
-    public static List<AirbnbListing> getListings() {
+    /**
+     * @return A list containing all the objects in our data set
+     */
+    public static ArrayList<AirbnbListing> getListings() {
         return listings;
     }
 
