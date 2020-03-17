@@ -41,11 +41,11 @@ public class BoroughInfo {
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         TableColumn<AirbnbListing, String> numReviewsCol = new TableColumn<>("Reviews (number)");
-        numReviewsCol.setMinWidth(100);
+        numReviewsCol.setMinWidth(150);
         numReviewsCol.setCellValueFactory(new PropertyValueFactory<>("numberOfReviews"));
 
         TableColumn<AirbnbListing, String> minNightsCol = new TableColumn<>("Minimum Nights");
-        minNightsCol.setMinWidth(100);
+        minNightsCol.setMinWidth(150);
         minNightsCol.setCellValueFactory(new PropertyValueFactory<>("minimumNights"));
 
         table.setItems(getListingsList());

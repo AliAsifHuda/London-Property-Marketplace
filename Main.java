@@ -247,7 +247,7 @@ public class Main extends Application
     private void fromAction(ActionEvent event)
     {
         text1.setText("Welcome to London Property Marketplace \n\n"  +
-            "Minimum price: " + displayPrice(fromComboBox) + "\n\n Maximum price: " + displayPrice(toComboBox));
+            "Minimum price: " + displayPrice(fromComboBox) + "\n\nMaximum price: " + displayPrice(toComboBox));
         disableFlagA = true; //if both combobox have input back and forward button will be enabled
         if (disableFlagA && disableFlagB) {
             backButton.setDisable(false);
@@ -262,7 +262,7 @@ public class Main extends Application
     private void toAction(ActionEvent event)
     {
         text1.setText("Welcome to London Property Marketplace \n\n" +
-            "Minimum price: " + displayPrice(fromComboBox) + "\n\n Maximum price: " + displayPrice(toComboBox));
+            "Minimum price: " + displayPrice(fromComboBox) + "\n\nMaximum price: " + displayPrice(toComboBox));
         disableFlagB = true; //if both combobox have input back and forward button will be enabled
         if (disableFlagA && disableFlagB) {
             backButton.setDisable(false);
