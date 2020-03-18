@@ -84,4 +84,11 @@ public class BoroughInfo {
         }
         return properties;
     }
+    
+    /**
+     * This is a method for calculating the number of properties in each borough
+     */
+    public String numberOfProperties() {
+        return Integer.toString(getListingsList().size());
+    }
 }

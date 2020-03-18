@@ -142,6 +142,7 @@ public class Main extends Application
             }
             index++;//increase index after adding each button
             stackPane.getChildren().addAll(hexButton.getButton());// add the buttons to the pane which has a map
+            hexButton.getButton().setTooltip(new Tooltip(boroughInfo.numberOfProperties())); //code for mouse hover popup
             hexButton.getButton().setOnAction( ex -> {
                 boroughInfo.displayInfo(hexButton.getBoroughName());
             });
