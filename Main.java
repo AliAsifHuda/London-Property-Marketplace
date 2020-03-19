@@ -114,35 +114,38 @@ public class Main extends Application
      */
     private StackPane imagePane()
     {
-        int index = 0; //keeps trach the b=index if a button
-        int a = -63 , b = -140 , c = -166 , d = -140 , e = -115 , f = -89;//initial starting position if buttons
+        //keeps track of the index of a button (which button it is)
+        int index = 0;
+        //initial starting position values of buttons
+        int a = -63 , b = -140 , c = -166 , d = -140 , e = -115 , f = -89;
         for (String boroughName : dataLoader.getBoroughs()) {
             HexButton hexButton = new HexButton(boroughName);
             boroughButtons.add(hexButton);
             if (index == 0) {
-                hexButton.setButtonPosition(15, -129);//gap btween each button
+                //gap between each button
+                hexButton.setButtonPosition(15, -129);
             } else if (index <= 3) {
                 hexButton.setButtonPosition(a, -86);
-                a = a + 52;//gap btween each button
+                a = a + 52;  
             } else if (index >= 4 && index <= 10) {
                 hexButton.setButtonPosition(b, -43);
-                b = b + 52;//gap btween each button
+                b = b + 52;
             } else if (index >= 10 && index <= 17) {
                 hexButton.setButtonPosition(c, 0);
-                c = c + 52;//gap btween each button
+                c = c + 52;
             } else if (index >= 17 && index <= 23) {
                 hexButton.setButtonPosition(d, 43);
-                d = d + 52;//gap btween each button
+                d = d + 52;
             } else if (index >= 24 && index <= 28) {
                 hexButton.setButtonPosition(e, 86);
-                e = e + 52;//gap btween each button
+                e = e + 52;
             } else if (index >= 28 && index <= 34) {
                 hexButton.setButtonPosition(f, 129);
-                f = f + 52;//gap btween each button
+                f = f + 52;
             }
-            index++;//increase index after adding each button
-            stackPane.getChildren().addAll(hexButton.getButton());// add the buttons to the pane which has a map
-            hexButton.getButton().setTooltip(new Tooltip(boroughInfo.numberOfProperties())); //code for mouse hover popup
+            index++;
+            // add the buttons to the pane which has a map
+            stackPane.getChildren().addAll(hexButton.getButton());
             hexButton.getButton().setOnAction( ex -> {
                 boroughInfo.displayInfo(hexButton.getBoroughName());
             });

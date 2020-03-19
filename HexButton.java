@@ -9,8 +9,10 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.shape.Polygon;
 
+import java.util.HashSet;
+
 /**
- * Write a description of JavaFX class HexaButton here.
+ * Write a description of JavaFX class HexButton here.
  *
  * @author (your name)
  * @version (a version number or a date)
@@ -92,7 +94,7 @@ public class HexButton
     }
     
     /**
-     * Returns colour of button based on the number of properties in the borough.
+     * @return The colour of button based on the number of properties in the borough.
      */
     private String buttonColourSetter() {
         if (numberOfProperties() >= 0 && numberOfProperties() <= 25) {
@@ -111,10 +113,17 @@ public class HexButton
     }
     
     /**
-     * Returns the number of properties in each borough.
+     * @return The number of properties in the borough of this button
      */
     private int numberOfProperties() {
-        return 110;
+//        return 110;
+        HashSet<AirbnbListing> listingsInBorough = new HashSet<>();
+        for (AirbnbListing listing : AirbnbDataLoader.getListings()) {
+            if (listing.getNeighbourhood().equals(this.boroughName)) {
+                listingsInBorough.add(listing);
+            }
+        }
+        return listingsInBorough.size();
     }
 
 }

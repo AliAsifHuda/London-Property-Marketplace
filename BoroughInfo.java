@@ -10,6 +10,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.HashSet;
+
 
 /**
  * This class is for creation of a new window
@@ -86,9 +88,15 @@ public class BoroughInfo {
     }
     
     /**
-     * This is a method for calculating the number of properties in each borough
+     * @return The number of properties in the borough
      */
-    public String numberOfProperties() {
-        return Integer.toString(getListingsList().size());
+    public int numberOfProperties() {
+        HashSet<AirbnbListing> listingsInBorough = new HashSet<>();
+        for (AirbnbListing listing : AirbnbDataLoader.getListings()) {
+            if (listing.getNeighbourhood().equals(this.boroughName)) {
+                listingsInBorough.add(listing);
+            }
+        }
+        return listingsInBorough.size();
     }
 }
