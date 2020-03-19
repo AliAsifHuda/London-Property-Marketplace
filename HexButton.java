@@ -68,7 +68,7 @@ public class HexButton
         if (buttonColourSetter().equals("green")) {
             myButton.setStyle("-fx-background-color: #008000");
         }
-            
+
         Polygon polygon = new Polygon();
         polygon.getPoints().addAll(
                 200.0, 250.0,
@@ -116,14 +116,12 @@ public class HexButton
      * @return The number of properties in the borough of this button
      */
     private int numberOfProperties() {
-//        return 110;
-        HashSet<AirbnbListing> listingsInBorough = new HashSet<>();
+        int count = 0;
         for (AirbnbListing listing : AirbnbDataLoader.getListings()) {
             if (listing.getNeighbourhood().equals(this.boroughName)) {
-                listingsInBorough.add(listing);
+                count++;
             }
         }
-        return listingsInBorough.size();
+        return count;
     }
-
 }

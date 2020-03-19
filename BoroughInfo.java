@@ -91,12 +91,12 @@ public class BoroughInfo {
      * @return The number of properties in the borough
      */
     public int numberOfProperties() {
-        HashSet<AirbnbListing> listingsInBorough = new HashSet<>();
+        int count = 0;
         for (AirbnbListing listing : AirbnbDataLoader.getListings()) {
             if (listing.getNeighbourhood().equals(this.boroughName)) {
-                listingsInBorough.add(listing);
+                count++;
             }
         }
-        return listingsInBorough.size();
+        return count;
     }
 }
