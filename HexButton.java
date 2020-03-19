@@ -52,6 +52,21 @@ public class HexButton
      */
     public void createButton(String boroughName) {
         myButton = new Button();
+        
+        //these if statements set the colour of the buttons
+        if (buttonColourSetter().equals("red")) {
+            myButton.setStyle("-fx-background-color: #ff0000");
+        }
+        if (buttonColourSetter().equals("orange")) {
+            myButton.setStyle("-fx-background-color: #ffa500");
+        }
+        if (buttonColourSetter().equals("yellow")) {
+            myButton.setStyle("-fx-background-color: #ffff00");
+        }
+        if (buttonColourSetter().equals("green")) {
+            myButton.setStyle("-fx-background-color: #008000");
+        }
+            
         Polygon polygon = new Polygon();
         polygon.getPoints().addAll(
                 200.0, 250.0,
@@ -74,6 +89,32 @@ public class HexButton
     public void setButtonPosition(double xTran, double yTran) {
         myButton.setTranslateX(xTran);
         myButton.setTranslateY(yTran);
+    }
+    
+    /**
+     * Returns colour of button based on the number of properties in the borough.
+     */
+    private String buttonColourSetter() {
+        if (numberOfProperties() >= 0 && numberOfProperties() <= 25) {
+            return "red";
+        }
+        else if (numberOfProperties() >= 26 && numberOfProperties() <= 50) {
+            return "orange";
+        }
+        else if (numberOfProperties() >= 51 && numberOfProperties() <= 75) {
+            return "yellow";
+        }
+        else if (numberOfProperties() >= 76) {
+            return "green";
+        }
+        return "red";
+    }
+    
+    /**
+     * Returns the number of properties in each borough.
+     */
+    private int numberOfProperties() {
+        return 110;
     }
 
 }
