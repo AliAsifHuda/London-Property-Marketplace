@@ -97,16 +97,16 @@ public class HexButton
      * @return The colour of button based on the number of properties in the borough.
      */
     private String buttonColourSetter() {
-        if (numberOfProperties() >= 0 && numberOfProperties() <= 25) {
+        if (numberOfProperties() >= 0 && numberOfProperties() <= 250) {
             return "red";
         }
-        else if (numberOfProperties() >= 26 && numberOfProperties() <= 50) {
+        else if (numberOfProperties() >= 260 && numberOfProperties() <= 500) {
             return "orange";
         }
-        else if (numberOfProperties() >= 51 && numberOfProperties() <= 75) {
+        else if (numberOfProperties() >= 510 && numberOfProperties() <= 750) {
             return "yellow";
         }
-        else if (numberOfProperties() >= 76) {
+        else if (numberOfProperties() >= 760) {
             return "green";
         }
         return "red";
@@ -115,7 +115,7 @@ public class HexButton
     /**
      * @return The number of properties in the borough of this button
      */
-    private int numberOfProperties() {
+    public int numberOfProperties() {
         int count = 0;
         for (AirbnbListing listing : AirbnbDataLoader.getListings()) {
             if (listing.getNeighbourhood().equals(this.boroughName)) {

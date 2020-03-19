@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.scene.text.*;
+import javafx.scene.control.Tooltip;
+import javafx.scene.control.Button;
 
 import java.util.HashSet;
 
@@ -144,35 +146,14 @@ public class Main extends Application
                 f = f + 52;
             }
             index++;
+            HexButton hexButtonHover = new HexButton(boroughName); //create a new button to display no of properties 
+            hexButton.getButton().setTooltip(new Tooltip(Integer.toString(hexButtonHover.numberOfProperties()))); //adds mouse hover popup
             // add the buttons to the pane which has a map
             stackPane.getChildren().addAll(hexButton.getButton());
             hexButton.getButton().setOnAction( ex -> {
-                boroughInfo.displayInfo(hexButton.getBoroughName());
-            });
+                    boroughInfo.displayInfo(hexButton.getBoroughName());
+                });
         }
-
-        //test code for popup
-        // StackPane popupPane = new StackPane();
-        // popupPane.setPrefSize(200, 20);
-        // popupPane.setStyle("-fx-background-color: pink;");
-
-        // Label popupLabel = new Label("This is a label");
-        // popupPane.getChildren().add(popupLabel);
-
-        // Popup popup = new Popup();
-        // popup.getContent().add(popupPane);
-
-        // stackPane.hoverProperty().addListener((obs, oldVal, newValue) -> {
-        // if (newValue) {
-        // Bounds bnds = stackPane.localToScreen(stackPane.getLayoutBounds());
-        // double x = bnds.getMinX() - (popupPane.getWidth() / 2) + (stackPane.getWidth() / 2);
-        // double y = bnds.getMinY() - popupPane.getHeight();
-        // popup.show(stackPane, x, y);
-        // } else {
-        // popup.hide();
-        // }
-        // });
-        //end of test code
 
         return stackPane;
     }
@@ -316,8 +297,8 @@ public class Main extends Application
     private void boroughButtonAction() {
         for (HexButton hexButton : boroughButtons) {
             hexButton.getButton().setOnAction( e -> {
-                boroughInfo.displayInfo(hexButton.getBoroughName());
-            });
+                    boroughInfo.displayInfo(hexButton.getBoroughName());
+                });
         }
     }
 
