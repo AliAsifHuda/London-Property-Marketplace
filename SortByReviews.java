@@ -10,8 +10,12 @@ import java.util.Comparator;
 public class SortByReviews implements SortBy {
 
     @Override
-    public ObservableList<AirbnbListing> sortList(ObservableList<AirbnbListing> unsortedList) {
-        Collections.sort(unsortedList, new ReviewsSorter());
+    public ObservableList<AirbnbListing> sortList(ObservableList<AirbnbListing> unsortedList, boolean isAscendingOrder) {
+        if (isAscendingOrder) {
+            Collections.sort(unsortedList, new IncReviewsSorter());
+        } else {
+            Collections.sort(unsortedList, new DecReviewsSorter());
+        }
         return unsortedList;
     }
 

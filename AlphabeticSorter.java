@@ -1,12 +1,10 @@
 import java.util.Comparator;
 
 /**
- * A class implementing Comparator interface used to sort
- * the AirbnbListing objects in their alphabetical order
+ * An interface extending Comparator interface used to sort
+ * the AirbnbListing alphabetically
  */
-public class AlphabeticSorter implements Comparator<AirbnbListing> {
+public interface AlphabeticSorter extends Comparator<AirbnbListing> {
     @Override
-    public int compare(AirbnbListing airbnbListing, AirbnbListing t1) {
-        return airbnbListing.getHost_name().compareTo(t1.getHost_name());
-    }
+    public int compare(AirbnbListing airbnbListing, AirbnbListing t1);
 }

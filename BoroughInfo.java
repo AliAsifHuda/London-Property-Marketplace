@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
@@ -26,6 +27,9 @@ import java.util.HashSet;
 public class BoroughInfo {
     private AirbnbDataLoader loader = new AirbnbDataLoader();
     private String boroughName;
+    private TableView<AirbnbListing> table;
+    ComboBox<String> sortByList;
+    ComboBox<String> sortingOrderList;
 
     /**
      * Displays a new window showing the properties for listing in a borough
@@ -35,7 +39,7 @@ public class BoroughInfo {
         boroughName = borough;
         Stage window = new Stage();
         window.setTitle(boroughName);
-        TableView<AirbnbListing> table = new TableView<>();
+        table = new TableView<>();
 
         TableColumn<AirbnbListing, String> hostNameCol = new TableColumn<>("Host Name");
         hostNameCol.setMinWidth(200);
@@ -57,35 +61,19 @@ public class BoroughInfo {
 
         table.getColumns().addAll(hostNameCol, priceCol, numReviewsCol, minNightsCol);
 
-        // The Object to sort our list
-        final SortBy[] sort = new SortBy[1];
-        ComboBox<String> sortByList = new ComboBox<>();
-        sortByList.setPromptText("Sort by: ");
-        sortByList.getItems().add("Number of Reviews");
-        sortByList.getItems().add("Price");
-        sortByList.getItems().add("Alphabetical Order");
-        sortByList.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                if (sortByList.getValue().equals("Number of Reviews")) {
-                    sort[0] = new SortByReviews();
-                } else if (sortByList.getValue().equals("Price")) {
-                    sort[0] = new SortByPrice();
-                } else if (sortByList.getValue().equals("Alphabetical Order")) {
-                    sort[0] = new SortAlphabetically();
-                }
-                table.setItems(sort[0].sortList(getListingsList()));
-            }
-        });
+        initialiseSortingOrderList();
+        initialiseSortByList();
+        sortByList.setOnAction(this::sortingListsAction);
+        sortingOrderList.setOnAction(this::sortingListsAction);
 
         BorderPane borderPane = new BorderPane();
-        HBox hBox = new HBox();
-        hBox.getChildren().add(sortByList);
-        hBox.setAlignment(Pos.CENTER);
-
+        AnchorPane sortButtonPane = new AnchorPane();
+        sortButtonPane.getChildren().addAll(sortByList, sortingOrderList);
+        AnchorPane.setLeftAnchor(sortByList, 3.0);
+        AnchorPane.setRightAnchor(sortingOrderList, 3.0);
         borderPane.setCenter(table);
-        hBox.setPadding(new Insets(0, 0, 10, 0));
-        borderPane.setTop(hBox);
+        sortButtonPane.setPadding(new Insets(0, 0, 10, 0));
+        borderPane.setTop(sortButtonPane);
 
         window.setScene(new Scene(borderPane, 600, 600));
         window.show();
@@ -116,5 +104,46 @@ public class BoroughInfo {
             }
         }
         return Integer.toString(count);
+    }
+
+    /**
+     * The Action listener for the two sort by lists in our panel
+     */
+    private void sortingListsAction(ActionEvent e) {
+        SortBy sort = null;
+        if (sortByList.getValue().equals("Number of Reviews")) {
+            sort = new SortByReviews();
+        } else if (sortByList.getValue().equals("Price")) {
+            sort = new SortByPrice();
+        } else if (sortByList.getValue().equals("Alphabetical Order")) {
+            sort = new SortAlphabetically();
+        }
+
+        if (sortingOrderList.getValue().equals("Ascending")) {
+            table.setItems(sort.sortList(getListingsList(), true));
+        } else {
+            table.setItems(sort.sortList(getListingsList(), false));
+        }
+    }
+
+    /**
+     * Initialise and set values of our sortByList
+     */
+    private void initialiseSortByList() {
+        sortByList = new ComboBox<>();
+        sortByList.setPromptText("Sort by: ");
+        sortByList.getItems().add("Number of Reviews");
+        sortByList.getItems().add("Price");
+        sortByList.getItems().add("Alphabetical Order");
+    }
+
+    /**
+     * Initialise and set values of our sortingOrderList
+     */
+    private void initialiseSortingOrderList() {
+        sortingOrderList = new ComboBox<>();
+        sortingOrderList.getItems().addAll("Ascending", "Descending");
+        // first option (ascending) selected by default
+        sortingOrderList.getSelectionModel().selectFirst();
     }
 }

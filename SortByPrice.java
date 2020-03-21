@@ -7,8 +7,12 @@ import java.util.Collections;
  */
 public class SortByPrice implements SortBy {
     @Override
-    public ObservableList<AirbnbListing> sortList(ObservableList<AirbnbListing> unsortedList) {
-        Collections.sort(unsortedList, new PriceSorter());
+    public ObservableList<AirbnbListing> sortList(ObservableList<AirbnbListing> unsortedList, boolean isAscendingOrder) {
+        if (isAscendingOrder) {
+            Collections.sort(unsortedList, new IncPriceSorter());
+        } else {
+            Collections.sort(unsortedList, new DecPriceSorter());
+        }
         return unsortedList;
     }
 }
