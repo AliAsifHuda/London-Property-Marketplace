@@ -69,7 +69,7 @@ public class HexButton
         );
         myButton.setShape(polygon);
         myButton.setMaxSize(50,50);
-        myButton.setText(boroughName);
+        myButton.setText(boroughName.substring(0, 4).toUpperCase());
     }
 
     /**
@@ -88,47 +88,29 @@ public class HexButton
     private String buttonColourSetter() {
         if (numberOfProperties() >= 0 && numberOfProperties() <= 100) {
             return "-fx-background-color: #ff0000"; //red
-        }
-        else if (numberOfProperties() >= 101 && numberOfProperties() <= 200) {
+        } else if (numberOfProperties() >= 101 && numberOfProperties() <= 200) {
             return "-fx-background-color: #f42900"; //red
-        }
-        else if (numberOfProperties() >= 201 && numberOfProperties() <= 300) {
+        } else if (numberOfProperties() >= 201 && numberOfProperties() <= 300) {
             return "-fx-background-color: #ea4e00"; //red
-        }
-        else if (numberOfProperties() >= 301 && numberOfProperties() <= 400) {
+        } else if (numberOfProperties() >= 301 && numberOfProperties() <= 400) {
             return "-fx-background-color: #df7000"; //red
-        }
-        else if (numberOfProperties() >= 401 && numberOfProperties() <= 500) {
+        } else if (numberOfProperties() >= 401 && numberOfProperties() <= 500) {
             return "-fx-background-color: #d58e00"; //red
-        }
-        
-        
-        else if (numberOfProperties() >= 501 && numberOfProperties() <= 750) {
+        } else if (numberOfProperties() >= 501 && numberOfProperties() <= 750) {
             return "-fx-background-color: #caa800"; //orande
-        }
-        else if (numberOfProperties() >= 751 && numberOfProperties() <= 1000) {
+        } else if (numberOfProperties() >= 751 && numberOfProperties() <= 1000) {
             return "-fx-background-color: #c0c000"; //orande
-        }
-        else if (numberOfProperties() >= 1001 && numberOfProperties() <= 1250) {
+        } else if (numberOfProperties() >= 1001 && numberOfProperties() <= 1250) {
             return "-fx-background-color: #97b500"; //orande
-        }
-        else if (numberOfProperties() >= 1251 && numberOfProperties() <= 2000) {
+        } else if (numberOfProperties() >= 1251 && numberOfProperties() <= 2000) {
             return "-fx-background-color: #72aa00"; //orande
-        }
-        
-        
-        else if (numberOfProperties() >= 2500 && numberOfProperties() <= 3000) {
+        } else if (numberOfProperties() >= 2500 && numberOfProperties() <= 3000) {
             return "-fx-background-color: #50a000"; //yellow
-        }
-        else if (numberOfProperties() >= 3001 && numberOfProperties() <= 3500) {
+        } else if (numberOfProperties() >= 3001 && numberOfProperties() <= 3500) {
             return "-fx-background-color: #329500"; //yellow
-        }
-        else if (numberOfProperties() >= 3501 && numberOfProperties() <= 4000) {
+        } else if (numberOfProperties() >= 3501 && numberOfProperties() <= 4000) {
             return "-fx-background-color: #178b00"; //yellow
-        }
-        
-        
-        else if (numberOfProperties() >= 4500) {
+        } else if (numberOfProperties() >= 4500) {
             return "-fx-background-color: #008000"; //green
         }
         return "";

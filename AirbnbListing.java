@@ -1,4 +1,4 @@
- 
+import java.util.Comparator;
 
 /**
  * Represents one listing of a property for rental on Airbnb.

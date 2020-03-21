@@ -1,5 +1,6 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -10,6 +11,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+//import java.awt.event.ActionEvent;
+import javafx.event.ActionEvent;
 import java.util.HashSet;
 
 
@@ -54,11 +57,26 @@ public class BoroughInfo {
 
         table.getColumns().addAll(hostNameCol, priceCol, numReviewsCol, minNightsCol);
 
+        // The Object to sort our list
+        final SortBy[] sort = new SortBy[1];
         ComboBox<String> sortByList = new ComboBox<>();
         sortByList.setPromptText("Sort by: ");
         sortByList.getItems().add("Number of Reviews");
         sortByList.getItems().add("Price");
         sortByList.getItems().add("Alphabetical Order");
+        sortByList.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if (sortByList.getValue().equals("Number of Reviews")) {
+                    sort[0] = new SortByReviews();
+                } else if (sortByList.getValue().equals("Price")) {
+                    sort[0] = new SortByPrice();
+                } else if (sortByList.getValue().equals("Alphabetical Order")) {
+                    sort[0] = new SortAlphabetically();
+                }
+                table.setItems(sort[0].sortList(getListingsList()));
+            }
+        });
 
         BorderPane borderPane = new BorderPane();
         HBox hBox = new HBox();

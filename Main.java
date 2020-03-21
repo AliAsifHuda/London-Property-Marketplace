@@ -298,7 +298,7 @@ public class Main extends Application
         for (HexButton hexButton : boroughButtons) {
             hexButton.getButton().setOnAction( e -> {
                     boroughInfo.displayInfo(hexButton.getBoroughName());
-                });
+            });
         }
     }
 
