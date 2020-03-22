@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import javafx.scene.text.*;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.Button;
-
+import javafx.geometry.Orientation;
 import java.util.HashSet;
 
 /**
@@ -25,7 +25,8 @@ public class Main extends Application
     private Scene scene1;
     private BorderPane borderPane = new BorderPane();
     private StackPane textPane = new StackPane();
-    private StackPane stackPane = new StackPane();  
+    private StackPane stackPane = new StackPane();
+    private SplitPane splitPane1 = new SplitPane();
     private ComboBox<Integer> fromComboBox = new ComboBox<>();
     private ComboBox<Integer> toComboBox = new ComboBox<>();
     private Button backButton = new Button("Back");
@@ -95,7 +96,7 @@ public class Main extends Application
         forwardButton.setDisable(true);
 
         forwardButton.setOnAction(this::forwardAction);
-        backButton.setOnAction(this::backAction);;
+        backButton.setOnAction(this::backAction);
 
         //ActionEvent for the combo boxes
         fromComboBox.setOnAction(this::fromAction);
@@ -154,8 +155,30 @@ public class Main extends Application
                     boroughInfo.displayInfo(hexButton.getBoroughName());
                 });
         }
-
         return stackPane;
+    }
+
+    /**
+     * A Pane for showing Statistics.
+     * @return The StackPane displaying Statistics.
+     */
+    private HBox statisticsPane(){
+        HBox hbox = new HBox(50);
+        hbox.setTranslateX(0);
+        hbox.setTranslateY(-28);
+        hbox.setMinSize(440, 355);
+        hbox.setMaxSize(440, 355);
+
+        splitPane1.setOrientation(Orientation.VERTICAL);
+        splitPane1.setMinSize(440, 200);
+        splitPane1.setMaxSize(440, 200);
+        final Label s1 = new Label("Average number of reviews per property.");
+        final Label s2 = new Label("Average Total number of available properties.");
+        final Label s3 = new Label("This is Total number of available properties.\n\n");
+        final Label s4 = new Label("This is The most expensive borough");
+        splitPane1.getItems().addAll(s1, s2, s3 ,s4);  
+        hbox.getChildren().add(splitPane1);
+        return hbox;
     }
 
     /**
@@ -195,21 +218,6 @@ public class Main extends Application
             }
         }
     }
-
-    /**
-     * Create hexagonal buttons for each borough to be
-     * added to the second panel which are then added to the boroughButtons array
-     */
-    // private Button createBoroughButtons() {
-    // for (String boroughName : dataLoader.getBoroughs()) {
-    // HexButton hexButton = new HexButton(boroughName);
-    // boroughButtons.add(hexButton);
-    // System.out.println(boroughName);
-    // System.out.println(dataLoader.getBoroughs());
-    // return hexButton.getButton();
-    // }
-    // return null;
-    // }
 
     /**
      * Display the price user has selected on first screen.
@@ -267,9 +275,12 @@ public class Main extends Application
                 borderPane.setCenter(imagePane());
                 counter++;
             }
-        } else if  (counter==1) {
+        } else if  (counter == 1) {
+            borderPane.setCenter(statisticsPane());
+            counter++;
+        } else if  (counter == 2) {
             borderPane.setCenter(textPane);
-            counter=0;
+            counter = 0;
         }
     }
 
@@ -281,10 +292,15 @@ public class Main extends Application
         if (counter==0) {
             analyzeBoxValues(fromComboBox, toComboBox);
             if (correctBoxValues) {
-                borderPane.setCenter(imagePane());
+                borderPane.setCenter(statisticsPane());
                 counter++;
             }
-        } else if  (counter==1) {
+        }
+        else if  (counter==1) {
+            borderPane.setCenter(imagePane());
+            counter++;
+        } 
+        else if  (counter==2) {
             borderPane.setCenter(textPane);
             counter=0;
         }
@@ -298,7 +314,7 @@ public class Main extends Application
         for (HexButton hexButton : boroughButtons) {
             hexButton.getButton().setOnAction( e -> {
                     boroughInfo.displayInfo(hexButton.getBoroughName());
-            });
+                });
         }
     }
 
