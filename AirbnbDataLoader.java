@@ -76,7 +76,6 @@ public class AirbnbDataLoader {
                 {
                     home.add(listing.getId());
                 }
-
             }
         } catch(IOException | URISyntaxException e) {
             System.out.println("Failure! Something went wrong");

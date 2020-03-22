@@ -12,7 +12,6 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.control.Button;
 import javafx.geometry.Orientation;
 import java.util.HashSet; 
-
 /**
  * Write a description of JavaFX class a here.
  *
@@ -169,18 +168,46 @@ public class Main extends Application
         hbox.setMinSize(440, 355);
         hbox.setMaxSize(440, 355);
 
-        splitPane1.setOrientation(Orientation.VERTICAL);
-        splitPane1.setMinSize(440, 355);
-        splitPane1.setMaxSize(440, 355);
-        final Label s1 = new Label("\n\n Average number of reviews per property.\n\n" +
-                dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
-        final Label s2 = new Label("\n\n Average Total number of available properties.\n\n" +
-                dataLoader.getAvailability());
+        GridPane gridPane = new GridPane();
+        //splitPane1.setOrientation(Orientation.VERTICAL);
+        gridPane.setMinSize(440, 355);
+        gridPane.setMaxSize(440, 355);
+        gridPane.setHgap(10); //horizontal gap in pixels => that's what you are asking for
+        gridPane.setVgap(10); //vertical gap in pixels
+        gridPane.setPadding(new Insets(10, 10, 10, 10));
+
+        final Button s1b = new Button("◀");
+        final Button s2b = new Button("◀");
+        final Button s3b = new Button("◀");
+        final Button s4b = new Button("◀");
+
+        final Button s1f = new Button("▶");
+        final Button s2f = new Button("▶");
+        final Button s3f = new Button("▶");
+        final Button s4f = new Button("▶");
+
+        final Label s1 = new Label("\n\n  number of reviews per property.\n\n" +
+                "\t\t\t" + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
+        final Label s2 = new Label("\n\n Total number of available properties.\n\n" +
+                "\t\t\t" + dataLoader.getAvailability());
         final Label s3 = new Label("\n\n  Total number of homes available.\n\n" +
-                dataLoader.getHome());
-        final Label s4 = new Label("\n\n This is The most expensive borough");
-        splitPane1.getItems().addAll(s1, s2, s3 ,s4);  
-        hbox.getChildren().add(splitPane1);
+                "\t\t\t" +  dataLoader.getHome());
+        final Label s4 = new Label("\n This is The most expensive borough");
+
+        gridPane.add(s1, 1, 0, 1, 1);
+        gridPane.add(s1b, 0, 0, 1, 1);
+        gridPane.add(s1f, 2, 0, 1, 1);
+        gridPane.add(s2, 1, 2, 1, 1);
+        gridPane.add(s2b, 0, 2, 1, 1);
+        gridPane.add(s2f, 2, 2, 1, 1);
+        gridPane.add(s3, 1, 4, 1, 1);
+        gridPane.add(s3b, 0, 4, 1, 1);
+        gridPane.add(s3f, 2, 4, 1, 1);
+        gridPane.add(s4, 1, 6, 1, 1);
+        gridPane.add(s4b, 0, 6, 1, 1);
+        gridPane.add(s4f, 2, 6, 1, 1);
+        hbox.getChildren().add(gridPane);
+        hbox.setMargin(gridPane, new Insets(10, 10, 10, 80));
         return hbox;
     }
 
