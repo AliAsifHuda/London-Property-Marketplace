@@ -11,7 +11,7 @@ import javafx.scene.text.*;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.Button;
 import javafx.geometry.Orientation;
-import java.util.HashSet;
+import java.util.HashSet; 
 
 /**
  * Write a description of JavaFX class a here.
@@ -172,7 +172,7 @@ public class Main extends Application
         splitPane1.setOrientation(Orientation.VERTICAL);
         splitPane1.setMinSize(440, 200);
         splitPane1.setMaxSize(440, 200);
-        final Label s1 = new Label("Average number of reviews per property.");
+        final Label s1 = new Label("Average number of reviews per property.\n" + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
         final Label s2 = new Label("Average Total number of available properties.");
         final Label s3 = new Label("This is Total number of available properties.\n\n");
         final Label s4 = new Label("This is The most expensive borough");

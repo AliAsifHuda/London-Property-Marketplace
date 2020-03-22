@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.*;
 import com.opencsv.CSVReader;
 import java.net.URISyntaxException;
+import java.util.stream.*;
 
 public class AirbnbDataLoader {
     // The set containing all the boroughs in the data
@@ -14,11 +15,13 @@ public class AirbnbDataLoader {
     private static ArrayList<AirbnbListing> listings = new ArrayList<>();
 
     private HashMap<Integer, AirbnbListing> listingsMap;
-
+    //ArrayList to contain the number of reviews of each property
+    private ArrayList<Integer> reviews = new ArrayList<>();
+    
     public AirbnbDataLoader() {
         boroughsSet = new HashSet<>();
         listingsMap = new HashMap<>();
-//        listings = load();
+        //        listings = load();
     }
 
     /** 
@@ -55,20 +58,21 @@ public class AirbnbDataLoader {
                         longitude, room_type, price, minimumNights,
                         numberOfReviews, lastReview,
                         reviewsPerMonth, calculatedHostListingsCount, availability365
-                );
+                    );
                 if (!boroughsSet.contains(listing.getNeighbourhood())) {
                     // add all different boroughs to this set.
                     boroughsSet.add(listing.getNeighbourhood());
                 }
                 listingsMap.put(listing.getPrice(), listing);
                 listings.add(listing);
+                reviews.add(listing.getNumberOfReviews());
             }
         } catch(IOException | URISyntaxException e) {
             System.out.println("Failure! Something went wrong");
             e.printStackTrace();
         }
         System.out.println("Success! Number of loaded records: " + listings.size());
-//        return listings;
+        //        return listings;
     }
 
     /**
@@ -101,7 +105,7 @@ public class AirbnbDataLoader {
      * @return A list containing all the objects in our data set
      */
     public static ArrayList<AirbnbListing> getListings() {
-        return listings;
+        return listings; 
     }
 
     /**
@@ -122,6 +126,19 @@ public class AirbnbDataLoader {
         int maxPrice = Collections.max(listingsMap.keySet());
         // return the listing with the highest price
         return listingsMap.get(maxPrice);
+    }
+
+    /**
+     * @return The sum of number of reviews of all properties.
+     */
+    public int getNumberOfReviews()
+    {
+        int sum = 0;
+        for(int i = 0; i < reviews.size(); i++)
+        {
+            sum = sum + reviews.get(i);
+        }
+        return sum;
     }
 
     /**
