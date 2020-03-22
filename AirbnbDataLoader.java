@@ -17,7 +17,10 @@ public class AirbnbDataLoader {
     private HashMap<Integer, AirbnbListing> listingsMap;
     //ArrayList to contain the number of reviews of each property
     private ArrayList<Integer> reviews = new ArrayList<>();
-    
+
+    private ArrayList<Integer> available = new ArrayList<>();
+
+    private ArrayList<String> home = new ArrayList<>();
     public AirbnbDataLoader() {
         boroughsSet = new HashSet<>();
         listingsMap = new HashMap<>();
@@ -66,6 +69,14 @@ public class AirbnbDataLoader {
                 listingsMap.put(listing.getPrice(), listing);
                 listings.add(listing);
                 reviews.add(listing.getNumberOfReviews());
+                if(listing.getAvailability365()>0){
+                    available.add(listing.getAvailability365());
+                }
+                if(!listing.getRoom_type().equals("Private room"))
+                {
+                    home.add(listing.getId());
+                }
+
             }
         } catch(IOException | URISyntaxException e) {
             System.out.println("Failure! Something went wrong");
@@ -139,6 +150,22 @@ public class AirbnbDataLoader {
             sum = sum + reviews.get(i);
         }
         return sum;
+    }
+
+    /**
+     * @return The number of properties available.
+     */
+    public int getAvailability()
+    {
+        return available.size();
+    }
+
+    /**
+     * @return The number of homes available.
+     */
+    public int getHome()
+    {
+        return home.size();
     }
 
     /**

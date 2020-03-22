@@ -170,12 +170,15 @@ public class Main extends Application
         hbox.setMaxSize(440, 355);
 
         splitPane1.setOrientation(Orientation.VERTICAL);
-        splitPane1.setMinSize(440, 200);
-        splitPane1.setMaxSize(440, 200);
-        final Label s1 = new Label("Average number of reviews per property.\n" + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
-        final Label s2 = new Label("Average Total number of available properties.");
-        final Label s3 = new Label("This is Total number of available properties.\n\n");
-        final Label s4 = new Label("This is The most expensive borough");
+        splitPane1.setMinSize(440, 355);
+        splitPane1.setMaxSize(440, 355);
+        final Label s1 = new Label("\n\n Average number of reviews per property.\n\n" +
+                dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
+        final Label s2 = new Label("\n\n Average Total number of available properties.\n\n" +
+                dataLoader.getAvailability());
+        final Label s3 = new Label("\n\n  Total number of homes available.\n\n" +
+                dataLoader.getHome());
+        final Label s4 = new Label("\n\n This is The most expensive borough");
         splitPane1.getItems().addAll(s1, s2, s3 ,s4);  
         hbox.getChildren().add(splitPane1);
         return hbox;
