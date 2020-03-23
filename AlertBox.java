@@ -2,7 +2,10 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -32,7 +35,7 @@ public class AlertBox {
         layout.setAlignment(Pos.CENTER);
         layout.getChildren().addAll(dispMessage, closeButton);
 
-        window.setScene(new Scene(layout, 500, 100));
+        window.setScene(new Scene(layout, 600, 100));
         window.show();
     }
 }

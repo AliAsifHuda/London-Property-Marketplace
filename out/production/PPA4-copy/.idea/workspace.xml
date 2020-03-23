@@ -2,21 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d76ba1bf-8ca1-4d46-a0cb-2ef0e8e7ca44" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/PropertyInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BoroughProfileLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BoroughProfiles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/london-borough-profiles.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AirbnbDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/AirbnbDataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlertBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlertBox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoroughInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoroughInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/AirbnbDataLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/AirbnbDataLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/AlertBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/AlertBox.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/BoroughInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/BoroughInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/package.bluej" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/assignment - 4/AirbnbDataLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/assignment - 4/AirbnbListing.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/assignment - 4/AlertBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/assignment - 4/HexButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/assignment - 4/Main.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,14 +31,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1ZUMq0prpBrU0LcOQMEnTSodfWy" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -80,8 +81,40 @@
       <workItem from="1584889416879" duration="694000" />
       <workItem from="1584901604770" duration="2278000" />
       <workItem from="1584906298500" duration="7847000" />
-      <workItem from="1584915021476" duration="570000" />
+      <workItem from="1584915021476" duration="7496000" />
+      <workItem from="1584971255037" duration="368000" />
+      <workItem from="1584982060938" duration="718000" />
+      <workItem from="1584986539535" duration="4680000" />
     </task>
+    <task id="LOCAL-00001" summary="Added a listener to the Table in BoroughInfo so that now when a property is clicked form the list, it's description is shown in a new window + added styling the new window + added the listener in window to close it when it loses focus (thus avoiding pollution and enhancing efficiency)">
+      <created>1584927539429</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1584927539429</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added a listener to the Table in BoroughInfo so that now when a property is clicked form the list, it's description is shown in a new window + added styling the new window + added the listener in window to close it when it loses focus (thus avoiding pollution and enhancing efficiency)">
+      <created>1584927673456</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1584927673456</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added a listener to the Table in BoroughInfo so that now when a property is clicked form the list, it's description is shown in a new window + added styling the new window + added the listener in window to close it when it loses focus (thus avoiding pollution and enhancing efficiency)">
+      <created>1584927681804</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1584927681804</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Caught a NullPointerException caused by an attempt to sort the list in ascending or descending order without first selecting which criteria to do it by (in the other drop-down list) + made the PropertyInfo display properties in a better way + fixed alignment in it">
+      <created>1584928950645</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1584928950645</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,26 +133,56 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Added a listener to the Table in BoroughInfo so that now when a property is clicked form the list, it's description is shown in a new window + added styling the new window + added the listener in window to close it when it loses focus (thus avoiding pollution and enhancing efficiency)" />
+    <MESSAGE value="Caught a NullPointerException caused by an attempt to sort the list in ascending or descending order without first selecting which criteria to do it by (in the other drop-down list) + made the PropertyInfo display properties in a better way + fixed alignment in it" />
+    <option name="LAST_COMMIT_MESSAGE" value="Caught a NullPointerException caused by an attempt to sort the list in ascending or descending order without first selecting which criteria to do it by (in the other drop-down list) + made the PropertyInfo display properties in a better way + fixed alignment in it" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1584914621560">
+    <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser" timestamp="1584999982891">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584914621560" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1584914621560">
+    <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1584999982891" />
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1584928950114">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584914621560" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1584914621560">
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1584928950114" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1584982778836">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584914621560" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1584914621560">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584982778836" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1584982778836">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584914621560" />
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1584915022502">
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584982778836" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1584982778836">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1584915022502" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584982778836" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1584982778836">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584982778836" />
+    <state x="121" y="51" key="MergeDialog" timestamp="1584927595158">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="121" y="51" key="MergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1584927595158" />
+    <state x="354" y="57" key="MultipleFileMergeDialog" timestamp="1584927597291">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="354" y="57" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1584927597291" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1584928952813">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1584928952813" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1584986539789">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1584986539789" />
+    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584971385951">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1584971385951" />
   </component>
 </project>

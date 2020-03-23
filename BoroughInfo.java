@@ -156,14 +156,6 @@ public class BoroughInfo {
     }
 
     /**
-     * The ActionEvent for our table (whenever a property
-     * is clicked on the table).
-     */
-    private void tableAction(ActionEvent e) {
-
-    }
-
-    /**
      * Initialise and set values of our sortByList
      */
     private void initialiseSortByList() {
