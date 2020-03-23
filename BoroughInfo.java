@@ -132,18 +132,26 @@ public class BoroughInfo {
      */
     private void sortingListsAction(ActionEvent e) {
         SortBy sort = null;
-        if (sortByList.getValue().equals("Number of Reviews")) {
-            sort = new SortByReviews();
-        } else if (sortByList.getValue().equals("Price")) {
-            sort = new SortByPrice();
-        } else if (sortByList.getValue().equals("Alphabetical Order")) {
-            sort = new SortAlphabetically();
+        if (sortByList.getValue() == null) {
+            AlertBox.display("ERROR!", "Please select what you want to Sort By in the drop-down list first.");
+            e.consume();
         }
+        try {
+            if (sortByList.getValue().equals("Number of Reviews")) {
+                sort = new SortByReviews();
+            } else if (sortByList.getValue().equals("Price")) {
+                sort = new SortByPrice();
+            } else if (sortByList.getValue().equals("Alphabetical Order")) {
+                sort = new SortAlphabetically();
+            }
 
-        if (sortingOrderList.getValue().equals("Ascending")) {
-            table.setItems(sort.sortList(getListingsList(), true));
-        } else {
-            table.setItems(sort.sortList(getListingsList(), false));
+            if (sortingOrderList.getValue().equals("Ascending")) {
+                table.setItems(sort.sortList(getListingsList(), true));
+            } else {
+                table.setItems(sort.sortList(getListingsList(), false));
+            }
+        } catch (NullPointerException nPE) {
+            // do nothing
         }
     }
 
