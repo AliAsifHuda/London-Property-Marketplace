@@ -1,20 +1,18 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 //import java.awt.event.ActionEvent;
 import javafx.event.ActionEvent;
-import java.util.HashSet;
+
+import javax.swing.*;
 
 
 /**
@@ -25,6 +23,7 @@ import java.util.HashSet;
  */
 
 public class BoroughInfo {
+
     private AirbnbDataLoader loader = new AirbnbDataLoader();
     private String boroughName;
     private TableView<AirbnbListing> table;
@@ -39,44 +38,37 @@ public class BoroughInfo {
         boroughName = borough;
         Stage window = new Stage();
         window.setTitle(boroughName);
-        table = new TableView<>();
 
-        TableColumn<AirbnbListing, String> hostNameCol = new TableColumn<>("Host Name");
-        hostNameCol.setMinWidth(200);
-        hostNameCol.setCellValueFactory(new PropertyValueFactory<>("host_name"));
-
-        TableColumn<AirbnbListing, String> priceCol = new TableColumn<>("Price");
-        priceCol.setMinWidth(100);
-        priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
-
-        TableColumn<AirbnbListing, String> numReviewsCol = new TableColumn<>("Reviews (number)");
-        numReviewsCol.setMinWidth(150);
-        numReviewsCol.setCellValueFactory(new PropertyValueFactory<>("numberOfReviews"));
-
-        TableColumn<AirbnbListing, String> minNightsCol = new TableColumn<>("Minimum Nights");
-        minNightsCol.setMinWidth(150);
-        minNightsCol.setCellValueFactory(new PropertyValueFactory<>("minimumNights"));
-
-        table.setItems(getListingsList());
-
-        table.getColumns().addAll(hostNameCol, priceCol, numReviewsCol, minNightsCol);
-
+        initialiseTable();
         initialiseSortingOrderList();
         initialiseSortByList();
+
         sortByList.setOnAction(this::sortingListsAction);
         sortingOrderList.setOnAction(this::sortingListsAction);
+        table.setOnMouseClicked(this::tableAction);
 
         BorderPane borderPane = new BorderPane();
         AnchorPane sortButtonPane = new AnchorPane();
         sortButtonPane.getChildren().addAll(sortByList, sortingOrderList);
         AnchorPane.setLeftAnchor(sortByList, 3.0);
         AnchorPane.setRightAnchor(sortingOrderList, 3.0);
-        borderPane.setCenter(table);
         sortButtonPane.setPadding(new Insets(0, 0, 10, 0));
+        borderPane.setCenter(table);
         borderPane.setTop(sortButtonPane);
 
         window.setScene(new Scene(borderPane, 600, 600));
         window.show();
+    }
+
+    /**
+     * The MouseEvent for our table. Whenever a row (property) is selected,
+     * display the info about that property in a new window.
+     */
+    private void tableAction(MouseEvent mouseEvent) {
+        AirbnbListing selectedListing = table.getSelectionModel().getSelectedItem();
+        if (selectedListing != null) {
+            PropertyInfo.displayPropertyInfo(selectedListing);
+        }
     }
 
     /**
@@ -107,7 +99,36 @@ public class BoroughInfo {
     }
 
     /**
-     * The Action listener for the two sort by lists in our panel
+     * Create and initialise the table displaying properties.
+     */
+    private void initialiseTable() {
+        table = new TableView<>();
+
+        TableColumn<AirbnbListing, String> hostNameCol = new TableColumn<>("Host Name");
+        hostNameCol.setMinWidth(200);
+        hostNameCol.setCellValueFactory(new PropertyValueFactory<>("host_name"));
+
+        TableColumn<AirbnbListing, String> priceCol = new TableColumn<>("Price");
+        priceCol.setMinWidth(100);
+        priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        TableColumn<AirbnbListing, String> numReviewsCol = new TableColumn<>("Reviews (number)");
+        numReviewsCol.setMinWidth(150);
+        numReviewsCol.setCellValueFactory(new PropertyValueFactory<>("numberOfReviews"));
+
+        TableColumn<AirbnbListing, String> minNightsCol = new TableColumn<>("Minimum Nights");
+        minNightsCol.setMinWidth(150);
+        minNightsCol.setCellValueFactory(new PropertyValueFactory<>("minimumNights"));
+
+        table.setItems(getListingsList());
+
+        table.getColumns().addAll(hostNameCol, priceCol, numReviewsCol, minNightsCol);
+    }
+
+    /**
+     * The Action listener for the two sort by lists in our panel.
+     * Sorts the list of properties according to what is selected from
+     * the drop down list.
      */
     private void sortingListsAction(ActionEvent e) {
         SortBy sort = null;
@@ -124,6 +145,14 @@ public class BoroughInfo {
         } else {
             table.setItems(sort.sortList(getListingsList(), false));
         }
+    }
+
+    /**
+     * The ActionEvent for our table (whenever a property
+     * is clicked on the table).
+     */
+    private void tableAction(ActionEvent e) {
+
     }
 
     /**

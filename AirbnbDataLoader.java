@@ -21,6 +21,7 @@ public class AirbnbDataLoader {
     private ArrayList<Integer> available = new ArrayList<>();
 
     private ArrayList<String> home = new ArrayList<>();
+
     public AirbnbDataLoader() {
         boroughsSet = new HashSet<>();
         listingsMap = new HashMap<>();
@@ -69,14 +70,12 @@ public class AirbnbDataLoader {
                 listingsMap.put(listing.getPrice(), listing);
                 listings.add(listing);
                 reviews.add(listing.getNumberOfReviews());
-                if(listing.getAvailability365()>0){
+                if (listing.getAvailability365()>0) {
                     available.add(listing.getAvailability365());
                 }
-                if(!listing.getRoom_type().equals("Private room"))
-                {
+                if (!listing.getRoom_type().equals("Private room")) {
                     home.add(listing.getId());
                 }
-
             }
         } catch(IOException | URISyntaxException e) {
             System.out.println("Failure! Something went wrong");
@@ -100,9 +99,8 @@ public class AirbnbDataLoader {
     }
 
     /**
-     *
-     * @param intString the string to be converted to Integer type
-     * @return the Integer value of the string, or -1 if the string is 
+     * @param intString The string to be converted to Integer type
+     * @return The Integer value of the string, or -1 if the string is
      * either empty or just whitespace
      */
     private Integer convertInt(String intString) {
@@ -142,11 +140,9 @@ public class AirbnbDataLoader {
     /**
      * @return The sum of number of reviews of all properties.
      */
-    public int getNumberOfReviews()
-    {
+    public int getNumberOfReviews() {
         int sum = 0;
-        for(int i = 0; i < reviews.size(); i++)
-        {
+        for (int i = 0; i < reviews.size(); i++) {
             sum = sum + reviews.get(i);
         }
         return sum;

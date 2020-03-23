@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d76ba1bf-8ca1-4d46-a0cb-2ef0e8e7ca44" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="d76ba1bf-8ca1-4d46-a0cb-2ef0e8e7ca44" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/PropertyInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AirbnbDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/AirbnbDataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoroughInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoroughInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/AirbnbDataLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/AirbnbDataLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/BoroughInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/BoroughInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/package.bluej" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/assignment - 4/AirbnbDataLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/assignment - 4/AirbnbListing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/assignment - 4/AlertBox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/assignment - 4/HexButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/assignment - 4/Main.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,25 +26,32 @@
   <component name="FavoritesManager">
     <favorites_list name="PPA4-copy" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZUMq0prpBrU0LcOQMEnTSodfWy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -56,6 +78,9 @@
       <option name="presentableId" value="Default" />
       <updated>1584889406659</updated>
       <workItem from="1584889416879" duration="694000" />
+      <workItem from="1584901604770" duration="2278000" />
+      <workItem from="1584906298500" duration="7847000" />
+      <workItem from="1584915021476" duration="5191000" />
     </task>
     <servers />
   </component>
@@ -67,21 +92,34 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Main.java</url>
-          <line>289</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="WindowStateProjectService">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1584927421092">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584927421092" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1584927421092">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584927421092" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1584927421092">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584927421092" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1584927421092">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584927421092" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1584915022502">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1584915022502" />
   </component>
 </project>
