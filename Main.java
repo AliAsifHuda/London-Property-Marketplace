@@ -32,9 +32,15 @@ public class Main extends Application
     private Button forwardButton = new Button("Forward");
     private Text text1 = new Text("Welcome to London Property Marketplace ");
     private int counter;
+    private int caseCounter;
     private boolean disableFlagA = false;
     private boolean disableFlagB = false;
     private AirbnbDataLoader dataLoader = new AirbnbDataLoader();
+    private Label stat1 = new Label();
+    private Label stat2 = new Label();
+    private Label stat3 = new Label();
+    private Label stat4 = new Label();
+     
     // check if the values in "from" and "to" boxes are correct
     private boolean correctBoxValues = true;
     // A set containing all the buttons in the borough
@@ -176,38 +182,48 @@ public class Main extends Application
         gridPane.setVgap(10); //vertical gap in pixels
         gridPane.setPadding(new Insets(10, 10, 10, 10));
 
-        final Button s1b = new Button("◀");
-        final Button s2b = new Button("◀");
-        final Button s3b = new Button("◀");
-        final Button s4b = new Button("◀");
+        final Button stat1b = new Button("◀");
+        final Button stat2b = new Button("◀");
+        final Button stat3b = new Button("◀");
+        final Button stat4b = new Button("◀");
 
-        final Button s1f = new Button("▶");
-        final Button s2f = new Button("▶");
-        final Button s3f = new Button("▶");
-        final Button s4f = new Button("▶");
+        final Button stat1f = new Button("▶");
+        final Button stat2f = new Button("▶");
+        final Button stat3f = new Button("▶");
+        final Button stat4f = new Button("▶");
 
-        final Label s1 = new Label("\n\n  number of reviews per property.\n\n" +
-                "\t\t\t" + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
-        final Label s2 = new Label("\n\n Total number of available properties.\n\n" +
+        stat1.setText("\n\n  number of reviews per property.\n\n" +
+            "\t\t\t" + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
+        stat2.setText("\n\n Total number of available properties.\n\n" +
                 "\t\t\t" + dataLoader.getAvailability());
-        final Label s3 = new Label("\n\n  Total number of homes available.\n\n" +
+        stat3.setText("\n\n  Total number of homes available.\n\n" +
                 "\t\t\t" +  dataLoader.getHome());
-        final Label s4 = new Label("\n This is The most expensive borough");
+        stat4.setText("\n This is The most expensive borough");
 
-        gridPane.add(s1, 1, 0, 1, 1);
-        gridPane.add(s1b, 0, 0, 1, 1);
-        gridPane.add(s1f, 2, 0, 1, 1);
-        gridPane.add(s2, 1, 2, 1, 1);
-        gridPane.add(s2b, 0, 2, 1, 1);
-        gridPane.add(s2f, 2, 2, 1, 1);
-        gridPane.add(s3, 1, 4, 1, 1);
-        gridPane.add(s3b, 0, 4, 1, 1);
-        gridPane.add(s3f, 2, 4, 1, 1);
-        gridPane.add(s4, 1, 6, 1, 1);
-        gridPane.add(s4b, 0, 6, 1, 1);
-        gridPane.add(s4f, 2, 6, 1, 1);
+        gridPane.add(stat1, 1, 0, 1, 1);
+        gridPane.add(stat1b, 0, 0, 1, 1);
+        gridPane.add(stat1f, 2, 0, 1, 1);
+        gridPane.add(stat2, 1, 2, 1, 1);
+        gridPane.add(stat2b, 0, 2, 1, 1);
+        gridPane.add(stat2f, 2, 2, 1, 1);
+        gridPane.add(stat3, 1, 4, 1, 1);
+        gridPane.add(stat3b, 0, 4, 1, 1);
+        gridPane.add(stat3f, 2, 4, 1, 1);
+        gridPane.add(stat4, 1, 6, 1, 1);
+        gridPane.add(stat4b, 0, 6, 1, 1);
+        gridPane.add(stat4f, 2, 6, 1, 1);
         hbox.getChildren().add(gridPane);
         hbox.setMargin(gridPane, new Insets(10, 10, 10, 80));
+
+        stat1b.setOnAction(this::stat1Action);
+        stat2b.setOnAction(this::stat2Action);
+        stat3b.setOnAction(this::stat3Action);
+        stat4b.setOnAction(this::stat4Action);
+
+        stat1f.setOnAction(this::stat1Action);
+        stat2f.setOnAction(this::stat2Action);
+        stat3f.setOnAction(this::stat3Action);
+        stat4f.setOnAction(this::stat4Action);
         return hbox;
     }
 
@@ -334,6 +350,146 @@ public class Main extends Application
             borderPane.setCenter(textPane);
             counter=0;
         }
+    }
+
+    /**
+     * Action of back  and forward button of first stat
+     * @param event The ActionEvent
+     */
+    private void stat1Action(ActionEvent event) {
+        switch(caseCounter)
+        {
+            case (0): 
+            stat1.setText("new stat");
+            break;
+            case (1): 
+            stat1.setText("new stat1");
+            break;
+            case (2): 
+            stat1.setText("new stat2");
+            break;
+            case (3): 
+            stat1.setText("new stat3");
+            break;
+            case (4): 
+            stat1.setText("new stat4");
+            break;
+            case (5): 
+            stat1.setText("new stat5");
+            break;
+            case (6): 
+            stat1.setText("new stat6");
+            break;case (7): 
+            stat1.setText("new stat7");
+            caseCounter= -1;
+            break;
+        }
+        caseCounter++;
+    }
+
+    /**
+     * Action of back  and forward button of second stat
+     * @param event The ActionEvent
+     */
+    private void stat2Action(ActionEvent event) {
+        switch(caseCounter)
+        {
+            case (0): 
+            stat2.setText("new stat");
+            break;
+            case (1):
+            stat2.setText("new stat1");
+            break;
+            case (2): 
+            stat2.setText("new stat2");
+            break;
+            case (3): 
+            stat2.setText("new stat3");
+            break;
+            case (4): 
+            stat2.setText("new stat4");
+            break;
+            case (5): 
+            stat2.setText("new stat5");
+            break;
+            case (6): 
+            stat2.setText("new stat6");
+            break;case (7): 
+            stat2.setText("new stat7");
+            caseCounter= -1;
+            break;
+        }
+        caseCounter++;
+    }
+
+    /**
+     * Action of back  and forward button of third stat
+     * @param event The ActionEvent
+     */
+    private void stat3Action(ActionEvent event) {
+        switch(caseCounter)
+        {
+            case (0): 
+            stat3.setText("new stat");
+            break;
+            case (1): 
+            stat3.setText("new stat1");
+            break;
+            case (2): 
+            stat3.setText("new stat2");
+            break;
+            case (3): 
+            stat3.setText("new stat3");
+            break;
+            case (4): 
+            stat3.setText("new stat4");
+            break;
+            case (5): 
+            stat3.setText("new stat5");
+            break;
+            case (6): 
+            stat3.setText("new stat6");
+            break;case (7): 
+            stat3.setText("new stat7");
+            caseCounter= -1;
+            break;
+        }
+        caseCounter++;
+    }
+
+    /**
+     * Action of back  and forward button of fourth stat
+     * @param event The ActionEvent
+     */
+    private void stat4Action(ActionEvent event) {
+        switch(caseCounter)
+        {
+            case (0): 
+            stat4.setText("new stat");
+            break;
+            case (1): 
+            stat4.setText("new stat1");
+            break;
+            case (2): 
+            stat4.setText("new stat2");
+            break;
+            case (3):
+            stat4.setText("new stat3");
+            break;
+            case (4): 
+            stat4.setText("new stat4");
+            break;
+            case (5): 
+            stat4.setText("new stat5");
+            break;
+            case (6): 
+            stat4.setText("new stat6");
+            break;case (7): 
+            stat4.setText("new stat7");
+            caseCounter= -1;
+            break;
+        }
+        caseCounter++;
     }
 
     /**
