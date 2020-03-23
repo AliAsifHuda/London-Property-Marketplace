@@ -32,7 +32,10 @@ public class Main extends Application
     private Button forwardButton = new Button("Forward");
     private Text text1 = new Text("Welcome to London Property Marketplace ");
     private int counter;
-    private int caseCounter;
+    private int caseCounter1 = 1;
+    private int caseCounter2 = 1;
+    private int caseCounter3 = 1;
+    private int caseCounter4 = 1;
     private boolean disableFlagA = false;
     private boolean disableFlagB = false;
     private AirbnbDataLoader dataLoader = new AirbnbDataLoader();
@@ -357,34 +360,18 @@ public class Main extends Application
      * @param event The ActionEvent
      */
     private void stat1Action(ActionEvent event) {
-        switch(caseCounter)
+        switch(caseCounter1)
         {
             case (0): 
-            stat1.setText("new stat");
+            stat1.setText("\n\n  number of reviews per property.\n\n" +
+            "\t\t\t" + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
             break;
             case (1): 
             stat1.setText("new stat1");
-            break;
-            case (2): 
-            stat1.setText("new stat2");
-            break;
-            case (3): 
-            stat1.setText("new stat3");
-            break;
-            case (4): 
-            stat1.setText("new stat4");
-            break;
-            case (5): 
-            stat1.setText("new stat5");
-            break;
-            case (6): 
-            stat1.setText("new stat6");
-            break;case (7): 
-            stat1.setText("new stat7");
-            caseCounter= -1;
+            caseCounter1 = -1;
             break;
         }
-        caseCounter++;
+        caseCounter1++;
     }
 
     /**
@@ -392,34 +379,18 @@ public class Main extends Application
      * @param event The ActionEvent
      */
     private void stat2Action(ActionEvent event) {
-        switch(caseCounter)
+        switch(caseCounter2)
         {
             case (0): 
-            stat2.setText("new stat");
+            stat2.setText("\n\n Total number of available properties.\n\n" +
+                "\t\t\t" + dataLoader.getAvailability());
             break;
             case (1):
-            stat2.setText("new stat1");
-            break;
-            case (2): 
             stat2.setText("new stat2");
-            break;
-            case (3): 
-            stat2.setText("new stat3");
-            break;
-            case (4): 
-            stat2.setText("new stat4");
-            break;
-            case (5): 
-            stat2.setText("new stat5");
-            break;
-            case (6): 
-            stat2.setText("new stat6");
-            break;case (7): 
-            stat2.setText("new stat7");
-            caseCounter= -1;
+            caseCounter2 = -1;
             break;
         }
-        caseCounter++;
+        caseCounter2++;
     }
 
     /**
@@ -427,34 +398,18 @@ public class Main extends Application
      * @param event The ActionEvent
      */
     private void stat3Action(ActionEvent event) {
-        switch(caseCounter)
+        switch(caseCounter3)
         {
             case (0): 
-            stat3.setText("new stat");
+            stat3.setText("\n\n  Total number of homes available.\n\n" +
+                "\t\t\t" +  dataLoader.getHome());
             break;
             case (1): 
-            stat3.setText("new stat1");
-            break;
-            case (2): 
-            stat3.setText("new stat2");
-            break;
-            case (3): 
             stat3.setText("new stat3");
-            break;
-            case (4): 
-            stat3.setText("new stat4");
-            break;
-            case (5): 
-            stat3.setText("new stat5");
-            break;
-            case (6): 
-            stat3.setText("new stat6");
-            break;case (7): 
-            stat3.setText("new stat7");
-            caseCounter= -1;
+            caseCounter3 = -1;
             break;
         }
-        caseCounter++;
+        caseCounter3++;
     }
 
     /**
@@ -462,34 +417,17 @@ public class Main extends Application
      * @param event The ActionEvent
      */
     private void stat4Action(ActionEvent event) {
-        switch(caseCounter)
+        switch(caseCounter4)
         {
             case (0): 
-            stat4.setText("new stat");
+            stat4.setText("\n This is The most expensive borough");
             break;
             case (1): 
-            stat4.setText("new stat1");
-            break;
-            case (2): 
-            stat4.setText("new stat2");
-            break;
-            case (3):
-            stat4.setText("new stat3");
-            break;
-            case (4): 
-            stat4.setText("new stat4");
-            break;
-            case (5): 
-            stat4.setText("new stat5");
-            break;
-            case (6): 
-            stat4.setText("new stat6");
-            break;case (7): 
-            stat4.setText("new stat7");
-            caseCounter= -1;
+            stat4.setText("new stat4");           
+            caseCounter4 = -1;
             break;
         }
-        caseCounter++;
+        caseCounter4++;
     }
 
     /**
