@@ -40,6 +40,7 @@ public class Main extends Application
     private boolean disableFlagA = false;
     private boolean disableFlagB = false;
     private AirbnbDataLoader dataLoader = new AirbnbDataLoader();
+    private BoroughProfileLoader boroughProfileLoader = new BoroughProfileLoader();
     private Label stat1 = new Label();
     private Label stat2 = new Label();
     private Label stat3 = new Label();
@@ -368,11 +369,12 @@ public class Main extends Application
         switch(caseCounter1)
         {
             case (0): 
-            stat1.setText("\n\n  number of reviews per property.\n\n" +
+            stat1.setText("\n  number of reviews per property.\n" +
             "\t\t\t" + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
             break;
             case (1): 
-            stat1.setText("new stat1");
+            stat1.setText("\n borough with highest transport acessibility \n" +
+            "\t\t\t" + boroughProfileLoader.getMaxTransportAcessibility());
             caseCounter1 = -1;
             break;
         }
@@ -387,11 +389,12 @@ public class Main extends Application
         switch(caseCounter2)
         {
             case (0): 
-            stat2.setText("\n\n Total number of available properties.\n\n" +
+            stat2.setText("\n Total number of available properties.\n" +
                 "\t\t\t" + dataLoader.getAvailability());
             break;
             case (1):
-            stat2.setText("new stat2");
+            stat2.setText("\n Borough with highest crime rate is\n"
+            + "\t\t\t" + boroughProfileLoader.getMaxCrimeRate());
             caseCounter2 = -1;
             break;
         }
@@ -406,11 +409,12 @@ public class Main extends Application
         switch(caseCounter3)
         {
             case (0): 
-            stat3.setText("\n\n  Total number of homes available.\n\n" +
+            stat3.setText("\n  Total number of homes available.\n" +
                 "\t\t\t" +  dataLoader.getHome());
             break;
             case (1): 
-            stat3.setText("new stat3");
+            stat3.setText("\n\n Borough with highestcarbon emmision is\n"
+            + "\t\t\t" + boroughProfileLoader.getCarbonEmmission());
             caseCounter3 = -1;
             break;
         }
@@ -425,10 +429,11 @@ public class Main extends Application
         switch(caseCounter4)
         {
             case (0): 
-            stat4.setText("\n This is The most expensive borough");
+            stat4.setText("\n This is The most expensive borough\n");
             break;
             case (1): 
-            stat4.setText("new stat4");           
+            stat4.setText("\n Borough with highestcarbon emmision is\n" +
+            "\t\t\t" +  boroughProfileLoader.getGreenSpace());           
             caseCounter4 = -1;
             break;
         }

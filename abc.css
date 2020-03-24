@@ -31,7 +31,7 @@
 }
 
 .root{
-	-fx-background-color : -black;
+	-fx-background-color : #dfdfdf;
 	-fx-fill-width : true;
 	-fx-color : -color;
 	-fx-fill-height : true;
