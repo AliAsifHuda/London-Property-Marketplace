@@ -20,16 +20,22 @@
 	-white : #efefef;
 	-gray : #dfdfdf;
 	-darkGray : derive(-gray,-25%);
-	-black : #444444dd;
+	-blacks : #444444dd;
 	-abort : #e74c3c;
+	-black : #000000
+/*
+	-yellow : #ffff00
+	-green : #00ffff
+*/
+
 }
 
 .root{
-	-fx-background-color : ffffff;
+	-fx-background-color : -black;
 	-fx-fill-width : true;
 	-fx-color : -color;
 	-fx-fill-height : true;
-	-fx-font-family: 'Segoe UI';
+	-fx-font-family: 'Calibri';
 	/* remove the ugly focus shade */
 	-fx-focus-color : transparent;
 	-fx-faint-focus-color: transparent;
@@ -41,7 +47,7 @@
  * **********
 */
 .label{
-	 -fx-text-fill : -black;
+	 -fx-text-fill : #8e8e8e;
  }
 
 /*
@@ -51,7 +57,9 @@
  * 
  */
 .button {
-	-fx-background-color : -gray,-gray,-gray,-gray;
+    
+    
+	-fx-background-color : #8e8e8e;
 }
 .button:default{
 	-fx-background-color : -color;
@@ -108,7 +116,7 @@
  * 
  */
 .menu-bar{
-	-fx-background-color : -gray;
+	-fx-background-color : -black;
 }
  
 
@@ -195,7 +203,7 @@
  * Table
  * **********
  * 
- */
+ 
 .table-view:row-selection{
 	-fx-background-color : -gray;
 }
@@ -244,7 +252,7 @@
 .tree-table-view>*.column-header-background>*.show-hide-columns-button{
 	-fx-background-color : -gray;
 }
-
+ */
 
 /*
  * **********
@@ -257,7 +265,7 @@
 }
 
 /*
- * **********f
+ * **********
  * Scroll pane
  * **********
  * 
@@ -269,3 +277,86 @@
 .scroll-pane>*.scroll-bar>*.thumb{
 	-fx-background-color : -color;
 }
+
+/*
+ * ************
+ * Table View
+ * ************
+ *
+ */
+
+.table-view{
+   -fx-background-color: transparent;
+}
+
+.table-view:focused{
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(#131313 0%, #424141 100%);
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: white;
+}
+
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, #616161;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:odd{
+    -fx-background-color: -fx-table-cell-border-color, #424242;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */  
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #005797;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+.table-view > .virtual-flow > .scroll-bar:vertical,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track-background, 
+.table-view > .virtual-flow > .scroll-bar:horizontal,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
+    -fx-background-color: transparent;
+}
+
+
+
+.table-view > .virtual-flow > .scroll-bar > .increment-button, 
+.table-view > .virtual-flow > .scroll-bar > .decrement-button {
+    -fx-opacity: 0;
+}*
+
+/*
+ * **********
+ * Combo Box
+ * **********
+ */
+
+.combo-box .combo-box-popup .list-view, .combo-box .combo-box-popup .list-cell {
+    -fx-background-color: #000000 ;
+    -fx-text-fill: -white ;
+    -fx-font-family: "Calibri" ;
+}
+.combo-box .combo-box-popup .list-cell:hover {
+    -fx-text-fill: #ffff00 ;
+    -fx-background-color: #00ffff ;
+}
+

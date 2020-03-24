@@ -12,6 +12,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.control.Button;
 import javafx.geometry.Orientation;
 import java.util.HashSet; 
+import javafx.scene.paint.Color;
 /**
  * Write a description of JavaFX class a here.
  *
@@ -79,6 +80,10 @@ public class Main extends Application
         commonLayout.getChildren().addAll(fromLabel, fromComboBox, backLabel, toComboBox);
 
         //text for the middle
+        text1.setFont(Font.font("calibri", FontWeight.NORMAL, FontPosture.ITALIC, 25));
+        text1.setFill(Color.BLACK);
+        text1.setStrokeWidth(0.8);
+        text1.setStroke(Color.WHITE);
         textPane.getChildren().addAll(text1);
 
         //controls and lines for the bottom bit
@@ -111,8 +116,8 @@ public class Main extends Application
         toComboBox.setOnAction(this::toAction);
 
         //lines at top and bottom
-        bottomBox.setStyle("-fx-border-color: black; -fx-border-width: 1px 0px 0px 0px; -fx-padding: 5px ;");
-        commonLayout.setStyle("-fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-padding: 5px ;");    
+        bottomBox.setStyle("-fx-border-color: white; -fx-border-width: 1px 0px 0px 0px; -fx-padding: 5px ;");
+        commonLayout.setStyle("-fx-border-color: white; -fx-border-width: 0px 0px 1px 0px; -fx-padding: 5px ;");    
 
         // Show the Stage (window)
         window.setScene(new Scene(borderPane,500, 500));

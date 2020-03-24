@@ -55,6 +55,7 @@ public class BoroughInfo {
         sortButtonPane.setPadding(new Insets(0, 0, 10, 0));
         borderPane.setCenter(table);
         borderPane.setTop(sortButtonPane);
+        borderPane.getStylesheets().add("abc.css");
 
         window.setScene(new Scene(borderPane, 600, 600));
         window.show();
