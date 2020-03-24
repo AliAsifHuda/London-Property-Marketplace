@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d76ba1bf-8ca1-4d46-a0cb-2ef0e8e7ca44" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/BoroughProfileLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BoroughProfiles.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/london-borough-profiles.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlertBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlertBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoroughInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoroughInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoroughProfileLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoroughProfileLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoroughProfiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoroughProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abc.css" beforeDir="false" afterPath="$PROJECT_DIR$/abc.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/AlertBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/AlertBox.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/BoroughInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/BoroughInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/abc.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/abc.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +81,12 @@
       <workItem from="1584915021476" duration="7496000" />
       <workItem from="1584971255037" duration="368000" />
       <workItem from="1584982060938" duration="718000" />
-      <workItem from="1584986539535" duration="4924000" />
+      <workItem from="1584986539535" duration="5355000" />
+      <workItem from="1585006744304" duration="272000" />
+      <workItem from="1585010828005" duration="695000" />
+      <workItem from="1585013658666" duration="300000" />
+      <workItem from="1585014076994" duration="345000" />
+      <workItem from="1585069658427" duration="960000" />
     </task>
     <task id="LOCAL-00001" summary="Added a listener to the Table in BoroughInfo so that now when a property is clicked form the list, it's description is shown in a new window + added styling the new window + added the listener in window to close it when it loses focus (thus avoiding pollution and enhancing efficiency)">
       <created>1584927539429</created>
@@ -114,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584928950645</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added another CSV file to the project which I downloaded from data.london.gov.uk website which basically has all data from 2016 about each borough (such as crime rate in each etc etc) + added 2 classes (BoroughProfiles and BoroughProfileLoader) which can extract values from any column in the CSV file and which we can then use later on in our program for implementing various functionality">
+      <created>1585001750933</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1585001750933</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,33 +146,34 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added a listener to the Table in BoroughInfo so that now when a property is clicked form the list, it's description is shown in a new window + added styling the new window + added the listener in window to close it when it loses focus (thus avoiding pollution and enhancing efficiency)" />
     <MESSAGE value="Caught a NullPointerException caused by an attempt to sort the list in ascending or descending order without first selecting which criteria to do it by (in the other drop-down list) + made the PropertyInfo display properties in a better way + fixed alignment in it" />
-    <option name="LAST_COMMIT_MESSAGE" value="Caught a NullPointerException caused by an attempt to sort the list in ascending or descending order without first selecting which criteria to do it by (in the other drop-down list) + made the PropertyInfo display properties in a better way + fixed alignment in it" />
+    <MESSAGE value="Added another CSV file to the project which I downloaded from data.london.gov.uk website which basically has all data from 2016 about each borough (such as crime rate in each etc etc) + added 2 classes (BoroughProfiles and BoroughProfileLoader) which can extract values from any column in the CSV file and which we can then use later on in our program for implementing various functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added another CSV file to the project which I downloaded from data.london.gov.uk website which basically has all data from 2016 about each borough (such as crime rate in each etc etc) + added 2 classes (BoroughProfiles and BoroughProfileLoader) which can extract values from any column in the CSV file and which we can then use later on in our program for implementing various functionality" />
   </component>
   <component name="WindowStateProjectService">
     <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser" timestamp="1584999982891">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1584999982891" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1584928950114">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1585070702158">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1584928950114" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1585001419188">
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1585070702158" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1585070575552">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585001419188" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1585001419188">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585070575552" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1585070575552">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585001419188" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1585001419188">
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585070575552" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1585070575552">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585001419188" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1585001419188">
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585070575552" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1585070575552">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585001419188" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585070575552" />
     <state x="121" y="51" key="MergeDialog" timestamp="1584927595158">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -172,17 +182,17 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="354" y="57" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1584927597291" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1584928952813">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1585001760593">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1584928952813" />
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1584986539789">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1585001760593" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1585069658028">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1584986539789" />
-    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584971385951">
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1585069658028" />
+    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585010866882">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1584971385951" />
+    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1585010866882" />
   </component>
 </project>

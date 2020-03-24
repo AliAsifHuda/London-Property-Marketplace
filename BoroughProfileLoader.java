@@ -1,4 +1,3 @@
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -6,7 +5,6 @@ import java.net.URL;
 import java.util.*;
 import com.opencsv.CSVReader;
 import java.net.URISyntaxException;
-import java.util.stream.*;
 
 /**
  * Loads various types of statistics from the London Boroughs
@@ -19,8 +17,8 @@ public class BoroughProfileLoader {
      * @param columnNum The number of column which has the required data
      * @return A list containing objects of the required type.
      */
-    public ArrayList<BoroughProfiles> getProfiles(int columnNum) {
-        ArrayList<BoroughProfiles> boroughProfiles = new ArrayList<>();
+    public ArrayList<BoroughProfile> getProfiles(int columnNum) {
+        ArrayList<BoroughProfile> boroughProfiles = new ArrayList<>();
         try {
             URL url = getClass().getResource("london-borough-profiles.csv");
             CSVReader reader = new CSVReader(new FileReader(new File(url.toURI()).getAbsolutePath()));
@@ -28,9 +26,12 @@ public class BoroughProfileLoader {
             //skip the first row (column headers)
             reader.readNext();
             while ((line = reader.readNext()) != null) {
+                if (line[1].equals("Inner London")) {
+                    break;
+                }
                 String boroughName = line[1];
                 String boroughProfile = "" + line[columnNum - 1];
-                BoroughProfiles profile = new BoroughProfiles(boroughName, boroughProfile);
+                BoroughProfile profile = new BoroughProfile(boroughName, boroughProfile);
                 boroughProfiles.add(profile);
             }
         } catch(IOException | URISyntaxException e) {

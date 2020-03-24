@@ -3,12 +3,12 @@
  * employment rate etc.) in each borough of London.
  */
 
-public class BoroughProfiles {
+public class BoroughProfile {
 
     private String boroughName;
     private String profileValue;
 
-    public BoroughProfiles(String boroughName, String profileValue) {
+    public BoroughProfile(String boroughName, String profileValue) {
         this.boroughName = boroughName;
         this.profileValue = profileValue;
     }
