@@ -30,9 +30,6 @@ public class BoroughProfileLoader {
      */
 
     public void load() {
-
-        //public ArrayList<BoroughProfile> getProfiles(int columnNum) {
-        ArrayList<BoroughProfile> boroughProfiles = new ArrayList<>();
         try {
             URL url = getClass().getResource("london-borough-profiles.csv");
             CSVReader reader = new CSVReader(new FileReader(new File(url.toURI()).getAbsolutePath()));
@@ -41,27 +38,22 @@ public class BoroughProfileLoader {
             reader.readNext();
             while ((line = reader.readNext()) != null) {
                 String name = line[1];
-                int Average_Public_Transport_Accessibility_Score = convertInt(line[64]);
-                int Crime_rates_per_thousand_population = convertInt(line[48]);
-                int Total_carbon_emissions = convertInt(line[59]);
+                int transportAccessibility = convertInt(line[64]);
+                int crimeRate = convertInt(line[48]);
+                int carbonEmissions = convertInt(line[59]);
                 int greenSpace = convertInt(line[58]);
                 BoroughProfiles listing = new BoroughProfiles(
-                        name, Average_Public_Transport_Accessibility_Score,
-                        Crime_rates_per_thousand_population , Total_carbon_emissions, greenSpace
+                        name, transportAccessibility, crimeRate , carbonEmissions , greenSpace
                     );
-                transportMap.put(Average_Public_Transport_Accessibility_Score, name);
-                crimeMap.put(Crime_rates_per_thousand_population, name);
-                carbonMap.put(Total_carbon_emissions , name);
+                transportMap.put(transportAccessibility, name);
+                crimeMap.put(crimeRate , name);
+                carbonMap.put(carbonEmissions , name);
                 greenMap.put(greenSpace , name);
 
                 if (line[1].equals("Inner London")) {
                     break;
                 }
                 String boroughName = line[1];
-                //String boroughProfile = "" + line[columnNum - 1];
-                //BoroughProfile profile = new BoroughProfile(boroughName, boroughProfile);
-                //boroughProfiles.add(profile);
-                //>>>>>>> 62d983989dc44f3a97b73d14d943ade2ce3298f1
             }
         } catch(IOException | URISyntaxException e) {
             System.out.println("Failure! Something went wrong");
@@ -79,19 +71,6 @@ public class BoroughProfileLoader {
             return Integer.parseInt(intString);
         }
         return -1;
-    }
-
-    /**
-     *
-     * @param doubleString the string to be converted to Double type
-     * @return the Double value of the string, or -1.0 if the string is 
-     * either empty or just whitespace
-     */
-    private Double convertDouble(String doubleString) {
-        if(doubleString != null && !doubleString.trim().equals("")) {
-            return Double.parseDouble(doubleString);
-        }
-        return -1.0;
     }
 
     /**
@@ -115,12 +94,12 @@ public class BoroughProfileLoader {
     }
 
     /**
-     * @return The listing object with the highest carbon emmisions.
+     * @return The listing object with the highest carbon emisions.
      */
-    public String getCarbonEmmission() {
+    public String getCarbonEmission() {
         // the maximum crime rate of all elements in the set.
         int maxCarbon = Collections.max(carbonMap.keySet());
-        // return the listing with the highest crime rate.
+        // return the listing with the highest carbon emession.
         return carbonMap.get(maxCarbon);
     }
 
@@ -130,32 +109,7 @@ public class BoroughProfileLoader {
     public String getGreenSpace() {
         // the maximum crime rate of all elements in the set.
         int maxGreen = Collections.max(greenMap.keySet());
-        // return the listing with the highest crime rate.
+        // return the listing with the highest green space.
         return greenMap.get(maxGreen);
     }
-    // /**
-    // * Get some specific type of profiles from the London boroughs profile
-    // * @param columnNum The number of column which has the required data
-    // * @return A list containing objects of the required type.
-    // */
-    // public ArrayList<BoroughProfiles> getProfiles(int columnNum) {
-    // ArrayList<BoroughProfiles> boroughProfiles = new ArrayList<>();
-    // try {
-    // URL url = getClass().getResource("london-borough-profiles.csv");
-    // CSVReader reader = new CSVReader(new FileReader(new File(url.toURI()).getAbsolutePath()));
-    // String [] line;
-    // //skip the first row (column headers)
-    // reader.readNext();
-    // while ((line = reader.readNext()) != null) {
-    // String boroughName = line[1];
-    // String boroughProfile = "" + line[columnNum - 1];
-    // BoroughProfiles profile = new BoroughProfiles(boroughName, boroughProfile);
-    // boroughProfiles.add(profile);
-    // }
-    // } catch(IOException | URISyntaxException e) {
-    // System.out.println("Failure loading borough profiles! Something went wrong");
-    // e.printStackTrace();
-    // }
-    // return boroughProfiles;
-    // }
 }

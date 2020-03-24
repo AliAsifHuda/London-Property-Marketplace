@@ -414,7 +414,7 @@ public class Main extends Application
             break;
             case (1): 
             stat3.setText("\n\n Borough with highestcarbon emmision is\n"
-            + "\t\t\t" + boroughProfileLoader.getCarbonEmmission());
+            + "\t\t\t" + boroughProfileLoader.getCarbonEmission());
             caseCounter3 = -1;
             break;
         }
