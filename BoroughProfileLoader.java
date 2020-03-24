@@ -1,4 +1,3 @@
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -6,7 +5,6 @@ import java.net.URL;
 import java.util.*;
 import com.opencsv.CSVReader;
 import java.net.URISyntaxException;
-import java.util.stream.*;
 
 /**
  * Loads various types of statistics from the London Boroughs
@@ -30,7 +28,11 @@ public class BoroughProfileLoader {
      * Return an ArrayList containing the all listings in
      * the AirBnB London data set csv file.
      */
+
     public void load() {
+
+        //public ArrayList<BoroughProfile> getProfiles(int columnNum) {
+        ArrayList<BoroughProfile> boroughProfiles = new ArrayList<>();
         try {
             URL url = getClass().getResource("london-borough-profiles.csv");
             CSVReader reader = new CSVReader(new FileReader(new File(url.toURI()).getAbsolutePath()));
@@ -51,6 +53,15 @@ public class BoroughProfileLoader {
                 crimeMap.put(Crime_rates_per_thousand_population, name);
                 carbonMap.put(Total_carbon_emissions , name);
                 greenMap.put(greenSpace , name);
+
+                if (line[1].equals("Inner London")) {
+                    break;
+                }
+                String boroughName = line[1];
+                //String boroughProfile = "" + line[columnNum - 1];
+                //BoroughProfile profile = new BoroughProfile(boroughName, boroughProfile);
+                //boroughProfiles.add(profile);
+                //>>>>>>> 62d983989dc44f3a97b73d14d943ade2ce3298f1
             }
         } catch(IOException | URISyntaxException e) {
             System.out.println("Failure! Something went wrong");
