@@ -263,6 +263,7 @@ public class Main extends Application
         //Creating the Bar chart
         BarChart<String, Number> barChart = new BarChart<>(xAxis, yAxis); 
         barChart.setTitle("Covid-19 deaths in each borough");
+        barChart.setLegendVisible(false);
         //Prepare XYChart.Series objects by setting data       
         XYChart.Series<String, Number> series1 = new XYChart.Series<>();
         series1.setName("Deaths in each borough");
@@ -273,34 +274,36 @@ public class Main extends Application
         series1.getData().add(new XYChart.Data<>("BARK", 35.0));
         series1.getData().add(new XYChart.Data<>("BEXL", 39.0));
         series1.getData().add(new XYChart.Data<>("REDB", 45.0));
-        series1.getData().add(new XYChart.Data<>("WALT", 50.0));
-        series1.getData().add(new XYChart.Data<>("HAMM", 51.0));
-        series1.getData().add(new XYChart.Data<>("CAMD", 53.0));
-        series1.getData().add(new XYChart.Data<>("ISLI", 54.0));
-        series1.getData().add(new XYChart.Data<>("MERT", 56.0));
-        series1.getData().add(new XYChart.Data<>("TOWH", 57.0));
-        series1.getData().add(new XYChart.Data<>("NEWH", 57.0));
-        series1.getData().add(new XYChart.Data<>("HRGY", 57.0));
-        series1.getData().add(new XYChart.Data<>("GWCH", 61.0));
-        series1.getData().add(new XYChart.Data<>("HILL", 63.0));
-        series1.getData().add(new XYChart.Data<>("HOUN", 64.0));
-        series1.getData().add(new XYChart.Data<>("CITY", 67.0));
-        series1.getData().add(new XYChart.Data<>("LEWS", 67.0));
-        series1.getData().add(new XYChart.Data<>("BROM", 67.0));
-        series1.getData().add(new XYChart.Data<>("ENFI", 68.0));
-        series1.getData().add(new XYChart.Data<>("KENS", 81.0));
-        series1.getData().add(new XYChart.Data<>("CROY", 84.0));
-        series1.getData().add(new XYChart.Data<>("BARN", 88.0));
-        series1.getData().add(new XYChart.Data<>("EALI", 97.0));
-        series1.getData().add(new XYChart.Data<>("HRRW", 103.0));
-        series1.getData().add(new XYChart.Data<>("WAND", 110.0));
-        series1.getData().add(new XYChart.Data<>("WSTM", 117.0));
-        series1.getData().add(new XYChart.Data<>("LAMB", 127.0));
-        series1.getData().add(new XYChart.Data<>("BREN", 128.0));
-        series1.getData().add(new XYChart.Data<>("STHW", 139.0));
+        XYChart.Series<String, Number> series2 = new XYChart.Series<>();
+        series2.getData().add(new XYChart.Data<>("WALT", 50.0));
+        series2.getData().add(new XYChart.Data<>("HAMM", 51.0));
+        series2.getData().add(new XYChart.Data<>("CAMD", 53.0));
+        series2.getData().add(new XYChart.Data<>("ISLI", 54.0));
+        series2.getData().add(new XYChart.Data<>("MERT", 56.0));
+        series2.getData().add(new XYChart.Data<>("TOWH", 57.0));
+        series2.getData().add(new XYChart.Data<>("NEWH", 57.0));
+        series2.getData().add(new XYChart.Data<>("HRGY", 57.0));
+        series2.getData().add(new XYChart.Data<>("GWCH", 61.0));
+        series2.getData().add(new XYChart.Data<>("HILL", 63.0));
+        series2.getData().add(new XYChart.Data<>("HOUN", 64.0));
+        series2.getData().add(new XYChart.Data<>("CITY", 67.0));
+        series2.getData().add(new XYChart.Data<>("LEWS", 67.0));
+        series2.getData().add(new XYChart.Data<>("BROM", 67.0));
+        series2.getData().add(new XYChart.Data<>("ENFI", 68.0));
+        XYChart.Series<String, Number> series3 = new XYChart.Series<>();
+        series3.getData().add(new XYChart.Data<>("KENS", 81.0));
+        series3.getData().add(new XYChart.Data<>("CROY", 84.0));
+        series3.getData().add(new XYChart.Data<>("BARN", 88.0));
+        series3.getData().add(new XYChart.Data<>("EALI", 97.0));
+        series3.getData().add(new XYChart.Data<>("HRRW", 103.0));
+        series3.getData().add(new XYChart.Data<>("WAND", 110.0));
+        series3.getData().add(new XYChart.Data<>("WSTM", 117.0));
+        series3.getData().add(new XYChart.Data<>("LAMB", 127.0));
+        series3.getData().add(new XYChart.Data<>("BREN", 128.0));
+        series3.getData().add(new XYChart.Data<>("STHW", 139.0));
 
         //Setting the data to bar chart       
-        barChart.getData().addAll(series1);
+        barChart.getData().addAll(series1, series2, series3);
         return barChart;
     }
 
