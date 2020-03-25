@@ -13,6 +13,16 @@ import javafx.scene.control.Button;
 import javafx.geometry.Orientation;
 import java.util.HashSet; 
 import javafx.scene.paint.Color;
+import java.util.Arrays;
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.stage.Stage;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 /**
  * Write a description of JavaFX class a here.
  *
@@ -45,7 +55,7 @@ public class Main extends Application
     private Label stat2 = new Label();
     private Label stat3 = new Label();
     private Label stat4 = new Label();
-     
+
     // check if the values in "from" and "to" boxes are correct
     private boolean correctBoxValues = true;
     // A set containing all the buttons in the borough
@@ -121,13 +131,13 @@ public class Main extends Application
         commonLayout.setStyle("-fx-border-color: white; -fx-border-width: 0px 0px 1px 0px; -fx-padding: 5px ;");    
 
         // Show the Stage (window)
-        window.setScene(new Scene(borderPane,500, 500));
+        window.setScene(new Scene(borderPane, 1100, 550));
         window.show();
     }
 
     /**
      * Create and display the map and buttons on the second screen.
-     * @return The StackPane displaying the map and buttons.
+     * @return The StackPane displaying the map and buttons
      */
     private StackPane imagePane()
     {
@@ -204,9 +214,9 @@ public class Main extends Application
         stat1.setText("\n\n  number of reviews per property.\n\n" +
             "\t\t\t" + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
         stat2.setText("\n\n Total number of available properties.\n\n" +
-                "\t\t\t" + dataLoader.getAvailability());
+            "\t\t\t" + dataLoader.getAvailability());
         stat3.setText("\n\n  Total number of homes available.\n\n" +
-                "\t\t\t" +  dataLoader.getHome());
+            "\t\t\t" +  dataLoader.getHome());
         stat4.setText("\n This is The most expensive borough");
 
         gridPane.add(stat1, 1, 0, 1, 1);
@@ -234,6 +244,64 @@ public class Main extends Application
         stat3f.setOnAction(this::stat3Action);
         stat4f.setOnAction(this::stat4Action);
         return hbox;
+    }
+
+    private BarChart chartGraph()
+    {
+        CategoryAxis xAxis = new CategoryAxis();  
+        xAxis.setCategories(FXCollections.<String>
+            observableArrayList(Arrays.asList("KING", "SUTT", "RICH", "HAVE", "BARK", "BEXL", "REDB",
+                    "WALT", "HAMM", "CAMD", "ISLI", "MERT", "TOWH", "NEWH", "HRGY", "GWCH", "HILL", "HOUN", 
+                    "CITY", "LEWS", "BROM", "ENFI", "KENS", "CROY", "BARN", "EALI", "HRRW", "WAND", "WSTM",
+                    "LAMB", "BREN", "STHW")));
+        xAxis.setLabel("category");
+
+        NumberAxis yAxis = new NumberAxis();
+        yAxis.setLabel("Deaths");
+        xAxis.setLabel("Borough");
+        
+        //Creating the Bar chart
+        BarChart<String, Number> barChart = new BarChart<>(xAxis, yAxis); 
+        barChart.setTitle("Covid-19 deaths in each borough");
+        //Prepare XYChart.Series objects by setting data       
+        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
+        series1.setName("Deaths in each borough");
+        series1.getData().add(new XYChart.Data<>("KING", 23.0));
+        series1.getData().add(new XYChart.Data<>("SUTT", 24.0));
+        series1.getData().add(new XYChart.Data<>("RICH", 25.0));
+        series1.getData().add(new XYChart.Data<>("HAVE", 35.0));
+        series1.getData().add(new XYChart.Data<>("BARK", 35.0));
+        series1.getData().add(new XYChart.Data<>("BEXL", 39.0));
+        series1.getData().add(new XYChart.Data<>("REDB", 45.0));
+        series1.getData().add(new XYChart.Data<>("WALT", 50.0));
+        series1.getData().add(new XYChart.Data<>("HAMM", 51.0));
+        series1.getData().add(new XYChart.Data<>("CAMD", 53.0));
+        series1.getData().add(new XYChart.Data<>("ISLI", 54.0));
+        series1.getData().add(new XYChart.Data<>("MERT", 56.0));
+        series1.getData().add(new XYChart.Data<>("TOWH", 57.0));
+        series1.getData().add(new XYChart.Data<>("NEWH", 57.0));
+        series1.getData().add(new XYChart.Data<>("HRGY", 57.0));
+        series1.getData().add(new XYChart.Data<>("GWCH", 61.0));
+        series1.getData().add(new XYChart.Data<>("HILL", 63.0));
+        series1.getData().add(new XYChart.Data<>("HOUN", 64.0));
+        series1.getData().add(new XYChart.Data<>("CITY", 67.0));
+        series1.getData().add(new XYChart.Data<>("LEWS", 67.0));
+        series1.getData().add(new XYChart.Data<>("BROM", 67.0));
+        series1.getData().add(new XYChart.Data<>("ENFI", 68.0));
+        series1.getData().add(new XYChart.Data<>("KENS", 81.0));
+        series1.getData().add(new XYChart.Data<>("CROY", 84.0));
+        series1.getData().add(new XYChart.Data<>("BARN", 88.0));
+        series1.getData().add(new XYChart.Data<>("EALI", 97.0));
+        series1.getData().add(new XYChart.Data<>("HRRW", 103.0));
+        series1.getData().add(new XYChart.Data<>("WAND", 110.0));
+        series1.getData().add(new XYChart.Data<>("WSTM", 117.0));
+        series1.getData().add(new XYChart.Data<>("LAMB", 127.0));
+        series1.getData().add(new XYChart.Data<>("BREN", 128.0));
+        series1.getData().add(new XYChart.Data<>("STHW", 139.0));
+
+        //Setting the data to bar chart       
+        barChart.getData().addAll(series1);
+        return barChart;
     }
 
     /**
@@ -324,7 +392,7 @@ public class Main extends Application
      */
     private void forwardAction(ActionEvent event)
     {
-        if (counter==0) {
+        if (counter == 0) {
             analyzeBoxValues(fromComboBox, toComboBox);
             if (correctBoxValues) {
                 borderPane.setCenter(imagePane());
@@ -334,8 +402,11 @@ public class Main extends Application
             borderPane.setCenter(statisticsPane());
             counter++;
         } else if  (counter == 2) {
+            borderPane.setCenter(chartGraph());
+            counter++;
+        } else if  (counter == 3) {
             borderPane.setCenter(textPane);
-            counter = 0;
+            counter=0;
         }
     }
 
@@ -344,18 +415,21 @@ public class Main extends Application
      * @param event The ActionEvent
      */
     private void backAction(ActionEvent event) {
-        if (counter==0) {
+        if (counter == 0) {
             analyzeBoxValues(fromComboBox, toComboBox);
             if (correctBoxValues) {
-                borderPane.setCenter(statisticsPane());
+                borderPane.setCenter(chartGraph());
                 counter++;
             }
         }
-        else if  (counter==1) {
-            borderPane.setCenter(imagePane());
+        else if (counter == 1) {
+            borderPane.setCenter(statisticsPane());
             counter++;
         } 
-        else if  (counter==2) {
+        else if (counter == 2) {
+            borderPane.setCenter(imagePane());
+            counter++;
+        } else if  (counter == 3) {
             borderPane.setCenter(textPane);
             counter=0;
         }
@@ -370,11 +444,11 @@ public class Main extends Application
         {
             case (0): 
             stat1.setText("\n  number of reviews per property.\n" +
-            "\t\t\t" + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
+                "\t\t\t" + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
             break;
             case (1): 
             stat1.setText("\n borough with highest transport acessibility \n" +
-            "\t\t\t" + boroughProfileLoader.getMaxTransportAcessibility());
+                "\t\t\t" + boroughProfileLoader.getMaxTransportAcessibility());
             caseCounter1 = -1;
             break;
         }
@@ -394,7 +468,7 @@ public class Main extends Application
             break;
             case (1):
             stat2.setText("\n Borough with highest crime rate is\n"
-            + "\t\t\t" + boroughProfileLoader.getMaxCrimeRate());
+                + "\t\t\t" + boroughProfileLoader.getMaxCrimeRate());
             caseCounter2 = -1;
             break;
         }
@@ -414,7 +488,7 @@ public class Main extends Application
             break;
             case (1): 
             stat3.setText("\n\n Borough with highestcarbon emmision is\n"
-            + "\t\t\t" + boroughProfileLoader.getCarbonEmission());
+                + "\t\t\t" + boroughProfileLoader.getCarbonEmission());
             caseCounter3 = -1;
             break;
         }
@@ -433,7 +507,7 @@ public class Main extends Application
             break;
             case (1): 
             stat4.setText("\n Borough with highestcarbon emmision is\n" +
-            "\t\t\t" +  boroughProfileLoader.getGreenSpace());           
+                "\t\t\t" +  boroughProfileLoader.getGreenSpace());           
             caseCounter4 = -1;
             break;
         }
