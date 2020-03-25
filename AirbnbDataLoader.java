@@ -10,7 +10,7 @@ import java.util.stream.*;
 
 public class AirbnbDataLoader {
     // The set containing all the boroughs in the data
-    private HashSet<String> boroughsSet;
+    private ArrayList<String> boroughsSet;
 
     private static ArrayList<AirbnbListing> listings = new ArrayList<>();
 
@@ -23,7 +23,7 @@ public class AirbnbDataLoader {
     private ArrayList<String> home = new ArrayList<>();
 
     public AirbnbDataLoader() {
-        boroughsSet = new HashSet<>();
+        boroughsSet = new ArrayList<>();
         listingsMap = new HashMap<>();
         //        listings = load();
     }
@@ -167,7 +167,7 @@ public class AirbnbDataLoader {
     /**
      * @return A Set of type String containing all the boroughs in our dataset
      */
-    public HashSet<String> getBoroughs() {
+    public ArrayList<String> getBoroughs() {
         return boroughsSet;
     }
 }
