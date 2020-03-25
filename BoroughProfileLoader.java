@@ -37,6 +37,10 @@ public class BoroughProfileLoader {
             //skip the first row (column headers)
             reader.readNext();
             while ((line = reader.readNext()) != null) {
+                if (line[1].equals("Inner London")) {
+                    // don't extract data beyond the 5th last column (unnecessary)
+                    break;
+                }
                 String name = line[1];
                 int transportAccessibility = convertInt(line[64]);
                 int crimeRate = convertInt(line[48]);
@@ -49,11 +53,6 @@ public class BoroughProfileLoader {
                 crimeMap.put(crimeRate , name);
                 carbonMap.put(carbonEmissions , name);
                 greenMap.put(greenSpace , name);
-
-                if (line[1].equals("Inner London")) {
-                    break;
-                }
-                String boroughName = line[1];
             }
         } catch(IOException | URISyntaxException e) {
             System.out.println("Failure! Something went wrong");

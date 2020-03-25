@@ -11,7 +11,9 @@ import javafx.scene.text.*;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.Button;
 import javafx.geometry.Orientation;
-import java.util.HashSet; 
+
+import java.io.IOException;
+import java.util.HashSet;
 import javafx.scene.paint.Color;
 import java.util.Arrays;
 import javafx.application.Application;
@@ -71,7 +73,7 @@ public class Main extends Application
      * @param primaryStage the primary stage for this application.
      */
     @Override
-    public final void start(Stage primaryStage) {
+    public final void start(Stage primaryStage) throws IOException {
         dataLoader.load();
         window = primaryStage;
         // create the buttons needed for boroughs
@@ -177,7 +179,7 @@ public class Main extends Application
             stackPane.getChildren().addAll(hexButton.getButton());
             hexButton.getButton().setOnAction( ex -> {
                     boroughInfo.displayInfo(hexButton.getBoroughName());
-                });
+            });
         }
         return stackPane;
     }

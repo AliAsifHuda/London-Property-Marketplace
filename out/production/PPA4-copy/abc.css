@@ -31,7 +31,7 @@
 }
 
 .root{
-	-fx-background-color : -black;
+	-fx-background-color : #dfdfdf;
 	-fx-fill-width : true;
 	-fx-color : -color;
 	-fx-fill-height : true;
@@ -360,3 +360,7 @@
     -fx-background-color: #00ffff ;
 }
 
+
+.default-color0.chart-bar { -fx-bar-fill: #00ff00; }
+.default-color1.chart-bar { -fx-bar-fill: #ffff00; }
+.default-color2.chart-bar { -fx-bar-fill: #ff0000; }

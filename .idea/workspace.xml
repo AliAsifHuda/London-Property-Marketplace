@@ -2,14 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d76ba1bf-8ca1-4d46-a0cb-2ef0e8e7ca44" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/+libs/jsoup-1.13.1-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/+libs/jsoup-1.13.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jsoup_1_13_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BoroughCoronaCases.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebCrawler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoroughProfileLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoroughProfileLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoroughProfiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoroughProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abc.css" beforeDir="false" afterPath="$PROJECT_DIR$/abc.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PPA4-copy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PPA4-copy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/BoroughInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/BoroughInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/AirbnbDataLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/AirbnbDataLoader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/PPA4-copy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/PPA4-copy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/abc.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/abc.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/airbnb-london.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/airbnb-london.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,14 +50,19 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/+libs/jsoup-1.13.1-javadoc.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -87,6 +100,9 @@
       <workItem from="1585013658666" duration="300000" />
       <workItem from="1585014076994" duration="345000" />
       <workItem from="1585069658427" duration="960000" />
+      <workItem from="1585098288215" duration="14000" />
+      <workItem from="1585157418647" duration="662000" />
+      <workItem from="1585163458347" duration="3723000" />
     </task>
     <task id="LOCAL-00001" summary="Added a listener to the Table in BoroughInfo so that now when a property is clicked form the list, it's description is shown in a new window + added styling the new window + added the listener in window to close it when it loses focus (thus avoiding pollution and enhancing efficiency)">
       <created>1584927539429</created>
@@ -150,30 +166,34 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added another CSV file to the project which I downloaded from data.london.gov.uk website which basically has all data from 2016 about each borough (such as crime rate in each etc etc) + added 2 classes (BoroughProfiles and BoroughProfileLoader) which can extract values from any column in the CSV file and which we can then use later on in our program for implementing various functionality" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser" timestamp="1584999982891">
+    <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser" timestamp="1585164626111">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1584999982891" />
+    <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1585164626111" />
     <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1585070702158">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1585070702158" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1585070575552">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1585163742938">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585070575552" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1585070575552">
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1585163742938" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1585166558339">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585070575552" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1585070575552">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585166558339" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1585166558339">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585070575552" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1585070575552">
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585166558339" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1585166558339">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585070575552" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585166558339" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1585166558339">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585166558339" />
     <state x="121" y="51" key="MergeDialog" timestamp="1584927595158">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -182,17 +202,21 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="354" y="57" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1584927597291" />
+    <state x="121" y="0" key="SettingsEditor" timestamp="1585163760104">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1585163760104" />
     <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1585001760593">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1585001760593" />
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1585069658028">
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1585157418780">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1585069658028" />
-    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585010866882">
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1585157418780" />
+    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585163512019">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1585010866882" />
+    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1585163512019" />
   </component>
 </project>
