@@ -31,7 +31,7 @@
 }
 
 .root{
-	-fx-background-color : #dfdfdf;
+	-fx-background-color : #fffafa;
 	-fx-fill-width : true;
 	-fx-color : -color;
 	-fx-fill-height : true;
@@ -48,6 +48,12 @@
 */
 .label{
 	 -fx-text-fill : #8e8e8e;
+	 -fx-font-size : 20;
+	 -fx-font-weight : lighter;
+	 -fx-font : "Times New Roman";
+	 -fx-font-style : oblique;
+	 -fx-text-fill: black;
+	 -fx-padding : 2 1 2 1;
  }
 
 /*
@@ -58,9 +64,11 @@
  */
 .button {
     
-    
-	-fx-background-color : #8e8e8e;
+        -fx-font-size : 14;
+	-fx-background-color : #e6e6fa;
+	-fx-padding : 4 7 4 7;
 }
+
 .button:default{
 	-fx-background-color : -color;
 }

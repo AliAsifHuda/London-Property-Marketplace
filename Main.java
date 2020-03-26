@@ -93,7 +93,7 @@ public class Main extends Application
         commonLayout.getChildren().addAll(fromLabel, fromComboBox, backLabel, toComboBox);
 
         //text for the middle
-        text1.setFont(Font.font("calibri", FontWeight.NORMAL, FontPosture.ITALIC, 25));
+        text1.setFont(Font.font("calibri", FontWeight.BOLD, FontPosture.ITALIC, 25));
         text1.setFill(Color.BLACK);
         text1.setStrokeWidth(0.8);
         text1.setStroke(Color.WHITE);
@@ -129,8 +129,8 @@ public class Main extends Application
         toComboBox.setOnAction(this::toAction);
 
         //lines at top and bottom
-        bottomBox.setStyle("-fx-border-color: white; -fx-border-width: 1px 0px 0px 0px; -fx-padding: 5px ;");
-        commonLayout.setStyle("-fx-border-color: white; -fx-border-width: 0px 0px 1px 0px; -fx-padding: 5px ;");    
+        bottomBox.setStyle("-fx-border-color: black; -fx-border-width: 1px 0px 0px 0px; -fx-padding: 5px ;");
+        commonLayout.setStyle("-fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-padding: 5px ;");    
 
         // Show the Stage (window)
         window.setScene(new Scene(borderPane, 1100, 550));
@@ -179,7 +179,7 @@ public class Main extends Application
             stackPane.getChildren().addAll(hexButton.getButton());
             hexButton.getButton().setOnAction( ex -> {
                     boroughInfo.displayInfo(hexButton.getBoroughName());
-            });
+                });
         }
         return stackPane;
     }
@@ -213,13 +213,13 @@ public class Main extends Application
         final Button stat3f = new Button("▶");
         final Button stat4f = new Button("▶");
 
-        stat1.setText("\n\n  number of reviews per property.\n\n" +
-            "\t\t\t" + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
-        stat2.setText("\n\n Total number of available properties.\n\n" +
-            "\t\t\t" + dataLoader.getAvailability());
-        stat3.setText("\n\n  Total number of homes available.\n\n" +
-            "\t\t\t" +  dataLoader.getHome());
-        stat4.setText("\n This is The most expensive borough");
+        stat1.setText("   Average number of reviews per property: \n" +
+            " \t\t\t\t  " + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
+        stat2.setText("     Total number of available properties:  \n" +
+            "\t\t\t\t" + dataLoader.getAvailability());
+        stat3.setText("        Total number of homes available:    \n" +
+            "\t\t\t\t" +  dataLoader.getHome());
+        stat4.setText("      This is The most expensive borough:   \n" + "\t\t\t\t" + "rand");
 
         gridPane.add(stat1, 1, 0, 1, 1);
         gridPane.add(stat1b, 0, 0, 1, 1);
@@ -234,7 +234,7 @@ public class Main extends Application
         gridPane.add(stat4b, 0, 6, 1, 1);
         gridPane.add(stat4f, 2, 6, 1, 1);
         hbox.getChildren().add(gridPane);
-        hbox.setMargin(gridPane, new Insets(10, 10, 10, 80));
+        hbox.setMargin(gridPane, new Insets(40, 10, 10, 20));
 
         stat1b.setOnAction(this::stat1Action);
         stat2b.setOnAction(this::stat2Action);
@@ -245,6 +245,7 @@ public class Main extends Application
         stat2f.setOnAction(this::stat2Action);
         stat3f.setOnAction(this::stat3Action);
         stat4f.setOnAction(this::stat4Action);
+        
         return hbox;
     }
 
@@ -261,7 +262,7 @@ public class Main extends Application
         NumberAxis yAxis = new NumberAxis();
         yAxis.setLabel("Deaths");
         xAxis.setLabel("Borough");
-        
+
         //Creating the Bar chart
         BarChart<String, Number> barChart = new BarChart<>(xAxis, yAxis); 
         barChart.setTitle("Covid-19 deaths in each borough");
@@ -448,11 +449,11 @@ public class Main extends Application
         switch(caseCounter1)
         {
             case (0): 
-            stat1.setText("number of reviews per property.\n" +
-                "\t\t\t" + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
+            stat1.setText("   Average number of reviews per property: \n" +
+                " \t\t\t\t " + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
             break;
             case (1): 
-            stat1.setText(" borough with highest transport acessibility \n" +
+            stat1.setText("Borough with highest transport acessibility:\n" +
                 "\t\t\t" + boroughProfileLoader.getMaxTransportAcessibility());
             caseCounter1 = -1;
             break;
@@ -468,11 +469,11 @@ public class Main extends Application
         switch(caseCounter2)
         {
             case (0): 
-            stat2.setText(" Total number of available properties.\n" +
-                "\t\t\t" + dataLoader.getAvailability());
+            stat2.setText("     Total number of available properties:  \n" +
+                "\t\t\t\t  " + dataLoader.getAvailability());
             break;
             case (1):
-            stat2.setText(" Borough with highest crime rate is.\n"
+            stat2.setText("\tBorough with highest crime rate is:\n"
                 + "\t\t\t" + boroughProfileLoader.getMaxCrimeRate());
             caseCounter2 = -1;
             break;
@@ -488,11 +489,11 @@ public class Main extends Application
         switch(caseCounter3)
         {
             case (0): 
-            stat3.setText(" Total number of homes available.\n" +
-                "\t\t\t" +  dataLoader.getHome());
+            stat3.setText("        Total number of homes available:    \n" +
+                "\t\t\t\t" +  dataLoader.getHome());
             break;
             case (1): 
-            stat3.setText(" Borough with highestcarbon emmision is.\n"
+            stat3.setText(" Borough with highest carbon emmision is:\n"
                 + "\t\t\t" + boroughProfileLoader.getCarbonEmission());
             caseCounter3 = -1;
             break;
@@ -508,11 +509,11 @@ public class Main extends Application
         switch(caseCounter4)
         {
             case (0): 
-            stat4.setText(" This is The most expensive borough\n");
+            stat4.setText("     This is The most expensive borough:   \n" + "\t\t\t\t" + "rand");
             break;
             case (1): 
-            stat4.setText(" Borough with highest carbon emmision is\n" +
-                "\t\t\t" +  boroughProfileLoader.getGreenSpace());           
+            stat4.setText("    Borough with highest green space is:\n" +
+                "\t\t\t   " +  boroughProfileLoader.getGreenSpace());           
             caseCounter4 = -1;
             break;
         }
