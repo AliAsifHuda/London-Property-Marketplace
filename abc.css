@@ -1,10 +1,10 @@
 /*
-*		FLATBEE by KarlTheBee´
+*       FLATBEE by KarlTheBee´
 * An javafx css style for a smooth & flat user interface
 * Website : github.com/karlthebee/flatbee
 * Mail    : karlthebee@gmail.com
 *
-*	Version 1.0.0
+*   Version 1.0.0
 *
 * The license is pretty much a CC-BY-NC 4.0 license (https://creativecommons.org/licenses/by-nc/4.0/).
 * In simple (non legal) english : 
@@ -16,29 +16,29 @@
 
 
 * {
-	-color : #efefef;
-	-white : #efefef;
-	-gray : #dfdfdf;
-	-darkGray : derive(-gray,-25%);
-	-blacks : #444444dd;
-	-abort : #e74c3c;
-	-black : #000000
+    -color : #efefef;
+    -white : #efefef;
+    -gray : #dfdfdf;
+    -darkGray : derive(-gray,-25%);
+    -blacks : #444444dd;
+    -abort : #e74c3c;
+    -black : #000000
 /*
-	-yellow : #ffff00
-	-green : #00ffff
+    -yellow : #ffff00
+    -green : #00ffff
 */
 
 }
 
 .root{
-	-fx-background-color : #fffafa;
-	-fx-fill-width : true;
-	-fx-color : -color;
-	-fx-fill-height : true;
-	-fx-font-family: 'Calibri';
-	/* remove the ugly focus shade */
-	-fx-focus-color : transparent;
-	-fx-faint-focus-color: transparent;
+    -fx-background-color : #fffffe;
+    -fx-fill-width : true;
+    -fx-color : -color;
+    -fx-fill-height : true;
+    -fx-font-family: 'Calibri';
+    /* remove the ugly focus shade */
+    -fx-focus-color : transparent;
+    -fx-faint-focus-color: transparent;
 }
 
 /*
@@ -47,13 +47,13 @@
  * **********
 */
 .label{
-	 -fx-text-fill : #8e8e8e;
-	 -fx-font-size : 20;
-	 -fx-font-weight : lighter;
-	 -fx-font : "Times New Roman";
-	 -fx-font-style : oblique;
-	 -fx-text-fill: black;
-	 -fx-padding : 2 1 2 1;
+     -fx-text-fill : #8e8e8e;
+     -fx-font-size : 20;
+     -fx-font-weight : lighter;
+     -fx-font-family : 'Times New Roman';
+     -fx-font-style : oblique;
+     -fx-text-fill: black;
+     -fx-padding : 2 1 2 1;
  }
 
 /*
@@ -64,27 +64,30 @@
  */
 .button {
     
-        -fx-font-size : 14;
-	-fx-background-color : #e6e6fa;
-	-fx-padding : 4 7 4 7;
+    -fx-font-size : 15;
+    -fx-background-color : #e6e6fa;
+    -fx-font-weight : bolder;
+    -fx-font-family : 'Times New Roman';
+    -fx-font-style : normal;
+    -fx-padding : 4 8 4 8;
 }
 
 .button:default{
-	-fx-background-color : -color;
+    -fx-background-color : -color;
 }
 .button:cancel{
-	-fx-background-color : -abort;
+    -fx-background-color : -abort;
 }
 
 .button:focused {
-	-fx-color : -darkGray;
-   -fx-background-color : -darkGray;
-   -fx-focus-color : -darkGray;
+    -fx-color : -darkGray;
+    -fx-background-color : -darkGray;
+    -fx-focus-color : -darkGray;
 }
 .button:hover {
-    -fx-color: -darkGray;
-	-fx-inner-border : -darkGray;
-	-fx-body-color : -darkGray;
+        -fx-color: -darkGray;
+    -fx-inner-border : -darkGray;
+    -fx-body-color : -darkGray;
 }
 
 .button:armed {
@@ -93,27 +96,27 @@
 
 
 .toggle-button{
-	-fx-background-color : -gray;
+    -fx-background-color : -gray;
 }
 
 .toggle-button:selected{
-	-fx-background-color : -darkGray;
+    -fx-background-color : -darkGray;
 }
 
 .menu-button{
-	-fx-background-color : -gray;
+    -fx-background-color : -gray;
 }
 
 .split-menu-button{
-	-fx-background-color : -gray;
+    -fx-background-color : -gray;
 }
 
 .split-menu-button>*.label{
-	-fx-background-color : -gray;
+    -fx-background-color : -gray;
 }
 
 .split-menu-button>*.arrow-button{
-	-fx-background-color : -gray;
+    -fx-background-color : -gray;
 }
 
 
@@ -124,7 +127,7 @@
  * 
  */
 .menu-bar{
-	-fx-background-color : -black;
+    -fx-background-color : -black;
 }
  
 
@@ -135,14 +138,14 @@
  * 
  */
  .check-box>*.box{
-	 -fx-background-color : -gray;
+     -fx-background-color : -gray;
  }
  
  .check-box:selected>*.box>*.mark{
-	 -fx-background-color : -black;
+     -fx-background-color : -black;
  }
 .check-box:indeterminate>*.box>*.mark{
-	 -fx-background-color : -black;
+     -fx-background-color : -black;
  }
  
  
@@ -153,11 +156,11 @@
  * 
  */
  .radio-button>*.radio{
-	-fx-background-color : -gray; 
+    -fx-background-color : -gray; 
  }
  
  .radio-button:selected>*.radio>*.dot{
-	 -fx-background-color : -black;
+     -fx-background-color : -black;
  }
  
 /*
@@ -167,21 +170,21 @@
  * 
  */
 .text-field{
-	-fx-highlight-fill : -color;
-	-fx-highlight-text-fill : -white;
+    -fx-highlight-fill : -color;
+    -fx-highlight-text-fill : -white;
 }
 
 .text-area{
-	-fx-highlight-fill : -color;
-	-fx-highlight-text-fill : -white;
+    -fx-highlight-fill : -color;
+    -fx-highlight-text-fill : -white;
 }
  
 .spinner>*.increment-arrow-button{
-	-fx-background-color : -gray;
+    -fx-background-color : -gray;
 }
 
 .spinner>*.decrement-arrow-button{
-	-fx-background-color : -gray;
+    -fx-background-color : -gray;
 }
 /*
  * **********
@@ -191,19 +194,19 @@
  */
 
 .first-titled-pane:expanded>*.title{
-	-fx-background-color : -color;
+    -fx-background-color : -color;
 }
 
 .titled-pane:expanded>*.title{
-	-fx-background-color : -color;
+    -fx-background-color : -color;
 }
 
 .titled-pane:collapsed>*.title{
-	-fx-background-color : -gray;
+    -fx-background-color : -gray;
 }
 
 .titled-pane*>*.title>*.arrow-button>*.arrow{
-	-fx-background-color : -black;
+    -fx-background-color : -black;
 }
 
 /*
@@ -213,52 +216,52 @@
  * 
  
 .table-view:row-selection{
-	-fx-background-color : -gray;
+    -fx-background-color : -gray;
 }
 
 .table-view:row-selection>*.column-header-background{
-	-fx-background-color : -white;
+    -fx-background-color : -white;
 }
 
 .table-view>*.column-resize-line{
-	-fx-background-color : -black;
+    -fx-background-color : -black;
 }
 
 .table-view>*.column-header-background>*.nested-column-header>*.table-column{
-	-fx-background-color : -darkGray, -white;
+    -fx-background-color : -darkGray, -white;
 }
 
 .table-view>*.column-header-background>*.filler{
-	-fx-background-color : -darkGray, -gray;
+    -fx-background-color : -darkGray, -gray;
 }
 
 .table-view>*.column-header-background>*.show-hide-columns-button{
-	-fx-background-color : -gray;
+    -fx-background-color : -gray;
 }
 
 
 .tree-table-view:row-selection{
-	-fx-background-color : -gray;
+    -fx-background-color : -gray;
 }
 
 .tree-table-view:row-selection>*.column-header-background{
-	-fx-background-color : -white;
+    -fx-background-color : -white;
 }
 
 .tree-table-view>*.column-resize-line{
-	-fx-background-color : -black;
+    -fx-background-color : -black;
 }
 
 .tree-table-view>*.column-header-background>*.nested-column-header>*.table-column{
-	-fx-background-color : -darkGray, -white;
+    -fx-background-color : -darkGray, -white;
 }
 
 .tree-table-view>*.column-header-background>*.filler{
-	-fx-background-color : -darkGray, -gray;
+    -fx-background-color : -darkGray, -gray;
 }
 
 .tree-table-view>*.column-header-background>*.show-hide-columns-button{
-	-fx-background-color : -gray;
+    -fx-background-color : -gray;
 }
  */
 
@@ -269,7 +272,7 @@
  * 
  */
 .color-picker{
-	-fx-background-color : -gray;
+    -fx-background-color : -gray;
 }
 
 /*
@@ -279,11 +282,11 @@
  * 
  */
 .scroll-pane>*.scroll-bar{
-	-fx-background-color : -gray;
+    -fx-background-color : -gray;
 }
 
 .scroll-pane>*.scroll-bar>*.thumb{
-	-fx-background-color : -color;
+    -fx-background-color : -color;
 }
 
 /*

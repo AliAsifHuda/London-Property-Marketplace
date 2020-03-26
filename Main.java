@@ -133,7 +133,7 @@ public class Main extends Application
         commonLayout.setStyle("-fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-padding: 5px ;");    
 
         // Show the Stage (window)
-        window.setScene(new Scene(borderPane, 1100, 550));
+        window.setScene(new Scene(borderPane, 1100, 600));
         window.show();
     }
 
@@ -146,31 +146,31 @@ public class Main extends Application
         //keeps track of the index of a button (which button it is)
         int index = 0;
         //initial starting position values of buttons
-        int a = -63 , b = -140 , c = -166 , d = -140 , e = -115 , f = -89;
+        int a = -55 , b = -175 , c = -215 , d = -175 , e = -135 , f = -96;
         for (String boroughName : dataLoader.getBoroughs()) {
             HexButton hexButton = new HexButton(boroughName);
             boroughButtons.add(hexButton);
             if (index == 0) {
                 //gap between each button
-                hexButton.setButtonPosition(15, -129);
+                hexButton.setButtonPosition(65, -180);
             } else if (index <= 3) {
-                hexButton.setButtonPosition(a, -86);
-                a = a + 52;  
+                hexButton.setButtonPosition(a, -120);
+                a = a + 80;  
             } else if (index >= 4 && index <= 10) {
-                hexButton.setButtonPosition(b, -43);
-                b = b + 52;
+                hexButton.setButtonPosition(b, -60);
+                b = b + 80;
             } else if (index >= 10 && index <= 17) {
                 hexButton.setButtonPosition(c, 0);
-                c = c + 52;
+                c = c + 80;
             } else if (index >= 17 && index <= 23) {
-                hexButton.setButtonPosition(d, 43);
-                d = d + 52;
+                hexButton.setButtonPosition(d, 60);
+                d = d + 80;
             } else if (index >= 24 && index <= 28) {
-                hexButton.setButtonPosition(e, 86);
-                e = e + 52;
+                hexButton.setButtonPosition(e, 120);
+                e = e + 80;
             } else if (index >= 28 && index <= 34) {
-                hexButton.setButtonPosition(f, 129);
-                f = f + 52;
+                hexButton.setButtonPosition(f, 180);
+                f = f + 80;
             }
             index++;
             HexButton hexButtonHover = new HexButton(boroughName); //create a new button to display no of properties 
@@ -245,7 +245,7 @@ public class Main extends Application
         stat2f.setOnAction(this::stat2Action);
         stat3f.setOnAction(this::stat3Action);
         stat4f.setOnAction(this::stat4Action);
-        
+
         return hbox;
     }
 
@@ -277,6 +277,7 @@ public class Main extends Application
         series1.getData().add(new XYChart.Data<>("BARK", 35.0));
         series1.getData().add(new XYChart.Data<>("BEXL", 39.0));
         series1.getData().add(new XYChart.Data<>("REDB", 45.0));
+
         XYChart.Series<String, Number> series2 = new XYChart.Series<>();
         series2.getData().add(new XYChart.Data<>("WALT", 50.0));
         series2.getData().add(new XYChart.Data<>("HAMM", 51.0));
@@ -293,6 +294,7 @@ public class Main extends Application
         series2.getData().add(new XYChart.Data<>("LEWS", 67.0));
         series2.getData().add(new XYChart.Data<>("BROM", 67.0));
         series2.getData().add(new XYChart.Data<>("ENFI", 68.0));
+
         XYChart.Series<String, Number> series3 = new XYChart.Series<>();
         series3.getData().add(new XYChart.Data<>("KENS", 81.0));
         series3.getData().add(new XYChart.Data<>("CROY", 84.0));

@@ -68,7 +68,7 @@ public class HexButton
             200.0, -250.0
         );
         myButton.setShape(polygon);
-        myButton.setMaxSize(50,50);
+        myButton.setMaxSize(75, 75);
         myButton.setText(boroughName.substring(0, 4).toUpperCase());
     }
 
