@@ -8,6 +8,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font; 
 
 /**
  * A new alert box which displays a message.
@@ -34,6 +36,7 @@ public class AlertBox {
         VBox layout = new VBox(40);
         layout.setAlignment(Pos.CENTER);
         layout.getChildren().addAll(dispMessage, closeButton);
+        dispMessage.setStyle("-fx-font-size : 15; -fx-text-fill: red; -fx-font-weight : lighter; -fx-font-family : 'Times New Roman';");
 
         window.setScene(new Scene(layout, 600, 100));
         window.show();

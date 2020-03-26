@@ -48,12 +48,12 @@
 */
 .label{
      -fx-text-fill : #8e8e8e;
-     -fx-font-size : 20;
+     -fx-font-size : 18;
      -fx-font-weight : lighter;
      -fx-font-family : 'Times New Roman';
      -fx-font-style : oblique;
      -fx-text-fill: black;
-     -fx-padding : 2 1 2 1;
+     -fx-padding : 12 4 4 4;
  }
 
 /*

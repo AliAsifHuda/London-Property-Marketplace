@@ -133,7 +133,7 @@ public class Main extends Application
         commonLayout.setStyle("-fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-padding: 5px ;");    
 
         // Show the Stage (window)
-        window.setScene(new Scene(borderPane, 1100, 600));
+        window.setScene(new Scene(borderPane, 1080, 600));
         window.show();
     }
 
@@ -220,6 +220,7 @@ public class Main extends Application
         stat3.setText("        Total number of homes available:    \n" +
             "\t\t\t\t" +  dataLoader.getHome());
         stat4.setText("      This is The most expensive borough:   \n" + "\t\t\t\t" + "rand");
+        stat4.setStyle("-fx-text-fill: red;");
 
         gridPane.add(stat1, 1, 0, 1, 1);
         gridPane.add(stat1b, 0, 0, 1, 1);
@@ -453,10 +454,13 @@ public class Main extends Application
             case (0): 
             stat1.setText("   Average number of reviews per property: \n" +
                 " \t\t\t\t " + dataLoader.getNumberOfReviews()/dataLoader.getListings().size());
+            stat1.setStyle("-fx-text-fill: black;");
+
             break;
             case (1): 
             stat1.setText("Borough with highest transport acessibility:\n" +
                 "\t\t\t" + boroughProfileLoader.getMaxTransportAcessibility());
+            stat1.setStyle("-fx-text-fill: green;");
             caseCounter1 = -1;
             break;
         }
@@ -473,10 +477,12 @@ public class Main extends Application
             case (0): 
             stat2.setText("     Total number of available properties:  \n" +
                 "\t\t\t\t  " + dataLoader.getAvailability());
+            stat2.setStyle("-fx-text-fill: black;");
             break;
             case (1):
             stat2.setText("\tBorough with highest crime rate is:\n"
                 + "\t\t\t" + boroughProfileLoader.getMaxCrimeRate());
+            stat2.setStyle(" -fx-text-fill: red;");
             caseCounter2 = -1;
             break;
         }
@@ -493,10 +499,12 @@ public class Main extends Application
             case (0): 
             stat3.setText("        Total number of homes available:    \n" +
                 "\t\t\t\t" +  dataLoader.getHome());
+            stat3.setStyle("-fx-text-fill: black;");
             break;
             case (1): 
             stat3.setText(" Borough with highest carbon emmision is:\n"
                 + "\t\t\t" + boroughProfileLoader.getCarbonEmission());
+            stat3.setStyle("-fx-text-fill: green;");
             caseCounter3 = -1;
             break;
         }
@@ -512,10 +520,12 @@ public class Main extends Application
         {
             case (0): 
             stat4.setText("     This is The most expensive borough:   \n" + "\t\t\t\t" + "rand");
+            stat4.setStyle("-fx-text-fill: red;");
             break;
             case (1): 
             stat4.setText("    Borough with highest green space is:\n" +
-                "\t\t\t   " +  boroughProfileLoader.getGreenSpace());           
+                "\t\t\t   " +  boroughProfileLoader.getGreenSpace());
+            stat4.setStyle("-fx-text-fill: green; ");
             caseCounter4 = -1;
             break;
         }
