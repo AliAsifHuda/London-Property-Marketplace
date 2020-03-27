@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d76ba1bf-8ca1-4d46-a0cb-2ef0e8e7ca44" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/io_github_typhon0_AnimateFX_1_2_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebCrawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/HexButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/HexButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/PPA4-copy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/PPA4-copy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/abc.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/abc.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,9 +57,9 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -93,7 +101,11 @@
       <workItem from="1585157418647" duration="662000" />
       <workItem from="1585163458347" duration="3905000" />
       <workItem from="1585183677167" duration="10000" />
-      <workItem from="1585184315706" duration="36000" />
+      <workItem from="1585184315706" duration="423000" />
+      <workItem from="1585184821683" duration="131000" />
+      <workItem from="1585185141024" duration="2055000" />
+      <workItem from="1585250669714" duration="1175000" />
+      <workItem from="1585317821729" duration="552000" />
     </task>
     <task id="LOCAL-00001" summary="Added a listener to the Table in BoroughInfo so that now when a property is clicked form the list, it's description is shown in a new window + added styling the new window + added the listener in window to close it when it loses focus (thus avoiding pollution and enhancing efficiency)">
       <created>1584927539429</created>
@@ -137,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585167355965</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added the external AnimationFX to the project">
+      <created>1585184439529</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1585184439529</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,37 +181,38 @@
     <MESSAGE value="Caught a NullPointerException caused by an attempt to sort the list in ascending or descending order without first selecting which criteria to do it by (in the other drop-down list) + made the PropertyInfo display properties in a better way + fixed alignment in it" />
     <MESSAGE value="Added another CSV file to the project which I downloaded from data.london.gov.uk website which basically has all data from 2016 about each borough (such as crime rate in each etc etc) + added 2 classes (BoroughProfiles and BoroughProfileLoader) which can extract values from any column in the CSV file and which we can then use later on in our program for implementing various functionality" />
     <MESSAGE value="Added a Web Crawler as part of a challenge task which gets real data of the number of coronavirus cases in London by each Borough from a website and creates objects of the class BoroughCoronaCases. These values can then be used later on in Graphs and charts etc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a Web Crawler as part of a challenge task which gets real data of the number of coronavirus cases in London by each Borough from a website and creates objects of the class BoroughCoronaCases. These values can then be used later on in Graphs and charts etc" />
+    <MESSAGE value="Added the external AnimationFX to the project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the external AnimationFX to the project" />
   </component>
   <component name="WindowStateProjectService">
     <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser" timestamp="1585164626111">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1585164626111" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1585167354551">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1585184438220">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1585167354551" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1585184438220" />
     <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1585163742938">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1585163742938" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1585167371951">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1585318413918">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585167371951" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1585167371950">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585318413918" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1585318413918">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585167371950" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1585167371950">
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585318413918" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1585318413917">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585167371950" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1585167371950">
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585318413917" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1585318413918">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585167371950" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585318413918" />
     <state x="121" y="51" key="MergeDialog" timestamp="1584927595158">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -201,25 +221,25 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="354" y="57" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1584927597291" />
-    <state x="121" y="0" key="SettingsEditor" timestamp="1585184351171">
+    <state x="121" y="0" key="SettingsEditor" timestamp="1585185276065">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1585184351171" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1585167359496">
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1585185276065" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1585184442181">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1585167359496" />
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1585183677392">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1585184442181" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1585317869266">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1585183677392" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1585317869266" />
     <state x="375" y="234" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1585184342695">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="375" y="234" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1280.680@0.0.1280.680" timestamp="1585184342695" />
-    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585163512019">
+    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585317878216">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1585163512019" />
+    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1585317878216" />
   </component>
 </project>

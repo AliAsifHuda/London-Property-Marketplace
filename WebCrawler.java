@@ -23,7 +23,7 @@ public class WebCrawler {
      */
     public void fetchData() throws IOException {
         boolean firstRow = true;
-        Document doc = Jsoup.connect("https://www.mylondon.news/news/health/london-coronavirus-map-exact-number-17973647").get();
+        Document doc = Jsoup.connect("https://www.cityam.com/coronavirus-worst-affected-london-boroughs/").get();
         Elements rows = doc.select("tr");
         for (Element row : rows) {
             if (firstRow) {
@@ -32,10 +32,6 @@ public class WebCrawler {
                 continue;
             }
             Elements columns = row.select("td");
-            if (columns.get(0).text().equals("Total")) {
-                // break out of the loop if fetching the last row of table (it contains the total cases)
-                break;
-            }
             String boroughName = columns.get(0).text();
             String cases = columns.get(1).text();
             double intCases = Double.parseDouble(cases);
