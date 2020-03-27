@@ -5,9 +5,9 @@
 public class BoroughCoronaCases {
 
     private String borough;
-    private String cases;
+    private double cases;
 
-    public BoroughCoronaCases(String borough, String cases) {
+    public BoroughCoronaCases(String borough, double cases) {
         this.borough = borough;
         this.cases = cases;
     }
@@ -22,7 +22,7 @@ public class BoroughCoronaCases {
     /**
      * @return The number of cases in this borough (of type String)
      */
-    public String getCases() {
+    public double getCases() {
         return cases;
     }
 }

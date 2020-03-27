@@ -57,7 +57,7 @@ public class Main extends Application
     private Label stat2 = new Label();
     private Label stat3 = new Label();
     private Label stat4 = new Label();
-
+    private WebCrawler webCrawler = new WebCrawler();
     // check if the values in "from" and "to" boxes are correct
     private boolean correctBoxValues = true;
     // A set containing all the buttons in the borough
@@ -75,6 +75,7 @@ public class Main extends Application
     @Override
     public final void start(Stage primaryStage) throws IOException {
         dataLoader.load();
+        webCrawler.fetchData();
         window = primaryStage;
         // create the buttons needed for boroughs
         window.setTitle("Property");
@@ -130,7 +131,7 @@ public class Main extends Application
 
         //lines at top and bottom
         bottomBox.setStyle("-fx-border-color: black; -fx-border-width: 1px 0px 0px 0px; -fx-padding: 5px ;");
-        commonLayout.setStyle("-fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-padding: 5px ;");    
+        commonLayout.setStyle("-fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-padding: 5px ;");   
 
         // Show the Stage (window)
         window.setScene(new Scene(borderPane, 1080, 600));
@@ -250,65 +251,120 @@ public class Main extends Application
         return hbox;
     }
 
+    /**
+     * A Pane for showing a graph that co-relates to covid 19 cases in each borough.
+     * @return The barchary displaying cases in each borough.
+     */
     private BarChart chartGraph()
     {
-        CategoryAxis xAxis = new CategoryAxis();  
-        xAxis.setCategories(FXCollections.<String>
-            observableArrayList(Arrays.asList("KING", "SUTT", "RICH", "HAVE", "BARK", "BEXL", "REDB",
-                    "WALT", "HAMM", "CAMD", "ISLI", "MERT", "TOWH", "NEWH", "HRGY", "GWCH", "HILL", "HOUN", 
-                    "CITY", "LEWS", "BROM", "ENFI", "KENS", "CROY", "BARN", "EALI", "HRRW", "WAND", "WSTM",
-                    "LAMB", "BREN", "STHW")));
-        xAxis.setLabel("category");
-
-        NumberAxis yAxis = new NumberAxis();
-        yAxis.setLabel("Deaths");
-        xAxis.setLabel("Borough");
-
         //Creating the Bar chart
+        CategoryAxis xAxis = new CategoryAxis();  
+        NumberAxis yAxis = new NumberAxis();
         BarChart<String, Number> barChart = new BarChart<>(xAxis, yAxis); 
         barChart.setTitle("Covid-19 deaths in each borough");
+        yAxis.setLabel("Deaths");
+        xAxis.setLabel("Borough");
         barChart.setLegendVisible(false);
-        //Prepare XYChart.Series objects by setting data       
         XYChart.Series<String, Number> series1 = new XYChart.Series<>();
         series1.setName("Deaths in each borough");
-        series1.getData().add(new XYChart.Data<>("KING", 23.0));
-        series1.getData().add(new XYChart.Data<>("SUTT", 24.0));
-        series1.getData().add(new XYChart.Data<>("RICH", 25.0));
-        series1.getData().add(new XYChart.Data<>("HAVE", 35.0));
-        series1.getData().add(new XYChart.Data<>("BARK", 35.0));
-        series1.getData().add(new XYChart.Data<>("BEXL", 39.0));
-        series1.getData().add(new XYChart.Data<>("REDB", 45.0));
+        xAxis.setCategories(FXCollections.<String>
+            observableArrayList(Arrays.asList(
+                    webCrawler.getBoroughCasesList().get(0).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(1).getBoroughName(), 
+                    webCrawler.getBoroughCasesList().get(2).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(3).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(4).getBoroughName(), 
+                    webCrawler.getBoroughCasesList().get(5).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(6).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(7).getBoroughName(), 
+                    webCrawler.getBoroughCasesList().get(8).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(9).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(10).getBoroughName(), 
+                    webCrawler.getBoroughCasesList().get(11).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(12).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(13).getBoroughName(), 
+                    webCrawler.getBoroughCasesList().get(14).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(15).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(16).getBoroughName(), 
+                    webCrawler.getBoroughCasesList().get(17).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(18).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(19).getBoroughName(), 
+                    webCrawler.getBoroughCasesList().get(20).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(21).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(22).getBoroughName(), 
+                    webCrawler.getBoroughCasesList().get(23).getBoroughName(), 
+                    webCrawler.getBoroughCasesList().get(24).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(25).getBoroughName(), 
+                    webCrawler.getBoroughCasesList().get(26).getBoroughName(), 
+                    webCrawler.getBoroughCasesList().get(27).getBoroughName(),
+                    webCrawler.getBoroughCasesList().get(28).getBoroughName()
+                )));
+
+        //Prepare XYChart.Series objects by setting data       
+        series1.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(0).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(0).getCases()));
+        series1.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(1).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(1).getCases()));
+        series1.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(2).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(2).getCases()));
+        series1.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(3).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(3).getCases()));
+        series1.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(4).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(4).getCases()));
+        series1.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(5).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(5).getCases()));
 
         XYChart.Series<String, Number> series2 = new XYChart.Series<>();
-        series2.getData().add(new XYChart.Data<>("WALT", 50.0));
-        series2.getData().add(new XYChart.Data<>("HAMM", 51.0));
-        series2.getData().add(new XYChart.Data<>("CAMD", 53.0));
-        series2.getData().add(new XYChart.Data<>("ISLI", 54.0));
-        series2.getData().add(new XYChart.Data<>("MERT", 56.0));
-        series2.getData().add(new XYChart.Data<>("TOWH", 57.0));
-        series2.getData().add(new XYChart.Data<>("NEWH", 57.0));
-        series2.getData().add(new XYChart.Data<>("HRGY", 57.0));
-        series2.getData().add(new XYChart.Data<>("GWCH", 61.0));
-        series2.getData().add(new XYChart.Data<>("HILL", 63.0));
-        series2.getData().add(new XYChart.Data<>("HOUN", 64.0));
-        series2.getData().add(new XYChart.Data<>("CITY", 67.0));
-        series2.getData().add(new XYChart.Data<>("LEWS", 67.0));
-        series2.getData().add(new XYChart.Data<>("BROM", 67.0));
-        series2.getData().add(new XYChart.Data<>("ENFI", 68.0));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(6).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(6).getCases()));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(7).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(7).getCases()));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(8).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(8).getCases()));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(9).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(9).getCases()));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(10).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(10).getCases()));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(11).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(11).getCases()));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(12).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(12).getCases()));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(13).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(13).getCases()));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(14).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(14).getCases()));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(15).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(15).getCases()));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(16).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(16).getCases()));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(17).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(17).getCases()));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(18).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(18).getCases()));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(19).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(19).getCases()));
+        series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(20).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(20).getCases()));
 
         XYChart.Series<String, Number> series3 = new XYChart.Series<>();
-        series3.getData().add(new XYChart.Data<>("KENS", 81.0));
-        series3.getData().add(new XYChart.Data<>("CROY", 84.0));
-        series3.getData().add(new XYChart.Data<>("BARN", 88.0));
-        series3.getData().add(new XYChart.Data<>("EALI", 97.0));
-        series3.getData().add(new XYChart.Data<>("HRRW", 103.0));
-        series3.getData().add(new XYChart.Data<>("WAND", 110.0));
-        series3.getData().add(new XYChart.Data<>("WSTM", 117.0));
-        series3.getData().add(new XYChart.Data<>("LAMB", 127.0));
-        series3.getData().add(new XYChart.Data<>("BREN", 128.0));
-        series3.getData().add(new XYChart.Data<>("STHW", 139.0));
+        series3.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(21).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(21).getCases()));
+        series3.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(22).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(22).getCases()));
+        series3.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(23).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(23).getCases()));
+        series3.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(24).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(24).getCases()));
+        series3.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(25).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(25).getCases()));
+        series3.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(26).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(26).getCases()));
+        series3.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(27).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(27).getCases()));
+        series3.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(28).getBoroughName(),
+                webCrawler.getBoroughCasesList().get(28).getCases()));
 
-        //Setting the data to bar chart       
+        //Setting the data to bar chart  
         barChart.getData().addAll(series1, series2, series3);
         return barChart;
     }

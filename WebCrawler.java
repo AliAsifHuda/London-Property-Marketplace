@@ -38,7 +38,8 @@ public class WebCrawler {
             }
             String boroughName = columns.get(0).text();
             String cases = columns.get(1).text();
-            casesByBorough.add(new BoroughCoronaCases(boroughName, cases));
+            double intCases = Double.parseDouble(cases);
+            casesByBorough.add(new BoroughCoronaCases(boroughName, intCases));
         }
     }
 
@@ -47,5 +48,18 @@ public class WebCrawler {
      */
     public ArrayList<BoroughCoronaCases> getBoroughCasesList() {
         return casesByBorough;
+    }
+
+    /**
+     *
+     * @param doubleString the string to be converted to Double type
+     * @return the Double value of the string, or -1.0 if the string is 
+     * either empty or just whitespace
+     */
+    private Double convertDouble(String doubleString) {
+        if(doubleString != null && !doubleString.trim().equals("")) {
+            return Double.parseDouble(doubleString);
+        }
+        return -1.0;
     }
 }
