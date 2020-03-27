@@ -56,7 +56,6 @@ public class PropertyInfo {
                 + "-fx-font-family: Comic Sans MS;"
                 + "-fx-font-weight: bold;");
         price.setPadding(new Insets(10, 0,0,0));
-//        priceLabel.setPadding(new Insets(0, 0, 0, 30));
         hostName.setPadding(new Insets(10,  0, 0, 0));
         AnchorPane.setLeftAnchor(priceLabel, 10.0);
         AnchorPane.setLeftAnchor(price, 10.0);

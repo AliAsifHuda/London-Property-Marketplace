@@ -73,13 +73,16 @@ public class BoroughInfo {
     }
 
     /**
-     * Adds only the listings with a specified borough to the observable list.
+     * Adds only the listings with a specified borough and having price in
+     * the range selected by the user in the from and to comboboxes to the list
      * @return The Observable list containing all objects in that borough.
      */
     private ObservableList<AirbnbListing> getListingsList() {
         ObservableList<AirbnbListing> properties = FXCollections.observableArrayList();
         for (AirbnbListing listing : AirbnbDataLoader.getListings()) {
-            if (listing.getNeighbourhood().equals(boroughName)) {
+            boolean validPrice = listing.getPrice() >= Main.getMinRange() && listing.getPrice() <= Main.getMaxRange();
+            boolean validBorough = listing.getNeighbourhood().equals(boroughName);
+            if (validPrice && validBorough) {
                 properties.add(listing);
             }
         }

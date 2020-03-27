@@ -64,6 +64,10 @@ public class Main extends Application
     private HashSet<HexButton> boroughButtons = new HashSet<>();
 
     private BoroughInfo boroughInfo = new BoroughInfo();
+    //store the value selected in the fromComboBox
+    private static int minRange;
+    //store the value selected in the toComboBox
+    private static int maxRange;
 
     /**
      * The start method is the main entry point for every JavaFX application. 
@@ -429,6 +433,7 @@ public class Main extends Application
     {
         text1.setText("Welcome to London Property Marketplace \n\n"  +
             "Minimum price: " + displayPrice(fromComboBox) + "\n\nMaximum price: " + displayPrice(toComboBox));
+        minRange = fromComboBox.getValue();
         disableFlagA = true; //if both combobox have input back and forward button will be enabled
         if (disableFlagA && disableFlagB) {
             backButton.setDisable(false);
@@ -444,6 +449,7 @@ public class Main extends Application
     {
         text1.setText("Welcome to London Property Marketplace \n\n" +
             "Minimum price: " + displayPrice(fromComboBox) + "\n\nMaximum price: " + displayPrice(toComboBox));
+        maxRange = toComboBox.getValue();
         disableFlagB = true; //if both combobox have input back and forward button will be enabled
         if (disableFlagA && disableFlagB) {
             backButton.setDisable(false);
@@ -598,6 +604,20 @@ public class Main extends Application
                     boroughInfo.displayInfo(hexButton.getBoroughName());
                 });
         }
+    }
+
+    /**
+     * @return The value selected in fromComboBox
+     */
+    public static int getMinRange() {
+        return minRange;
+    }
+
+    /**
+     * @return The value selected in toComboBox
+     */
+    public static int getMaxRange() {
+        return maxRange;
     }
 
     public static void main(String[] args) {
