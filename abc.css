@@ -65,27 +65,24 @@
 .button {
     
     -fx-font-size : 15;
-    -fx-background-color : #e6e6fa;
-    -fx-font-weight : bolder;
+    -fx-font-weight : Normal;
     -fx-font-family : 'Times New Roman';
     -fx-font-style : normal;
     -fx-padding : 4 8 4 8;
+    -fx-text-fill : #ffffff;
 }
 
 .button:default{
-    -fx-background-color : -color;
+    -fx-background-color : -#c0c0c0;
 }
 .button:cancel{
     -fx-background-color : -abort;
 }
 
-.button:focused {
-    -fx-color : -darkGray;
-    -fx-background-color : -darkGray;
-    -fx-focus-color : -darkGray;
+
 }
 .button:hover {
-        -fx-color: -darkGray;
+    -fx-color: -darkGray;
     -fx-inner-border : -darkGray;
     -fx-body-color : -darkGray;
 }
@@ -93,7 +90,6 @@
 .button:armed {
     -fx-color: -white;
 }
-
 
 .toggle-button{
     -fx-background-color : -gray;
@@ -118,35 +114,6 @@
 .split-menu-button>*.arrow-button{
     -fx-background-color : -gray;
 }
-
-
-/*
- * **********
- * MENU
- * **********
- * 
- */
-.menu-bar{
-    -fx-background-color : -white;
-}
- 
-
-/*
- * **********
- * Checkbox
- * **********
- * 
- */
- .check-box>*.box{
-     -fx-background-color : -gray;
- }
- 
- .check-box:selected>*.box>*.mark{
-     -fx-background-color : -white;
- }
-.check-box:indeterminate>*.box>*.mark{
-     -fx-background-color : -white;
- }
  
  
 /*

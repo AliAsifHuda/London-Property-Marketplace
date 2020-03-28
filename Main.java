@@ -129,6 +129,8 @@ public class Main extends Application
         BorderPane.setMargin(bottomBox, new Insets(10));
         borderPane.getStylesheets().add("abc.css");
 
+       backButton.setStyle("-fx-text-fill : #000000;");
+       forwardButton.setStyle("-fx-text-fill : #000000;");
         // back and forward button are initially disabled
         backButton.setDisable(true);
         forwardButton.setDisable(true);
@@ -263,6 +265,7 @@ public class Main extends Application
         stat3f.setOnAction(this::stat3Action);
         stat4f.setOnAction(this::stat4Action);
 
+        hbox.requestLayout();
         return hbox;
     }
 
@@ -611,7 +614,7 @@ public class Main extends Application
         switch (caseCounter4) {
             case (0):
             stat4.setText("     This is The most expensive borough:   \n"
-                + "\t\t\t\t" + dataLoader.getMostExpensiveBorough());
+                + "\t\t\t" + dataLoader.getMostExpensiveBorough());
             stat4.setStyle("-fx-text-fill: red;");
             break;
             case (1):
