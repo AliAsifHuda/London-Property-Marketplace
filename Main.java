@@ -26,7 +26,8 @@ import javafx.stage.Stage;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 
-
+import javafx.animation.RotateTransition;  
+import javafx.util.Duration; 
 /**
  * Write a description of JavaFX class a here.
  *
@@ -276,6 +277,7 @@ public class Main extends Application
         yAxis.setLabel("Deaths");
         xAxis.setLabel("Borough");
         barChart.setLegendVisible(false);
+
         XYChart.Series<String, Number> series1 = new XYChart.Series<>();
         series1.setName("Deaths in each borough");
         xAxis.setCategories(FXCollections.<String>
@@ -442,10 +444,7 @@ public class Main extends Application
             "Minimum price: " + displayPrice(fromComboBox) + "\n\nMaximum price: " + displayPrice(toComboBox));
         minRange = fromComboBox.getValue();
         disableFlagA = true; //if both combobox have input back and forward button will be enabled
-        if (disableFlagA && disableFlagB) {
-            backButton.setDisable(false);
-            forwardButton.setDisable(false);
-        }
+        enableButton();
     }
 
     /**
@@ -458,9 +457,41 @@ public class Main extends Application
             "Minimum price: " + displayPrice(fromComboBox) + "\n\nMaximum price: " + displayPrice(toComboBox));
         maxRange = toComboBox.getValue();
         disableFlagB = true; //if both combobox have input back and forward button will be enabled
+        enableButton();
+    }
+
+    /**
+     * Enable the buttons after a valid price range is entered and play some animation 
+     */
+    public void enableButton()
+    {
         if (disableFlagA && disableFlagB) {
             backButton.setDisable(false);
             forwardButton.setDisable(false);
+            RotateTransition rotate = new RotateTransition();   
+            RotateTransition rotate1 = new RotateTransition();  
+            // setting the angle of rotation   
+            rotate.setByAngle(0);  
+            rotate1.setByAngle(0);
+            //setting cycle count of the rotation   
+            rotate.setCycleCount(2);  
+            rotate1.setCycleCount(2);
+            //Setting duration of the transition   
+            rotate.setDuration(Duration.millis(50));  
+            rotate1.setDuration(Duration.millis(50)); 
+            //the transition will be auto reversed by setting this to true   
+            rotate.setAutoReverse(true);  
+            rotate1.setAutoReverse(true);
+
+            rotate.setToAngle(360);
+            rotate1.setToAngle(360);
+            //setting Rectangle as the node onto which the   
+            // transition will be applied  
+            rotate.setNode(forwardButton);  
+            rotate1.setNode(backButton);
+            //playing the transition   
+            rotate.play(); 
+            rotate1.play();
         }
     }
 
