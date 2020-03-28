@@ -25,6 +25,8 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.stage.Stage;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+
+
 /**
  * Write a description of JavaFX class a here.
  *
@@ -232,7 +234,7 @@ public class Main extends Application
         stat3.setText("        Total number of homes available:    \n" +
             "\t\t\t\t" +  dataLoader.getHome());
         stat4.setText("      This is The most expensive borough:   \n" + "\t\t\t" +
-        dataLoader.getMostExpensiveBorough());
+            dataLoader.getMostExpensiveBorough());
         stat4.setStyle("-fx-text-fill: red;");
 
         gridPane.add(stat1, 1, 0, 1, 1);

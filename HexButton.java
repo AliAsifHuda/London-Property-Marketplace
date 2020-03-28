@@ -9,8 +9,9 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.shape.Polygon;
 import java.util.HashMap;
-
 import java.util.HashMap;
+import javafx.animation.ScaleTransition;
+import javafx.util.Duration; 
 
 /**
  * Write a description of JavaFX class HexButton here.
@@ -69,8 +70,15 @@ public class HexButton
             200.0, -250.0
         );
         myButton.setShape(polygon);
-        myButton.setMaxSize(75, 75);
-        myButton.setText(boroughName.substring(0, 4).toUpperCase());
+        myButton.setMaxSize(100, 100);
+        myButton.setText(boroughName.substring(0, 5).toUpperCase());
+
+        ScaleTransition st = new ScaleTransition(Duration.millis(2000), myButton);
+        st.setByX(-0.25);
+        st.setByY(-0.25);
+        st.setAutoReverse(true);
+
+        st.play();
     }
 
     /**
@@ -118,52 +126,52 @@ public class HexButton
     }
 
     // private String buttonColourSetter() {
-        // int lowerBound = 0;
-        // int upperBound = 100;
-        // int counter = 0;
-        // HashMap<Integer, String> colourHashMap = new HashMap<Integer, String>() 
-            // {{
-                    // put(0, "#ff0000"); //red
-                    // put(1, "#ffa500"); //orange
-                    // put(2, "#ffff00"); //yellow
-                    // put(3, "#008000"); //green
-                    // put(4, "#008000");
-                    // put(5, "#ff0000"); //red
-                    // put(6, "#ffa500"); //orange
-                    // put(7, "#ffff00"); //yellow
-                    // put(8, "#008000"); //green
-                    // put(9, "#008000");
-                    // put(10, "#ff0000"); //red
-                    // put(11, "#ffa500"); //orange
-                    // put(12, "#ffff00"); //yellow
-                    // put(13, "#008000"); //green
-                // }};
+    // int lowerBound = 0;
+    // int upperBound = 100;
+    // int counter = 0;
+    // HashMap<Integer, String> colourHashMap = new HashMap<Integer, String>() 
+    // {{
+    // put(0, "#ff0000"); //red
+    // put(1, "#ffa500"); //orange
+    // put(2, "#ffff00"); //yellow
+    // put(3, "#008000"); //green
+    // put(4, "#008000");
+    // put(5, "#ff0000"); //red
+    // put(6, "#ffa500"); //orange
+    // put(7, "#ffff00"); //yellow
+    // put(8, "#008000"); //green
+    // put(9, "#008000");
+    // put(10, "#ff0000"); //red
+    // put(11, "#ffa500"); //orange
+    // put(12, "#ffff00"); //yellow
+    // put(13, "#008000"); //green
+    // }};
 
-        // while (!(numberOfProperties() >= lowerBound) && !(numberOfProperties() < upperBound)) {
-            // if (upperBound < 500) {
-                // lowerBound += 100;
-                // upperBound += 100;
-                // counter++;
-            // }
-            // if (upperBound >= 500 && upperBound < 1000) {
-                // lowerBound += 200;
-                // upperBound += 200;
-                // counter++;
-            // }
-            // if (upperBound >= 1000 && upperBound < 1500) {
-                // lowerBound += 250;
-                // upperBound += 250;
-                // counter++;
-            // }
-            // if (upperBound >= 1500) {
-                // lowerBound += 500;
-                // upperBound += 500;
-                // counter++;
-            // }
-            // counter++;
-            // return "-fx-background-color: "+colourHashMap.get(counter);
-        // }
-        // return "-fx-background-color: "+colourHashMap.get(counter);
+    // while (!(numberOfProperties() >= lowerBound) && !(numberOfProperties() < upperBound)) {
+    // if (upperBound < 500) {
+    // lowerBound += 100;
+    // upperBound += 100;
+    // counter++;
+    // }
+    // if (upperBound >= 500 && upperBound < 1000) {
+    // lowerBound += 200;
+    // upperBound += 200;
+    // counter++;
+    // }
+    // if (upperBound >= 1000 && upperBound < 1500) {
+    // lowerBound += 250;
+    // upperBound += 250;
+    // counter++;
+    // }
+    // if (upperBound >= 1500) {
+    // lowerBound += 500;
+    // upperBound += 500;
+    // counter++;
+    // }
+    // counter++;
+    // return "-fx-background-color: "+colourHashMap.get(counter);
+    // }
+    // return "-fx-background-color: "+colourHashMap.get(counter);
     // }
 
     /**
