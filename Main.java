@@ -194,7 +194,7 @@ public class Main extends Application
      * A Pane for showing Statistics.
      * @return The StackPane displaying Statistics.
      */
-    private HBox statisticsPane(){
+    private HBox statisticsPane() {
         HBox hbox = new HBox(50);
         hbox.setTranslateX(0);
         hbox.setTranslateY(-28);
@@ -579,18 +579,18 @@ public class Main extends Application
      * @param event The ActionEvent
      */
     private void stat4Action(ActionEvent event) {
-        switch(caseCounter4)
-        {
-            case (0): 
-            stat4.setText("     This is The most expensive borough:   \n" + "\t\t\t\t" + "rand");
-            stat4.setStyle("-fx-text-fill: red;");
-            break;
-            case (1): 
-            stat4.setText("    Borough with highest green space is:\n" +
-                "\t\t\t   " +  boroughProfileLoader.getGreenSpace());
-            stat4.setStyle("-fx-text-fill: green; ");
-            caseCounter4 = -1;
-            break;
+        switch (caseCounter4) {
+            case (0):
+                stat4.setText("     This is The most expensive borough:   \n"
+                        + "\t\t\t\t" + dataLoader.getMostExpensiveBorough());
+                stat4.setStyle("-fx-text-fill: red;");
+                break;
+            case (1):
+                stat4.setText("    Borough with highest green space is:\n" +
+                        "\t\t\t   " + boroughProfileLoader.getGreenSpace());
+                stat4.setStyle("-fx-text-fill: green; ");
+                caseCounter4 = -1;
+                break;
         }
         caseCounter4++;
     }

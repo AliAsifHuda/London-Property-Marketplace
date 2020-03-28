@@ -1,4 +1,3 @@
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -6,7 +5,6 @@ import java.net.URL;
 import java.util.*;
 import com.opencsv.CSVReader;
 import java.net.URISyntaxException;
-import java.util.stream.*;
 
 /**
  * 
@@ -16,7 +14,7 @@ import java.util.stream.*;
  */
 public class AirbnbDataLoader {
     // The set containing all the boroughs in the data
-    private ArrayList<String> boroughsSet;
+    private ArrayList<String> boroughsList;
 
     private static ArrayList<AirbnbListing> listings = new ArrayList<>();
 
@@ -29,9 +27,8 @@ public class AirbnbDataLoader {
     private ArrayList<String> home = new ArrayList<>();
 
     public AirbnbDataLoader() {
-        boroughsSet = new ArrayList<>();
+        boroughsList = new ArrayList<>();
         listingsMap = new HashMap<>();
-        //        listings = load();
     }
 
     /** 
@@ -69,9 +66,9 @@ public class AirbnbDataLoader {
                         numberOfReviews, lastReview,
                         reviewsPerMonth, calculatedHostListingsCount, availability365
                     );
-                if (!boroughsSet.contains(listing.getNeighbourhood())) {
+                if (!boroughsList.contains(listing.getNeighbourhood())) {
                     // add all different boroughs to this set.
-                    boroughsSet.add(listing.getNeighbourhood());
+                    boroughsList.add(listing.getNeighbourhood());
                 }
                 listingsMap.put(listing.getPrice(), listing);
                 listings.add(listing);
@@ -157,16 +154,14 @@ public class AirbnbDataLoader {
     /**
      * @return The number of properties available.
      */
-    public int getAvailability()
-    {
+    public int getAvailability() {
         return available.size();
     }
 
     /**
      * @return The number of homes available.
      */
-    public int getHome()
-    {
+    public int getHome() {
         return home.size();
     }
 
@@ -174,6 +169,37 @@ public class AirbnbDataLoader {
      * @return A Set of type String containing all the boroughs in our dataset
      */
     public ArrayList<String> getBoroughs() {
-        return boroughsSet;
+        return boroughsList;
+    }
+
+    /**
+     * @return The most expensive borough to be used in the stats button
+     */
+    public String getMostExpensiveBorough() {
+        HashMap<Integer, String> boroughPriceValues  = new HashMap<>();
+        for (String borough : boroughsList) {
+            boroughPriceValues.put(getTotalPriceValue(borough), borough);
+        }
+        int maxValue = Collections.max(boroughPriceValues.keySet());
+        return boroughPriceValues.get(maxValue);
+    }
+
+    /**
+     * Returns the 'price value' of a borough (obtained by multiplying the price
+     * of each listing of borough with it's 'minimum nights' field).
+     * @param borough The borough whose 'price value' we require.
+     * @return The 'price value' of the borough.
+     */
+    private int getTotalPriceValue(String borough) {
+        // using set for efficient iteration
+        int boroughPriceValue = 0;
+        HashSet<AirbnbListing> listingsSet = new HashSet<>(listings);
+        for (AirbnbListing listing : listingsSet) {
+            if (listing.getNeighbourhood().equals(borough)) {
+                // add the values of the price and minimum nights multiplied to the int declared above
+                boroughPriceValue += listing.getPrice() * listing.getMinimumNights();
+            }
+        }
+        return boroughPriceValue;
     }
 }
