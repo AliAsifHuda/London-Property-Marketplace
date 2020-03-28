@@ -45,7 +45,6 @@ public class Main extends Application
     private Button backButton = new Button("Back");
     private Button forwardButton = new Button("Forward");
     private Text text1 = new Text("Welcome to London Property Marketplace ");
-    private int counter;
     private int caseCounter1 = 1;
     private int caseCounter2 = 1;
     private int caseCounter3 = 1;
@@ -69,6 +68,10 @@ public class Main extends Application
     private static int minRange;
     //store the value selected in the toComboBox
     private static int maxRange;
+    private CategoryAxis xAxis = new CategoryAxis();  
+    private NumberAxis yAxis = new NumberAxis();
+    private BarChart<String, Number> barChart = new BarChart<>(xAxis, yAxis);
+    HBox hbox = new HBox(50);
 
     /**
      * The start method is the main entry point for every JavaFX application. 
@@ -138,6 +141,10 @@ public class Main extends Application
         bottomBox.setStyle("-fx-border-color: black; -fx-border-width: 1px 0px 0px 0px; -fx-padding: 5px ;");
         commonLayout.setStyle("-fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-padding: 5px ;");   
 
+        imagePane();
+        statisticsPane();
+        chartGraph();
+
         // Show the Stage (window)
         window.setScene(new Scene(borderPane, 1080, 600));
         window.show();
@@ -195,7 +202,6 @@ public class Main extends Application
      * @return The StackPane displaying Statistics.
      */
     private HBox statisticsPane() {
-        HBox hbox = new HBox(50);
         hbox.setTranslateX(0);
         hbox.setTranslateY(-28);
         hbox.setMinSize(440, 355);
@@ -225,7 +231,8 @@ public class Main extends Application
             "\t\t\t\t" + dataLoader.getAvailability());
         stat3.setText("        Total number of homes available:    \n" +
             "\t\t\t\t" +  dataLoader.getHome());
-        stat4.setText("      This is The most expensive borough:   \n" + "\t\t\t\t" + "rand");
+        stat4.setText("      This is The most expensive borough:   \n" + "\t\t\t" +
+        dataLoader.getMostExpensiveBorough());
         stat4.setStyle("-fx-text-fill: red;");
 
         gridPane.add(stat1, 1, 0, 1, 1);
@@ -262,10 +269,7 @@ public class Main extends Application
      */
     private BarChart chartGraph()
     {
-        //Creating the Bar chart
-        CategoryAxis xAxis = new CategoryAxis();  
-        NumberAxis yAxis = new NumberAxis();
-        BarChart<String, Number> barChart = new BarChart<>(xAxis, yAxis); 
+        //Creating the Bar chart 
         barChart.setTitle("Covid-19 deaths in each borough");
         yAxis.setLabel("Deaths");
         xAxis.setLabel("Borough");
@@ -464,21 +468,17 @@ public class Main extends Application
      */
     private void forwardAction(ActionEvent event)
     {
-        if (counter == 0) {
+        if (borderPane.getCenter().equals(textPane)) {
             analyzeBoxValues(fromComboBox, toComboBox);
             if (correctBoxValues) {
                 borderPane.setCenter(imagePane());
-                counter++;
             }
-        } else if  (counter == 1) {
-            borderPane.setCenter(statisticsPane());
-            counter++;
-        } else if  (counter == 2) {
-            borderPane.setCenter(chartGraph());
-            counter++;
-        } else if  (counter == 3) {
+        } else if  (borderPane.getCenter().equals(stackPane)) {
+            borderPane.setCenter(hbox);
+        } else if  (borderPane.getCenter().equals(hbox)) {
+            borderPane.setCenter(barChart);
+        } else if  (borderPane.getCenter().equals(barChart)) {
             borderPane.setCenter(textPane);
-            counter=0;
         }
     }
 
@@ -487,23 +487,19 @@ public class Main extends Application
      * @param event The ActionEvent
      */
     private void backAction(ActionEvent event) {
-        if (counter == 0) {
+        if (borderPane.getCenter().equals(textPane)) {
             analyzeBoxValues(fromComboBox, toComboBox);
             if (correctBoxValues) {
-                borderPane.setCenter(chartGraph());
-                counter++;
+                borderPane.setCenter(barChart);
             }
         }
-        else if (counter == 1) {
-            borderPane.setCenter(statisticsPane());
-            counter++;
-        } 
-        else if (counter == 2) {
-            borderPane.setCenter(imagePane());
-            counter++;
-        } else if  (counter == 3) {
+        else if (borderPane.getCenter().equals(stackPane)) {
             borderPane.setCenter(textPane);
-            counter=0;
+        } 
+        else if (borderPane.getCenter().equals(hbox)) {
+            borderPane.setCenter(stackPane);
+        } else if  (borderPane.getCenter().equals(barChart)) {
+            borderPane.setCenter(hbox);
         }
     }
 
@@ -581,16 +577,16 @@ public class Main extends Application
     private void stat4Action(ActionEvent event) {
         switch (caseCounter4) {
             case (0):
-                stat4.setText("     This is The most expensive borough:   \n"
-                        + "\t\t\t\t" + dataLoader.getMostExpensiveBorough());
-                stat4.setStyle("-fx-text-fill: red;");
-                break;
+            stat4.setText("     This is The most expensive borough:   \n"
+                + "\t\t\t\t" + dataLoader.getMostExpensiveBorough());
+            stat4.setStyle("-fx-text-fill: red;");
+            break;
             case (1):
-                stat4.setText("    Borough with highest green space is:\n" +
-                        "\t\t\t   " + boroughProfileLoader.getGreenSpace());
-                stat4.setStyle("-fx-text-fill: green; ");
-                caseCounter4 = -1;
-                break;
+            stat4.setText("    Borough with highest green space is:\n" +
+                "\t\t\t" + boroughProfileLoader.getGreenSpace());
+            stat4.setStyle("-fx-text-fill: green; ");
+            caseCounter4 = -1;
+            break;
         }
         caseCounter4++;
     }
