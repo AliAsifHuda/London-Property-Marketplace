@@ -9,6 +9,9 @@ import java.net.URISyntaxException;
 /**
  * Loads various types of statistics from the London Boroughs
  * in the london-borough-profiles.csv file
+ * @author David J. Barnes, Michael Kölling, Muhammad Abdullah k19037983, Ali Asif k19033243, 
+ * Suleyman Ahmed k19036135 and Muhammad Shehzad k19018196
+ * @version 2020.03.29 (3)
  */
 public class BoroughProfileLoader {
     private HashMap<Integer , String> transportMap;

@@ -28,8 +28,9 @@ import javafx.scene.chart.XYChart;
 /**
  * Write a description of JavaFX class a here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author David J. Barnes, Michael Kölling, Muhammad Abdullah k19037983, Ali Asif k19033243, 
+ * Suleyman Ahmed k19036135 and Muhammad Shehzad k19018196
+ * @version 2020.03.29 (3)
  */
 public class Main extends Application
 {
