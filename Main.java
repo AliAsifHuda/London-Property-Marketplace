@@ -475,8 +475,8 @@ public class Main extends Application
             RotateTransition rotate = new RotateTransition();   
             RotateTransition rotate1 = new RotateTransition();  
             // setting the angle of rotation   
-            rotate.setByAngle(0);  
-            rotate1.setByAngle(0);
+            rotate.setByAngle(360);  
+            rotate1.setByAngle(360);
             //setting cycle count of the rotation   
             rotate.setCycleCount(2);  
             rotate1.setCycleCount(2);
