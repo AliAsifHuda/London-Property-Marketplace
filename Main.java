@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import javafx.scene.text.*;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.geometry.Orientation;
 
 import java.io.IOException;
@@ -46,6 +47,7 @@ public class Main extends Application
     private ComboBox<Integer> toComboBox = new ComboBox<>();
     private Button backButton = new Button("Back");
     private Button forwardButton = new Button("Forward");
+    private ToggleButton darkModeButton = new ToggleButton("Dark Mode");
     private Text text1 = new Text("Welcome to London Property Marketplace ");
     private int caseCounter1 = 1;
     private int caseCounter2 = 1;
@@ -113,11 +115,14 @@ public class Main extends Application
         HBox bottomBox = new HBox(15);
         AnchorPane backButtonPane = new AnchorPane();//AnchorPane to align the buttons
         AnchorPane forwardButtonPane = new AnchorPane();//AnchorPane to align the buttons
+        AnchorPane darkModeButtonPane = new AnchorPane();//AnchorPane to align the buttons
         HBox.setHgrow(backButtonPane , Priority.ALWAYS);//Make pane grow horizontally
         bottomBox.getChildren().add(backButtonPane );
         bottomBox.getChildren().add(forwardButtonPane );
+        bottomBox.getChildren().add(darkModeButtonPane);
         backButtonPane.getChildren().add(backButton);
         forwardButtonPane.getChildren().add(forwardButton);
+        darkModeButtonPane.getChildren().add(darkModeButton);
 
         //make a borderPane layout and add layouts to top and bottom
         borderPane.setTop(commonLayout);        
@@ -125,16 +130,18 @@ public class Main extends Application
         borderPane.setCenter(textPane);        
         borderPane.setBottom(bottomBox);
         BorderPane.setMargin(bottomBox, new Insets(10));
-        borderPane.getStylesheets().add("abc.css");
+        //borderPane.getStylesheets().add("abc.css");
 
        backButton.setStyle("-fx-text-fill : #000000;");
        forwardButton.setStyle("-fx-text-fill : #000000;");
+       darkModeButton.setStyle("-fx-text-fill : #000000;");
         // back and forward button are initially disabled
         backButton.setDisable(true);
         forwardButton.setDisable(true);
 
         forwardButton.setOnAction(this::forwardAction);
         backButton.setOnAction(this::backAction);
+        darkModeButton.setOnAction(this::darkModeAction);
 
         //ActionEvent for the combo boxes
         fromComboBox.setOnAction(this::fromAction);
@@ -530,6 +537,16 @@ public class Main extends Application
             borderPane.setCenter(stackPane);
         } else if  (borderPane.getCenter().equals(barChart)) {
             borderPane.setCenter(hbox);
+        }
+    }
+    
+    private void darkModeAction(ActionEvent event) {
+        if (darkModeButton.isSelected() == true) {
+            borderPane.getStylesheets().add("DarkMode.css");
+        }
+        
+        if (darkModeButton.isSelected() == false) {
+            borderPane.getStylesheets().add("abc.css");
         }
     }
 
