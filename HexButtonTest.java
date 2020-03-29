@@ -6,8 +6,9 @@ import org.junit.Test;
 /**
  * The test class HexButtonTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @author David J. Barnes, Michael Kölling, Muhammad Abdullah k19037983, Ali Asif k19033243, 
+ * Suleyman Ahmed k19036135 and Muhammad Shehzad k19018196
+ * @version 2020.03.29 (2)
  */
 public class HexButtonTest
 {
@@ -39,6 +40,9 @@ public class HexButtonTest
     }
 
     @Test
+    /**
+     * checks whether the borough name that the button returns is correct or not.
+     */
     public void testBoroughName()
     {
         HexButton hexButto2 = new HexButton("test name");
@@ -46,6 +50,10 @@ public class HexButtonTest
     }
 
     @Test
+    /**
+     * checks whether the background colour that the button returns based on the
+     * number of properties is correct or not.
+     */
     public void testButtonColour()
     {
         HexButton hexButto2 = new HexButton("button1");
@@ -53,6 +61,10 @@ public class HexButtonTest
     }
 
     @Test
+    /**
+     * checks whether the number of properties in the button's borough that the 
+     * button returns is correct or not
+     */
     public void testPropertyAmount()
     {
         HexButton hexButto1 = new HexButton("testButton");
