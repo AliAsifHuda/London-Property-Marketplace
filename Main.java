@@ -667,7 +667,7 @@ public class Main extends Application
     public static int getMaxRange() {
         return maxRange;
     }
-
+    
     public static void main(String[] args) {
         launch(args);
     }
