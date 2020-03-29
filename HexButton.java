@@ -13,6 +13,8 @@ import java.util.HashMap;
 import javafx.animation.ScaleTransition;
 import javafx.util.Duration; 
 
+import javafx.geometry.Bounds;
+
 /**
  * Write a description of JavaFX class HexButton here.
  *
@@ -94,7 +96,7 @@ public class HexButton
     /**
      * @return The colour in hexcode of button based on the number of properties in the borough.
      */
-    private String buttonColourSetter() {
+    public String buttonColourSetter() {
         if (numberOfProperties() >= 0 && numberOfProperties() <= 100) {
             return "-fx-background-color: #ff0000"; //red
         } else if (numberOfProperties() >= 101 && numberOfProperties() <= 200) {
@@ -125,55 +127,6 @@ public class HexButton
         return "";
     }
 
-    // private String buttonColourSetter() {
-    // int lowerBound = 0;
-    // int upperBound = 100;
-    // int counter = 0;
-    // HashMap<Integer, String> colourHashMap = new HashMap<Integer, String>() 
-    // {{
-    // put(0, "#ff0000"); //red
-    // put(1, "#ffa500"); //orange
-    // put(2, "#ffff00"); //yellow
-    // put(3, "#008000"); //green
-    // put(4, "#008000");
-    // put(5, "#ff0000"); //red
-    // put(6, "#ffa500"); //orange
-    // put(7, "#ffff00"); //yellow
-    // put(8, "#008000"); //green
-    // put(9, "#008000");
-    // put(10, "#ff0000"); //red
-    // put(11, "#ffa500"); //orange
-    // put(12, "#ffff00"); //yellow
-    // put(13, "#008000"); //green
-    // }};
-
-    // while (!(numberOfProperties() >= lowerBound) && !(numberOfProperties() < upperBound)) {
-    // if (upperBound < 500) {
-    // lowerBound += 100;
-    // upperBound += 100;
-    // counter++;
-    // }
-    // if (upperBound >= 500 && upperBound < 1000) {
-    // lowerBound += 200;
-    // upperBound += 200;
-    // counter++;
-    // }
-    // if (upperBound >= 1000 && upperBound < 1500) {
-    // lowerBound += 250;
-    // upperBound += 250;
-    // counter++;
-    // }
-    // if (upperBound >= 1500) {
-    // lowerBound += 500;
-    // upperBound += 500;
-    // counter++;
-    // }
-    // counter++;
-    // return "-fx-background-color: "+colourHashMap.get(counter);
-    // }
-    // return "-fx-background-color: "+colourHashMap.get(counter);
-    // }
-
     /**
      * @return The number of properties in the borough of this button
      */
@@ -185,5 +138,10 @@ public class HexButton
             }
         }
         return count;
+    }
+    
+    public Bounds getButtonCoordinates() {
+        Bounds boundsInScreen = getButton().localToScreen(getButton().getBoundsInLocal());
+        return boundsInScreen;
     }
 }
