@@ -42,7 +42,6 @@ public class Main extends Application
     private BorderPane borderPane = new BorderPane();
     private StackPane textPane = new StackPane();
     private StackPane stackPane = new StackPane();
-    private SplitPane splitPane1 = new SplitPane();
     private ComboBox<Integer> fromComboBox = new ComboBox<>();
     private ComboBox<Integer> toComboBox = new ComboBox<>();
     private Button backButton = new Button("Back");
@@ -65,7 +64,6 @@ public class Main extends Application
     private boolean correctBoxValues = true;
     // A set containing all the buttons in the borough
     private HashSet<HexButton> boroughButtons = new HashSet<>();
-
     private BoroughInfo boroughInfo = new BoroughInfo();
     //store the value selected in the fromComboBox
     private static int minRange;
@@ -472,28 +470,23 @@ public class Main extends Application
         if (disableFlagA && disableFlagB) {
             backButton.setDisable(false);
             forwardButton.setDisable(false);
-            RotateTransition rotate = new RotateTransition();   
-            RotateTransition rotate1 = new RotateTransition();  
-            // setting the angle of rotation   
+           
+            RotateTransition rotate = new RotateTransition();
             rotate.setByAngle(360);  
-            rotate1.setByAngle(360);
-            //setting cycle count of the rotation   
-            rotate.setCycleCount(2);  
-            rotate1.setCycleCount(2);
-            //Setting duration of the transition   
-            rotate.setDuration(Duration.millis(50));  
-            rotate1.setDuration(Duration.millis(50)); 
-            //the transition will be auto reversed by setting this to true   
-            rotate.setAutoReverse(true);  
-            rotate1.setAutoReverse(true);
-
-            rotate.setToAngle(360);
-            rotate1.setToAngle(360);
-            //setting Rectangle as the node onto which the   
-            // transition will be applied  
+            rotate.setCycleCount(2);
+            rotate.setDuration(Duration.millis(50));
+            rotate.setAutoReverse(true);
+            rotate.setToAngle(360);   
             rotate.setNode(forwardButton);  
+            
+            RotateTransition rotate1 = new RotateTransition();
+            rotate1.setByAngle(360);
+            rotate1.setCycleCount(2);
+            rotate1.setDuration(Duration.millis(50));                         
+            rotate1.setAutoReverse(true);            
+            rotate1.setToAngle(360);
             rotate1.setNode(backButton);
-            //playing the transition   
+            
             rotate.play(); 
             rotate1.play();
         }

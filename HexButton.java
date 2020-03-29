@@ -16,7 +16,7 @@ import javafx.util.Duration;
 import javafx.geometry.Bounds;
 
 /**
- * Write a description of JavaFX class HexButton here.
+ * A class to make hexagonal button  and set thier colors.
  *
  * @author David J. Barnes, Michael Kölling, Muhammad Abdullah k19037983, Ali Asif k19033243, 
  * Suleyman Ahmed k19036135 and Muhammad Shehzad k19018196
@@ -24,12 +24,8 @@ import javafx.geometry.Bounds;
  */
 public class HexButton
 {
-    // We keep track of the count, and label displaying the count:
-    private int count = 0;
-    private Label myLabel = new Label("0");
     private Button myButton;
     private String boroughName;
-
     /**
      * The constructor of our class
      * @param boroughName The name of borough that our button will display
@@ -139,7 +135,7 @@ public class HexButton
         }
         return count;
     }
-    
+
     public Bounds getButtonCoordinates() {
         Bounds boundsInScreen = getButton().localToScreen(getButton().getBoundsInLocal());
         return boundsInScreen;
