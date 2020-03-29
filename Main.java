@@ -53,6 +53,7 @@ public class Main extends Application
     private int caseCounter2 = 1;
     private int caseCounter3 = 1;
     private int caseCounter4 = 1;
+    private int caseCounter5 = 0;
     private boolean disableFlagA = false;
     private boolean disableFlagB = false;
     private AirbnbDataLoader dataLoader = new AirbnbDataLoader();
@@ -218,7 +219,6 @@ public class Main extends Application
         hbox.setMaxSize(440, 355);
 
         GridPane gridPane = new GridPane();
-        //splitPane1.setOrientation(Orientation.VERTICAL);
         gridPane.setMinSize(440, 355);
         gridPane.setMaxSize(440, 355);
         gridPane.setHgap(10); //horizontal gap in pixels => that's what you are asking for
@@ -541,12 +541,16 @@ public class Main extends Application
     }
     
     private void darkModeAction(ActionEvent event) {
-        if (darkModeButton.isSelected() == true) {
+        if (caseCounter5 == 0) {
+            borderPane.getStylesheets().remove("abc.css");
             borderPane.getStylesheets().add("DarkMode.css");
+            caseCounter5++;
         }
         
-        if (darkModeButton.isSelected() == false) {
+        else if (caseCounter5 == 1) {
+            borderPane.getStylesheets().remove("DarkMode.css");
             borderPane.getStylesheets().add("abc.css");
+            caseCounter5 = 0;
         }
     }
 
