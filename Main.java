@@ -279,10 +279,9 @@ public class Main extends Application
         barChart.setTitle("Covid-19 deaths in each borough");
         yAxis.setLabel("Deaths");
         xAxis.setLabel("Borough");
-        barChart.setLegendVisible(false);
 
         XYChart.Series<String, Number> series1 = new XYChart.Series<>();
-        series1.setName("Deaths in each borough");
+        series1.setName("High risk zone");
         xAxis.setCategories(FXCollections.<String>
             observableArrayList(Arrays.asList(
                     webCrawler.getBoroughCasesList().get(0).getBoroughName(),
@@ -331,6 +330,7 @@ public class Main extends Application
                 webCrawler.getBoroughCasesList().get(5).getCases()));
 
         XYChart.Series<String, Number> series2 = new XYChart.Series<>();
+        series2.setName("Medium risk zone");
         series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(6).getBoroughName(),
                 webCrawler.getBoroughCasesList().get(6).getCases()));
         series2.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(7).getBoroughName(),
@@ -363,6 +363,7 @@ public class Main extends Application
                 webCrawler.getBoroughCasesList().get(20).getCases()));
 
         XYChart.Series<String, Number> series3 = new XYChart.Series<>();
+        series3.setName("Low risk zone");
         series3.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(21).getBoroughName(),
                 webCrawler.getBoroughCasesList().get(21).getCases()));
         series3.getData().add(new XYChart.Data<>(webCrawler. getBoroughCasesList().get(22).getBoroughName(),
