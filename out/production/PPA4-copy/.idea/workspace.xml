@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d76ba1bf-8ca1-4d46-a0cb-2ef0e8e7ca44" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/io_github_typhon0_AnimateFX_1_2_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AirbnbDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/AirbnbDataLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/HexButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/HexButton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/PPA4-copy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/PPA4-copy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PPA4-copy/abc.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PPA4-copy/abc.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/package.bluej" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +45,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/+libs/jsoup-1.13.1-javadoc.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -105,7 +100,8 @@
       <workItem from="1585184821683" duration="131000" />
       <workItem from="1585185141024" duration="2055000" />
       <workItem from="1585250669714" duration="1175000" />
-      <workItem from="1585317821729" duration="552000" />
+      <workItem from="1585317821729" duration="3307000" />
+      <workItem from="1585411181797" duration="2880000" />
     </task>
     <task id="LOCAL-00001" summary="Added a listener to the Table in BoroughInfo so that now when a property is clicked form the list, it's description is shown in a new window + added styling the new window + added the listener in window to close it when it loses focus (thus avoiding pollution and enhancing efficiency)">
       <created>1584927539429</created>
@@ -156,7 +152,28 @@
       <option name="project" value="LOCAL" />
       <updated>1585184439529</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Changed the website of WebCrawler to one which is being updated more often (so as to get a better picture of the real data)">
+      <created>1585318485821</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1585318485821</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Changed the website of WebCrawler to one which is being updated more often (so as to get a better picture of the real data)">
+      <created>1585318518243</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1585318518243</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Implemented the functionality of the From and To comboBoxes so that now only the properties within the selected range are displayed to the user when the user click the borough">
+      <created>1585321656621</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1585321656621</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,37 +199,39 @@
     <MESSAGE value="Added another CSV file to the project which I downloaded from data.london.gov.uk website which basically has all data from 2016 about each borough (such as crime rate in each etc etc) + added 2 classes (BoroughProfiles and BoroughProfileLoader) which can extract values from any column in the CSV file and which we can then use later on in our program for implementing various functionality" />
     <MESSAGE value="Added a Web Crawler as part of a challenge task which gets real data of the number of coronavirus cases in London by each Borough from a website and creates objects of the class BoroughCoronaCases. These values can then be used later on in Graphs and charts etc" />
     <MESSAGE value="Added the external AnimationFX to the project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the external AnimationFX to the project" />
+    <MESSAGE value="Changed the website of WebCrawler to one which is being updated more often (so as to get a better picture of the real data)" />
+    <MESSAGE value="Implemented the functionality of the From and To comboBoxes so that now only the properties within the selected range are displayed to the user when the user click the borough" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented the functionality of the From and To comboBoxes so that now only the properties within the selected range are displayed to the user when the user click the borough" />
   </component>
   <component name="WindowStateProjectService">
     <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser" timestamp="1585164626111">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1585164626111" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1585184438220">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1585321655662">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1585184438220" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1585321655662" />
     <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1585163742938">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1585163742938" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1585251846737">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1585414169904">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585251846737" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1585251846737">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1585414169904" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1585414169904">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585251846737" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1585251846737">
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1585414169904" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1585414169904">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585251846737" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1585251846737">
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1585414169904" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1585414169904">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585251846737" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1585414169904" />
     <state x="121" y="51" key="MergeDialog" timestamp="1584927595158">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -225,21 +244,21 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1585185276065" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1585184442181">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1585321658177">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1585184442181" />
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1585317869266">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1585321658177" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1585411184248">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1585317869266" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1585411184248" />
     <state x="375" y="234" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1585184342695">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="375" y="234" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1280.680@0.0.1280.680" timestamp="1585184342695" />
-    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585317878216">
+    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585411195875">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1585317878216" />
+    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1585411195875" />
   </component>
 </project>

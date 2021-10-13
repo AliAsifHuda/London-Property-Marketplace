@@ -6,7 +6,8 @@
     -darkGray : derive(-gray,-25%);
     -blacks : #444444dd;
     -abort : #e74c3c;
-    -black : #000000
+    -black : #000000;
+    -blue : #4285f4;
 /*
 */
 
@@ -51,50 +52,50 @@
     -fx-font-family : 'Times New Roman';
     -fx-font-style : normal;
     -fx-padding : 4 8 4 8;
-    -fx-text-fill : #ffffff;
+    -fx-text-fill : -white;
 }
 
 .button:default{
-    -fx-background-color : #c0c0c0;
+    -fx-background-color : -blue;
 }
 .button:cancel{
-    -fx-background-color : -abort;
+    -fx-background-color : -blue;
 }
 
 
 }
 .button:hover {
-    -fx-color: -darkGray;
-    -fx-inner-border : -darkGray;
-    -fx-body-color : -darkGray;
+    -fx-color: -blue;
+    -fx-inner-border : -blue;
+    -fx-body-color : -blue;
 }
 
 .button:armed {
-    -fx-color: -white;
+    -fx-color: -blue;
 }
 
 .toggle-button{
-    -fx-background-color : -gray;
+    -fx-background-color : -blue
 }
 
 .toggle-button:selected{
-    -fx-background-color : -darkGray;
+    -fx-background-color : -blue;
 }
 
 .menu-button{
-    -fx-background-color : -gray;
+    -fx-background-color : -blue;
 }
 
 .split-menu-button{
-    -fx-background-color : -gray;
+    -fx-background-color : -blue;
 }
 
 .split-menu-button>*.label{
-    -fx-background-color : -gray;
+    -fx-background-color : -blue;
 }
 
 .split-menu-button>*.arrow-button{
-    -fx-background-color : -gray;
+    -fx-background-color : -blue;
 }
  
  

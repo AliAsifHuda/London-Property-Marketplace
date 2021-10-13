@@ -8,13 +8,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
-//import java.awt.event.ActionEvent;
 import javafx.event.ActionEvent;
-
 import javax.swing.*;
-
-
+import java.util.List;
 /**
  * This class is for creation of a new window
  * which will display the information about properties
@@ -28,7 +24,7 @@ import javax.swing.*;
 
 public class BoroughInfo {
 
-    private AirbnbDataLoader loader = new AirbnbDataLoader();
+    //private AirbnbDataLoader loader = new AirbnbDataLoader();
     private String boroughName;
     private TableView<AirbnbListing> table;
     ComboBox<String> sortByList;
@@ -81,7 +77,8 @@ public class BoroughInfo {
      * the range selected by the user in the from and to comboboxes to the list
      * @return The Observable list containing all objects in that borough.
      */
-    private ObservableList<AirbnbListing> getListingsList() {
+    public ObservableList<AirbnbListing> getListingsList() {
+        AirbnbDataLoader loader = new AirbnbDataLoader();
         ObservableList<AirbnbListing> properties = FXCollections.observableArrayList();
         for (AirbnbListing listing : AirbnbDataLoader.getListings()) {
             boolean validPrice = listing.getPrice() >= Main.getMinRange() && listing.getPrice() <= Main.getMaxRange();
@@ -92,7 +89,7 @@ public class BoroughInfo {
         }
         return properties;
     }
-    
+
     /**
      * @return The number of properties in the borough
      */
@@ -146,6 +143,7 @@ public class BoroughInfo {
         }
         try {
             if (sortByList.getValue().equals("Number of Reviews")) {
+                //List<AirbnbListing> unsortedList = loader.getListings();
                 sort = new SortByReviews();
             } else if (sortByList.getValue().equals("Price")) {
                 sort = new SortByPrice();

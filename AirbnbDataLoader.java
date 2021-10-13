@@ -16,7 +16,7 @@ public class AirbnbDataLoader {
     // The set containing all the boroughs in the data
     private ArrayList<String> boroughsList;
 
-    private static ArrayList<AirbnbListing> listings = new ArrayList<>();
+    private static final ArrayList<AirbnbListing> listings = new ArrayList<>();
 
     private HashMap<Integer, AirbnbListing> listingsMap;
     //ArrayList to contain the number of reviews of each property
@@ -35,7 +35,8 @@ public class AirbnbDataLoader {
      * Return an ArrayList containing the all listings in
      * the AirBnB London data set csv file.
      */
-    public void load() {
+    public final void load() {
+        listings.clear();
         System.out.print("Begin loading Airbnb london dataset...");
         try {
             URL url = getClass().getResource("airbnb-london.csv");
@@ -116,8 +117,10 @@ public class AirbnbDataLoader {
     /**
      * @return A list containing all the objects in our data set
      */
-    public static ArrayList<AirbnbListing> getListings() {
-        return listings; 
+    public static List<AirbnbListing> getListings() {
+        //List <AirbnbListing> unmodifaibleListings = Collections.unmodifiableList(listings);
+        //return unmodifaibleListings; 
+        return listings;
     }
 
     /**
@@ -168,8 +171,9 @@ public class AirbnbDataLoader {
     /**
      * @return A Set of type String containing all the boroughs in our dataset
      */
-    public ArrayList<String> getBoroughs() {
-        return boroughsList;
+    public List<String> getBoroughs() {
+        List<String> unmodifableBoroughList = Collections.unmodifiableList(boroughsList);
+        return unmodifableBoroughList;
     }
 
     /**
@@ -178,9 +182,9 @@ public class AirbnbDataLoader {
     public String getMostExpensiveBorough() {
         HashMap<Integer, String> boroughPriceValues  = new HashMap<>();
         for (String borough : boroughsList) {
-            boroughPriceValues.put(getTotalPriceValue(borough), borough);
+           boroughPriceValues.put(getTotalPriceValue(borough), borough);
         }
-        int maxValue = Collections.max(boroughPriceValues.keySet());
+        int maxValue = Collections.max(boroughPriceValues.keySet());        
         return boroughPriceValues.get(maxValue);
     }
 

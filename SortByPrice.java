@@ -12,9 +12,12 @@ public class SortByPrice implements SortBy {
     @Override
     public ObservableList<AirbnbListing> sortList(ObservableList<AirbnbListing> unsortedList, boolean isAscendingOrder) {
         if (isAscendingOrder) {
-            Collections.sort(unsortedList, new IncPriceSorter());
-        } else {
-            Collections.sort(unsortedList, new DecPriceSorter());
+            unsortedList.sort((AirbnbListing airbnbListing, AirbnbListing t1)  -> 
+                    airbnbListing.getPrice() - t1.getPrice());
+        }else {
+            unsortedList.sort((AirbnbListing airbnbListing, AirbnbListing t1)  -> 
+                    t1.getPrice() - airbnbListing.getPrice());
+
         }
         return unsortedList;
     }

@@ -1,19 +1,3 @@
-/*
-*       FLATBEE by KarlTheBee´
-* An javafx css style for a smooth & flat user interface
-* Website : github.com/karlthebee/flatbee
-* Mail    : karlthebee@gmail.com
-*
-*   Version 1.0.0
-*
-* The license is pretty much a CC-BY-NC 4.0 license (https://creativecommons.org/licenses/by-nc/4.0/).
-* In simple (non legal) english : 
-* you can modify and distribute it, ship in in your application, 
-* but not use/sell it commercially.
-* And you have to give credits, 
-* like "FlatBee theme by karlthebee (https://github.com/karlthebee/flatbee)"
-*/
-
 
 * {
     -color : #efefef;
@@ -22,10 +6,9 @@
     -darkGray : derive(-gray,-25%);
     -blacks : #444444dd;
     -abort : #e74c3c;
-    -black : #000000
+    -black : #000000;
+    -blue : #4285f4;
 /*
-    -yellow : #ffff00
-    -green : #00ffff
 */
 
 }
@@ -50,7 +33,7 @@
      -fx-text-fill : #8e8e8e;
      -fx-font-size : 18;
      -fx-font-weight : lighter;
-     -fx-font-family : 'Times New Roman';
+     -fx-font-family : 'Calibri';
      -fx-font-style : oblique;
      -fx-text-fill: black;
      -fx-padding : 12 4 4 4;
@@ -65,103 +48,56 @@
 .button {
     
     -fx-font-size : 15;
-    -fx-background-color : #e6e6fa;
-    -fx-font-weight : bolder;
+    -fx-font-weight : Normal;
     -fx-font-family : 'Times New Roman';
     -fx-font-style : normal;
     -fx-padding : 4 8 4 8;
+    -fx-text-fill : -white;
 }
 
 .button:default{
-    -fx-background-color : -color;
+    -fx-background-color : -blue;
 }
 .button:cancel{
-    -fx-background-color : -abort;
+    -fx-background-color : -blue;
 }
 
-.button:focused {
-    -fx-color : -darkGray;
-    -fx-background-color : -darkGray;
-    -fx-focus-color : -darkGray;
+
 }
 .button:hover {
-        -fx-color: -darkGray;
-    -fx-inner-border : -darkGray;
-    -fx-body-color : -darkGray;
+    -fx-color: -blue;
+    -fx-inner-border : -blue;
+    -fx-body-color : -blue;
 }
 
 .button:armed {
-    -fx-color: -white;
+    -fx-color: -blue;
 }
 
-
 .toggle-button{
-    -fx-background-color : -gray;
+    -fx-background-color : -blue
 }
 
 .toggle-button:selected{
-    -fx-background-color : -darkGray;
+    -fx-background-color : -blue;
 }
 
 .menu-button{
-    -fx-background-color : -gray;
+    -fx-background-color : -blue;
 }
 
 .split-menu-button{
-    -fx-background-color : -gray;
+    -fx-background-color : -blue;
 }
 
 .split-menu-button>*.label{
-    -fx-background-color : -gray;
+    -fx-background-color : -blue;
 }
 
 .split-menu-button>*.arrow-button{
-    -fx-background-color : -gray;
-}
-
-
-/*
- * **********
- * MENU
- * **********
- * 
- */
-.menu-bar{
-    -fx-background-color : -black;
+    -fx-background-color : -blue;
 }
  
-
-/*
- * **********
- * Checkbox
- * **********
- * 
- */
- .check-box>*.box{
-     -fx-background-color : -gray;
- }
- 
- .check-box:selected>*.box>*.mark{
-     -fx-background-color : -black;
- }
-.check-box:indeterminate>*.box>*.mark{
-     -fx-background-color : -black;
- }
- 
- 
- /*
- * **********
- * RADIO BUTTONS
- * **********
- * 
- */
- .radio-button>*.radio{
-    -fx-background-color : -gray; 
- }
- 
- .radio-button:selected>*.radio>*.dot{
-     -fx-background-color : -black;
- }
  
 /*
  * **********
@@ -186,28 +122,6 @@
 .spinner>*.decrement-arrow-button{
     -fx-background-color : -gray;
 }
-/*
- * **********
- * Titled Pane
- * **********
- * 
- */
-
-.first-titled-pane:expanded>*.title{
-    -fx-background-color : -color;
-}
-
-.titled-pane:expanded>*.title{
-    -fx-background-color : -color;
-}
-
-.titled-pane:collapsed>*.title{
-    -fx-background-color : -gray;
-}
-
-.titled-pane*>*.title>*.arrow-button>*.arrow{
-    -fx-background-color : -black;
-}
 
 /*
  * **********
@@ -216,7 +130,7 @@
  * 
  
 .table-view:row-selection{
-    -fx-background-color : -gray;
+    -fx-background-color : -white;
 }
 
 .table-view:row-selection>*.column-header-background{
@@ -224,70 +138,23 @@
 }
 
 .table-view>*.column-resize-line{
-    -fx-background-color : -black;
-}
-
-.table-view>*.column-header-background>*.nested-column-header>*.table-column{
-    -fx-background-color : -darkGray, -white;
-}
-
-.table-view>*.column-header-background>*.filler{
-    -fx-background-color : -darkGray, -gray;
-}
-
-.table-view>*.column-header-background>*.show-hide-columns-button{
-    -fx-background-color : -gray;
-}
-
-
-.tree-table-view:row-selection{
-    -fx-background-color : -gray;
-}
-
-.tree-table-view:row-selection>*.column-header-background{
     -fx-background-color : -white;
 }
 
-.tree-table-view>*.column-resize-line{
-    -fx-background-color : -black;
+.table-view>*.column-header-background>*.nested-column-header>*.table-column{
+    -fx-background-color : -white, -white;
 }
 
-.tree-table-view>*.column-header-background>*.nested-column-header>*.table-column{
-    -fx-background-color : -darkGray, -white;
+.table-view>*.column-header-background>*.filler{
+    -fx-background-color : -white, -gray;
 }
 
-.tree-table-view>*.column-header-background>*.filler{
-    -fx-background-color : -darkGray, -gray;
+.table-view>*.column-header-background>*.show-hide-columns-button{
+    -fx-background-color : -white;
 }
 
-.tree-table-view>*.column-header-background>*.show-hide-columns-button{
-    -fx-background-color : -gray;
-}
  */
 
-/*
- * **********
- * Color picker
- * **********
- * 
- */
-.color-picker{
-    -fx-background-color : -gray;
-}
-
-/*
- * **********
- * Scroll pane
- * **********
- * 
- */
-.scroll-pane>*.scroll-bar{
-    -fx-background-color : -gray;
-}
-
-.scroll-pane>*.scroll-bar>*.thumb{
-    -fx-background-color : -color;
-}
 
 /*
  * ************
@@ -305,12 +172,12 @@
 }
 
 .table-view .column-header-background{
-    -fx-background-color: linear-gradient(#131313 0%, #424141 100%);
+    -fx-background-color: linear-gradient(#ffffff 0%, #efefef 100%);
 }
 
 .table-view .column-header-background .label{
     -fx-background-color: transparent;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }
 
 .table-view .column-header {
@@ -318,23 +185,23 @@
 }
 
 .table-view .table-cell{
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }
 
 .table-row-cell{
-    -fx-background-color: -fx-table-cell-border-color, #616161;
+    -fx-background-color: -fx-table-cell-border-color, #ffffff;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em; /* 0 */
 }
 
 .table-row-cell:odd{
-    -fx-background-color: -fx-table-cell-border-color, #424242;
+    -fx-background-color: -fx-table-cell-border-color, #ffffff;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em; /* 0 */  
 }
 
 .table-row-cell:selected {
-    -fx-background-color: #005797;
+    -fx-background-color: #ffffff;
     -fx-background-insets: 0;
     -fx-background-radius: 1;
 }
@@ -362,16 +229,16 @@
  */
 
 .combo-box .combo-box-popup .list-view, .combo-box .combo-box-popup .list-cell {
-    -fx-background-color: #000000 ;
-    -fx-text-fill: -white ;
+    -fx-background-color: #ffffff ;
+    -fx-text-fill: -black ;
     -fx-font-family: "Calibri" ;
 }
 .combo-box .combo-box-popup .list-cell:hover {
-    -fx-text-fill: #ffff00 ;
-    -fx-background-color: #00ffff ;
+    -fx-text-fill: -black ;
+    -fx-background-color: #ffffff ;
 }
 
 
-.default-color0.chart-bar { -fx-bar-fill: #00ff00; }
+.default-color0.chart-bar { -fx-bar-fill: #ff0000; }
 .default-color1.chart-bar { -fx-bar-fill: #ffff00; }
-.default-color2.chart-bar { -fx-bar-fill: #ff0000; }
+.default-color2.chart-bar { -fx-bar-fill: #00ff00; }

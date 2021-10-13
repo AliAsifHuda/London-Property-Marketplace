@@ -8,8 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.shape.Polygon;
-import java.util.HashMap;
-import java.util.HashMap;
 import javafx.animation.ScaleTransition;
 import javafx.util.Duration; 
 
@@ -32,7 +30,6 @@ public class HexButton
      */
     public HexButton(String boroughName) {
         this.boroughName = boroughName;
-        createButton(boroughName);
     }
 
     /**
@@ -111,6 +108,8 @@ public class HexButton
             return "-fx-background-color: #97b500"; //orande
         } else if (numberOfProperties() >= 1251 && numberOfProperties() <= 2000) {
             return "-fx-background-color: #72aa00"; //orande
+        } else if (numberOfProperties() >= 2001 && numberOfProperties() <= 2499) {
+            return "-fx-background-color: #64aa00"; //orande
         } else if (numberOfProperties() >= 2500 && numberOfProperties() <= 3000) {
             return "-fx-background-color: #50a000"; //yellow
         } else if (numberOfProperties() >= 3001 && numberOfProperties() <= 3500) {

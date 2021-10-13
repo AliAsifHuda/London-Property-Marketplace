@@ -3,6 +3,7 @@ import javafx.collections.ObservableList;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Arrays;
 
 /**
  * Sort the list by number of reviews
@@ -14,12 +15,20 @@ public class SortByReviews implements SortBy {
 
     @Override
     public ObservableList<AirbnbListing> sortList(ObservableList<AirbnbListing> unsortedList, boolean isAscendingOrder) {
+        // if (isAscendingOrder) {
+        // Collections.sort(unsortedList, new IncReviewsSorter());
+        // } else {
+        // Collections.sort(unsortedList, new DecReviewsSorter());
+        // }
         if (isAscendingOrder) {
-            Collections.sort(unsortedList, new IncReviewsSorter());
-        } else {
-            Collections.sort(unsortedList, new DecReviewsSorter());
+            unsortedList.sort((AirbnbListing airbnbListing, AirbnbListing t1)  -> 
+                    airbnbListing.getNumberOfReviews() - t1.getNumberOfReviews());
+        }else {
+            unsortedList.sort((AirbnbListing airbnbListing, AirbnbListing t1)  -> 
+                    t1.getNumberOfReviews() - airbnbListing.getNumberOfReviews());
+
         }
         return unsortedList;
     }
-
 }
+

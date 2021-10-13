@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d76ba1bf-8ca1-4d46-a0cb-2ef0e8e7ca44" name="Default Changelist" comment="">
+    <list default="true" id="d76ba1bf-8ca1-4d46-a0cb-2ef0e8e7ca44" name="Default Changelist" comment="Implemented the functionality of the From and To comboBoxes so that now only the properties within the selected range are displayed to the user when the user click the borough">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AirbnbDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/AirbnbDataLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/package.bluej" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +46,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/+libs/jsoup-1.13.1-javadoc.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -55,6 +56,18 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -102,6 +115,7 @@
       <workItem from="1585250669714" duration="1175000" />
       <workItem from="1585317821729" duration="3307000" />
       <workItem from="1585411181797" duration="2880000" />
+      <workItem from="1594724442733" duration="7680000" />
     </task>
     <task id="LOCAL-00001" summary="Added a listener to the Table in BoroughInfo so that now when a property is clicked form the list, it's description is shown in a new window + added styling the new window + added the listener in window to close it when it loses focus (thus avoiding pollution and enhancing efficiency)">
       <created>1584927539429</created>
