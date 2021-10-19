@@ -5,4 +5,4 @@ The program consists of four panels. The first panel loaded into the main window
 instructions on its basic use. Once a prince range is selected by the user, the first window additionally shows which
 price range is currently selected.
 
-![img](https://imgur.com/96OCJQs.png)
+![panel 1](https://user-images.githubusercontent.com/92206929/137865561-808d6971-0359-41d8-8a5f-0d103f595276.PNG)
