@@ -19,6 +19,11 @@ can then be sorted as required.
 
 ![image](https://user-images.githubusercontent.com/92206929/137905477-cf8d83a2-5386-466b-abb4-50210b4fd593.png)
 
+The final panel displays a graph showing the London boroughs with highest number of covid deaths.
+
+![image](https://user-images.githubusercontent.com/92206929/138170570-f980422b-71e7-41eb-b6c5-2e7bce700713.png)
+
+
 
 
 
