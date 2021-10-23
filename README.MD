@@ -1,7 +1,7 @@
 # London-Property-Marketplace
 
 ```
-  To start the application execute the `Run JavaFx Application` method in the main class.
+  To start the application execute the `Run JavaFx Application` method in the Main class.
 ```
 ## First panel
 The program consists of four panels. The first panel loaded into the main window welcomes the user, and gives  
