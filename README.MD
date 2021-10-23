@@ -27,7 +27,7 @@ can then be sorted as required.
 <img src="https://user-images.githubusercontent.com/92206929/137905477-cf8d83a2-5386-466b-abb4-50210b4fd593.png" alt="drawing" width="650"/>
 </p>
 
-#Fourth Panel
+# Fourth Panel
 The final panel displays a graph showing the London boroughs with highest number of covid deaths.
 
 <p align="center">
